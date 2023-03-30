@@ -15,3 +15,5 @@ typedef struct EVENT {
 	struct EVENT* prev;
 	struct EVENT* next;
 } EVENT;
+
+time_t getTimeT(int year, int mon, int day, int hour, int min);
