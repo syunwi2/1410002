@@ -1,0 +1,3 @@
+void PublicFileSave();
+void PublicFileLoad();
+
