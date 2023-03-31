@@ -42,6 +42,12 @@
     <ClCompile Include="fileio.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="signup.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="signin.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="user.h">

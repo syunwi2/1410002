@@ -8,5 +8,6 @@ time_t getTimeT(int year, int mon, int day, int hour, int min) {
 	tmp.tm_mday = day;
 	tmp.tm_hour = hour;
 	tmp.tm_min = min;
+
 	return mktime(&tmp);
 }

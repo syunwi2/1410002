@@ -2,5 +2,5 @@
 #include "user.h"
 
 int main() {
-	login();
+	Login();
 }
