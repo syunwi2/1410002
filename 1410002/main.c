@@ -8,7 +8,6 @@ void test();
 
 int main() {
 	Login();
-
 	test();
 }
 

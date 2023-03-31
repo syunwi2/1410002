@@ -6,6 +6,8 @@
 
 void Login() 
 {
+	printf("    회원가입 ◁  ▷  로그인     \n");
+
 	char key;			// 방향키 입력 변수
 	while (1)
 	{
