@@ -1,11 +1,11 @@
 #include "create.h"
 
 /*
-* CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
+* CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 * 노드에 저장될 데이터를 받아
 * 이진 트리에 삽입합니다.
 */
-void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
+void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 {
 	EVENT* newNode;
 
@@ -15,7 +15,7 @@ void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, 
 		perror("CreateEvent() :: Error :");
 		exit(1);
 	}
-	// 여러 날에 이어진 일정 쪼개기 구현 필요
+
 	strcpy(newNode->ownerID, id);
 	newNode->start = start;
 	newNode->end = end;
@@ -23,8 +23,6 @@ void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, 
 	newNode->tag = tag;
 	newNode->isPublic = isPublic;
 	newNode->importanceLevel = imPortanceLevel;
-	newNode->contNext = NULL;
-	newNode->contPrev = NULL;
 	newNode->parent = NULL;
 	newNode->prev = NULL;
 	newNode->next = NULL;

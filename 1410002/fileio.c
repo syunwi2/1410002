@@ -10,16 +10,6 @@
 EVENT* head, * tail;
 int seq_no = 0;
 
-int main()
-{
-
-	// test();
-
-	PublicFileSave();
-
-
-	return 0;
-}
 
 // 퍼블릭파일 저장 
 void PublicFileSave(void)
