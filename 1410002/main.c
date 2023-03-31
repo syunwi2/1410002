@@ -7,7 +7,11 @@
 void test();
 
 int main() {
+<<<<<<< HEAD
 	login();
+=======
+	Login();
+>>>>>>> 229e03416b584c6c3397582bc528f91dd4924253
 	test();
 }
 

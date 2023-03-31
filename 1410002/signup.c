@@ -166,7 +166,7 @@ void SignUp()
 	while (1)
 	{
 		do {
-			gotoxy(0, 10);
+			gotoxy(0, 11);
 			printf(" >>> 생일을 알려주세요. ex) 0926 \n");
 			printf("     YYDD : ");
 			gets(tmp);
@@ -194,7 +194,7 @@ void SignUp()
 
 	}	// while(1) end.
 
-	user.birthday = getTimeT(2023, mon, day, 0, 0);
+	user.birthday = GetTimeT(2023, mon, day, 0, 0);
 
 
 
@@ -224,7 +224,7 @@ void SignUp()
 	system("cls");
 	gotoxy(5, 1);
 	printf("환영합니다. %s님 :) \n", user.name);
-	printf("id: %s \t name: %s \t pw: %s \t 부서: %s \t 생일: %s \n",
+	printf("\nid: %s \n name: %s \n pw: %s \n 부서: %s \n 생일: %s \n",
 		user.id, user.name, user.pw, dept_str[user.dept], tmp);
 
 
