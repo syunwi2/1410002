@@ -38,7 +38,7 @@ void MainScreen(void)
     gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 5);
     printf("┌--------------------------┐");
     gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 6);
-    printf("|        14 1000 2         |");
+    printf("│        14 1000 2         │");
     gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 7);
     printf("└--------------------------┘");
     gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 10);
@@ -50,31 +50,28 @@ void MainScreen(void)
     while (1) 
     {
         char key;			// 방향키 입력 변수
-        while (1)
+        if (_kbhit())
         {
-            if (_kbhit())
+            key = _getch();
+            if (key == -32)
             {
                 key = _getch();
-                if (key == -32)
+                switch (key)
                 {
-                    key = _getch();
-                    switch (key)
-                    {
-                    case LEFT:
-                        SignUp();
-                        break;
-                    case RIGHT:
-                        SignIn();
-                        break;
-                    }
-
+                case LEFT:
+                    SignUp();
+                    break;
+                case RIGHT:
+                    SignIn();
+                    break;
                 }
+
             }
         }
-        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 9);
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
         printf("< 방향키를 눌러 시작해주세요 ! >");
         Sleep(800);
-        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 9);
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
         printf("                                 ");
         Sleep(600);
 
