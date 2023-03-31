@@ -1,5 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
+#ifndef __SCHEDULE__H__
+#define __SCHEDULE__H__
 typedef enum TAG { 회사, 개인, 기타 } TAG;
 
 typedef struct EVENT {
@@ -16,13 +21,7 @@ typedef struct EVENT {
 	struct EVENT* prev;
 	struct EVENT* next;
 } EVENT;
-
-void test();
+#endif
 
 time_t GetTimeT(int year, int mon, int day, int hour, int min);
-void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel);
-void InsertEvent(EVENT** root, EVENT* newNode);
-void DeleteEvent(EVENT** root, EVENT* node);
 void UpdateRoot(EVENT** root);
-EVENT* FindNext(EVENT* node);
-void CopyEvent(EVENT* to, EVENT* from);
