@@ -3,6 +3,6 @@
 #include "schedule.h"
 
 int main() {
-	login();
+	//login();
 	test();
 }

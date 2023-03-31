@@ -67,7 +67,7 @@ void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, 
 	newNode->isPublic = isPublic;
 	newNode->importanceLevel = imPortanceLevel;
 
-	InsertEvent(&root, newNode);
+	InsertEvent(root, newNode);
 }
 
 /*
@@ -112,6 +112,7 @@ void InsertEvent(EVENT** root, EVENT* newNode)
 				if (tmp->next == NULL)
 				{
 					tmp->next = newNode;
+					break;
 				}
 				// 현재 탐색 중인 노드 이후 일정이 있으면 해당 노드를 기준으로 다시 탐색한다.
 				else
@@ -123,4 +124,6 @@ void InsertEvent(EVENT** root, EVENT* newNode)
 	}
 
 	// AVL(완전 이진 트리) 구현 위해 루트 변환 필요
+
+	return;
 }
