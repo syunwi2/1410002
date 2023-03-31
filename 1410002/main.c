@@ -3,11 +3,13 @@
 #include "schedule.h"
 #include "create.h"
 #include "delete.h"
+#include "screen.h"
 
 void test();
 
 int main() {
-	Login();
+	
+	MainScreen();
 	test();
 }
 

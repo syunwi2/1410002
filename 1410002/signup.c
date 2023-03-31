@@ -9,18 +9,6 @@
 
 #pragma warning(disable :4996)
 
-//gotoxy 콘솔 커서 좌표 변경 함수
-void gotoxy(int x, int y)
-{
-	COORD pos = { x,y };
-
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-} // gotoxy() end.
-
-
-
-
-
 void SignUp()
 {
 	system("cls");
@@ -224,7 +212,7 @@ void SignUp()
 	system("cls");
 	gotoxy(5, 1);
 	printf("환영합니다. %s님 :) \n", user.name);
-	printf("\nid: %s \n name: %s \n pw: %s \n 부서: %s \n 생일: %s \n",
+	printf("\n id: %s \n name: %s \n pw: %s \n 부서: %s \n 생일: %s \n",
 		user.id, user.name, user.pw, dept_str[user.dept], tmp);
 
 
