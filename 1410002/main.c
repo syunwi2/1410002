@@ -7,6 +7,9 @@
 void test();
 
 int main() {
+<<<<<<< HEAD
+	Login();
+=======
 	login();
 	test();
 }
@@ -80,4 +83,5 @@ void test() {
 	CreateEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
 	DeleteEvent(&myEvent, myEvent->prev);
+>>>>>>> 59391dfe7fafbc954d937d103adb4207c2474d9d
 }
