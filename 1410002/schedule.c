@@ -15,18 +15,43 @@ void test() {
 	int importanceLevel;
 
 	myEvent = NULL;
-
 	id = "id";
+
+	// 첫 이벤트
 	start = GetTimeT(2023, 3, 30, 12, 00);
 	end = GetTimeT(2023, 3, 30, 13, 00);
 	title = "title";
 	tag = 회사;
 	isPublic = 1;
 	importanceLevel = 1;
-
 	CreateEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
-	*myEvent;
+	// 두 번째 이벤트
+	start = GetTimeT(2023, 2, 28, 12, 00);
+	end = GetTimeT(2023, 2, 28, 13, 00);
+	title = "title";
+	tag = 회사;
+	isPublic = 1;
+	importanceLevel = 1;
+	CreateEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
+
+	// 세 번째 이벤트
+	start = GetTimeT(2023, 4, 28, 12, 00);
+	end = GetTimeT(2023, 4, 28, 13, 00);
+	title = "title";
+	tag = 회사;
+	isPublic = 1;
+	importanceLevel = 1;
+	CreateEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
+
+	// 네 번째 이벤트
+	start = GetTimeT(2023, 3, 28, 12, 00);
+	end = GetTimeT(2023, 3, 28, 13, 00);
+	title = "title";
+	tag = 회사;
+	isPublic = 1;
+	importanceLevel = 1;
+	CreateEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 }
 
 /*
@@ -66,6 +91,10 @@ void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, 
 	newNode->tag = tag;
 	newNode->isPublic = isPublic;
 	newNode->importanceLevel = imPortanceLevel;
+	newNode->contNext = NULL;
+	newNode->contPrev = NULL;
+	newNode->prev = NULL;
+	newNode->next = NULL;
 
 	InsertEvent(root, newNode);
 }
