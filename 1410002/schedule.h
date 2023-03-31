@@ -16,4 +16,8 @@ typedef struct EVENT {
 	struct EVENT* next;
 } EVENT;
 
-time_t getTimeT(int year, int mon, int day, int hour, int min);
+void test();
+
+time_t GetTimeT(int year, int mon, int day, int hour, int min);
+void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel);
+void InsertEvent(EVENT** root, EVENT* newNode);
