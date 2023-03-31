@@ -8,7 +8,6 @@
 void DeleteEvent(EVENT** root, EVENT* node)
 {
 	EVENT* tmp;
-	// 연속된 일정 삭제 구현 필요
 
 	// ----- root 노드인 경우 -----
 	if (node->parent == NULL)
@@ -130,6 +129,4 @@ void CopyEvent(EVENT* to, EVENT* from)
 	to->tag = from->tag;
 	to->isPublic = from->isPublic;
 	to->importanceLevel = from->importanceLevel;
-	to->contPrev = from->contPrev;
-	to->contNext = from->contNext;
 }
