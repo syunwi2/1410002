@@ -31,7 +31,7 @@ void InorderNode(EVENT* node, int choice) {
     InorderNode(node->next, choice);
 }
 
-void ReadEvent(EVENT* root) {
+void PersonalReadEvent(EVENT* root) {
     int choice = 0;
     do {
         printf("개인 일정을 출력하세요.\n");
@@ -66,6 +66,57 @@ void ReadEvent(EVENT* root) {
     }
 }
 
+void PrintEventCom(EVENT* node)
+{
+    printf("%s %d %d %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
+}
+
+void InorderNodeCom(EVENT* node) {
+    if (node == NULL)
+    {
+        printf("일정이 존재 하지 않습니다.");
+        return;
+    }
+    InorderNodeCom(node->prev);
+    PrintEventCom(node);
+    InorderNodeCom(node->next);
+}
+
+void PublicReadEvent(EVENT* root)
+{
+    int choice = 0;
+    do {
+        printf("팀 일정을 출력하세요.\n");
+        printf("채널 팀 일정 출력 : 1\n");
+        printf("원장 팀 일정 출력 : 2\n");
+        printf("경영지원 팀 일정 출력 : 3\n");
+        printf("본부 팀 일정 출력 : 4\n");
+        scanf_s("%d", &choice);
+    } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
+
+    if (choice == 1)
+    {
+        printf("채널팀의 일정");
+        InorderNode(root, choice);
+    }
+    else if (choice == 2)
+    {
+        printf("원장팀의 일정");
+        InorderNode(root, choice);
+    }
+    else if (choice == 3)
+    {
+        printf("경영지원팀의 일정");
+        InorderNode(root, choice);
+    }
+    else if (choice == 4)
+    {
+        printf("본부팀의 일정");
+        InorderNode(root, choice);
+    }
+
+
+}
 
 //void ReadEvent(EVENT* root)
 //{
