@@ -5,7 +5,7 @@
 * 노드에 저장될 데이터를 받아
 * 이진 트리에 삽입합니다.
 */
-void CreateEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
+void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 {
 	EVENT* newNode;
 

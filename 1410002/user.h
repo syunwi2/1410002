@@ -1,6 +1,16 @@
 #include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <Windows.h>		// gotoxy 헤더파일
+#include <conio.h>
 
-typedef enum DEPT {원장팀, 채널팀, 인프라팀, 경영지원팀} DEPT;
+#include "screen.h"
+#include "schedule.h"
+
+#ifndef __USER_H__
+#define __USER_H__
+typedef enum DEPT { 원장팀, 채널팀, 인프라팀, 경영지원팀 } DEPT;
 
 typedef struct person {
 	char id[20];
@@ -9,5 +19,8 @@ typedef struct person {
 	DEPT dept;
 	time_t birthday;
 } PERSON;
+#endif
 
-void login();
+void Login();
+void SignUp();
+void SignIn();
