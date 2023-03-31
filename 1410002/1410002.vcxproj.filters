@@ -14,4 +14,41 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="create.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="delete.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fileio.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="read.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="schedule.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="update.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="user.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="schedule.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="person.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
