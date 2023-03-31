@@ -30,12 +30,6 @@
     <ClCompile Include="create.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="read.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="update.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="delete.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -57,6 +51,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="screen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="create.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="fileio.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="delete.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
