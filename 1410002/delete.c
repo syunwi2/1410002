@@ -93,9 +93,13 @@ void DeleteEvent(EVENT** root, EVENT* node)
 			}
 		}
 	}
-	free(node);
+	
+	if (node->color == black)
+	{
+		BalanceTree(*root, node);
+	}
 
-	UpdateRoot(root);
+	free(node);
 }
 
 /*

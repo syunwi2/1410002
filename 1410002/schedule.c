@@ -18,65 +18,11 @@ time_t GetTimeT(int year, int mon, int day, int hour, int min)
 }
 
 /*
-* UpdateRoot()
-* AVL 기반 완전 이진 트리 유지를 위해 노드 생성이나 삭제 시
-* 이진 트리의 root를 받아
-* 새로운 root 탐색 및 반환
+* BalanceTree()
+* red-black 트리 유지를 위해 노드 생성이나 삭제 시
+* 노드를 시작으로 균형이 깨진 부분을 찾아
+* 트리의 균형을 유지하는 동작 실행
 */
-void UpdateRoot(EVENT** root)
+void BalanceTree(EVENT** root, EVENT* node)
 {
-	// 이진 트리가 없는 경우 새 root를 찾을 필요가 없다.
-	if (*root == NULL)
-	{
-		return;
-	}
-
-	int BF;
-	BF = GetBalanceFactor(*root);
-
-	// 이미 완전 이진 트리인 경우 새 root를 찾을 필요가 없다.
-	if (-2 < BF && BF < 2)
-	{
-		return;
-	}
-}
-
-/*
-* GetBalanceFactor()
-* 완전 이진 트리 유지를 위해
-* BalanceFactor 계산해 반환
-*/
-int GetBalanceFactor(EVENT* root)
-{
-	return GetHeight(root->prev) - GetHeight(root->next);
-}
-
-/*
-* GetHeight()
-* BalanceFactor 계산 위해
-* root->prev의 트리 높이, root->next의 트리 높이 계산해 반환
-*/
-int GetHeight(EVENT* node)
-{
-	// 재귀 함수 탈출 조건
-	if (node == NULL)
-	{
-		return 0;
-	}
-
-	int left, right;
-
-	left = 0;
-	right = 0;
-
-	if (node->prev)
-	{
-		left = GetHeight(node->prev);
-	}
-	if (node->next)
-	{
-		right = GetHeight(node->next);
-	}
-
-	return (left > right) ? left + 1 : right + 1;
-}
+	
