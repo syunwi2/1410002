@@ -1,5 +1,5 @@
 #include <stdio.h>
 
 void MainScreen() {
-	printf("Hello World.\n");
+	printf("id ? \n");
 }

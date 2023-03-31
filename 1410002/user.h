@@ -2,10 +2,12 @@
 
 typedef enum DEPT {¿øÀåÆÀ, Ã¤³ÎÆÀ, ÀÎÇÁ¶óÆÀ, °æ¿µÁö¿øÆÀ} DEPT;
 
-struct person {
+typedef struct person {
 	char id[20];
 	char name[20];
 	char pw[20];
 	DEPT dept;
 	time_t birthday;
-};
+} PERSON;
+
+void login();
