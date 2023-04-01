@@ -33,7 +33,7 @@ void BalanceTree(EVENT** root, EVENT* node)
 
 	int BF;
 	// 탐색 중인 노드에서 균형이 깨졌는지 검사한다.
-	BF = GetBalanceFacter(node);
+	BF = GetBalanceFactor(node);
 
 	// 탐색 중인 노드가 균형이 깨지지 않았으면 부모 노드로 올라가 검사한다.
 	if (-1 <= BF && BF <= 1)
