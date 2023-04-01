@@ -94,10 +94,7 @@ void DeleteEvent(EVENT** root, EVENT* node)
 		}
 	}
 	
-	if (node->color == black)
-	{
-		BalanceTree(*root, node);
-	}
+	BalanceTree(*root, node);
 
 	free(node);
 }

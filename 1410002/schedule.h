@@ -6,7 +6,6 @@
 #ifndef __SCHEDULE__H__
 #define __SCHEDULE__H__
 typedef enum TAG { 회사, 개인, 기타 } TAG;
-typedef enum COLOR { black, red } COLOR;
 
 typedef struct EVENT {
 	char ownerID[20];
@@ -19,7 +18,6 @@ typedef struct EVENT {
 	struct EVENT* parent;
 	struct EVENT* prev;
 	struct EVENT* next;
-	COLOR color;
 } EVENT;
 #endif
 

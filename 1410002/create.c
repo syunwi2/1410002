@@ -26,7 +26,6 @@ void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* titl
 	newNode->parent = NULL;
 	newNode->prev = NULL;
 	newNode->next = NULL;
-	newNode->color = red;
 
 	InsertEvent(root, newNode);
 }
@@ -42,7 +41,6 @@ void InsertEvent(EVENT** root, EVENT* newNode)
 	// root가 없으면 이진 트리를 만든다
 	if (*root == NULL)
 	{
-		newNode->color = black;
 		*root = newNode;
 		return;
 	}

@@ -1,3 +1,4 @@
 void PublicFileSave();
-void PublicFileLoad();
+struct EVENT* PublicFileLoad(void);
+PrivateFileSave(void);
 
