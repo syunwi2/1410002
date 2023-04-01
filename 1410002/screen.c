@@ -22,58 +22,64 @@ void gotoxy(int x, int y)
 
 void MainScreen(void)
 {
-    int i, j;
-
-    //draw_map();    //맵 테두리를 그림 
-    for (i = MAP_Y + 1; i < MAP_Y + MAP_HEIGHT - 1; i++) 
-    { 
-        // 맵 테두리 안쪽을 빈칸으로 채움 
-        for (j = MAP_X + 1; j < MAP_X + MAP_WIDTH - 1; j++)
-        {
-            gotoxy(j, i);
-            printf("  ");
-
-        }
-    }
-    gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 5);
-    printf("┌--------------------------┐");
-    gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 6);
-    printf("│        14 1000 2         │");
-    gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 7);
-    printf("└--------------------------┘");
-    gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 10);
-    printf("    회원가입 ◁  ▷  로그인   ");
-    gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 12);
-    printf("      TEAM 일사천리     ");
-
-
-    while (1) 
+    char key;			// 방향키 입력 변수
+    while (1)
     {
-        char key;			// 방향키 입력 변수
-        if (_kbhit())
-        {
-            key = _getch();
-            if (key == -32)
+
+        int i, j;
+
+        //draw_map();    //맵 테두리를 그림 
+        for (i = MAP_Y + 1; i < MAP_Y + MAP_HEIGHT - 1; i++) 
+        { 
+            // 맵 테두리 안쪽을 빈칸으로 채움 
+            for (j = MAP_X + 1; j < MAP_X + MAP_WIDTH - 1; j++)
             {
-                key = _getch();
-                switch (key)
-                {
-                case LEFT:
-                    SignUp();
-                    break;
-                case RIGHT:
-                    SignIn();
-                    break;
-                }
+                gotoxy(j, i);
+                printf("  ");
 
             }
         }
-        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
-        printf("< 방향키를 눌러 시작해주세요 ! >");
-        Sleep(800);
-        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
-        printf("                                 ");
-        Sleep(600);
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 5);
+        printf("┌--------------------------┐");
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 6);
+        printf("│        14 1000 2         │");
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 7);
+        printf("└--------------------------┘");
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 10);
+        printf("    회원가입 ◁  ▷  로그인   ");
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 12);
+        printf("      TEAM 일사천리     ");
+
+
+        while (!_kbhit()) 
+        {
+            gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
+            printf("< 방향키를 눌러 시작해주세요 ! >");
+            Sleep(800);
+            gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
+            printf("                                 ");
+            Sleep(600);
+
+        }
+
+        if (_kbhit())
+        {
+            key = _getch();
+            break;
+        }
+    }
+    if (key == -32)
+    {
+        key = _getch();
+        switch (key)
+        {
+        case LEFT:
+            SignUp();
+            break;
+        case RIGHT:
+            SignIn();
+            break;
+        }
 
     }
     

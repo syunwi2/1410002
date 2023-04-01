@@ -11,13 +11,18 @@
 
 void SignUp()
 {
+	PERSON user;
+	char tmp[100];		// 입력값제어 임시 배열, 변수
+	int i;					// 임시 변수
+	char dept_str[sizeof(user.dept)][20]
+		= { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
+
+
 	system("cls");
 	gotoxy(3, 0);
-	printf(" < 회원가입 > \n");
-	PERSON user;
-	char tmp[100], ch;		// 입력값제어 임시 배열, 변수
-	int i;					// 임시 변수
-
+	printf("                                     \n");
+	printf(" ============= 회원가입 ============= \n");
+	printf("                                     \n");
 
 
 
@@ -28,7 +33,7 @@ void SignUp()
 	while (1)
 	{
 		do {
-			gotoxy(0, 2);
+			gotoxy(0, 4);
 			printf(" >>> ID를 1 - 20글자 내로 입력해주세요. \n");
 			printf("     ID : ");
 			gets(tmp);
@@ -56,12 +61,14 @@ void SignUp()
 			// 비교할 데이터가 없으면 중단
 			if (i != 5)
 				break;
+
 			// id가 중복이면 체크
 			if (strcmp(tmp, ex_user.id) == 0)
 			{
 				printf("     ※  중복된 id가 있습니다. : %s \n", ex_user.id);
 				flag = 0;
 			}
+
 		} // 안쪽 while(1) end.
 
 		if (flag == 1)
@@ -79,7 +86,7 @@ void SignUp()
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
 	do {
-		gotoxy(0, 4);
+		gotoxy(0, 7);
 		printf(" >>> 이름을 1-20글자 내로 입력해주세요. \n");
 		printf("     Name : ");
 		gets(tmp);
@@ -96,8 +103,8 @@ void SignUp()
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
 	do {
-		gotoxy(0, 6);
-		printf(">>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
+		gotoxy(0, 10);
+		printf(" >>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
 		printf("     PW : ");
 		gets(tmp);
 
@@ -130,7 +137,8 @@ void SignUp()
 	// ============ 부서 입력 ================
 
 	do {
-		gotoxy(0, 8);
+
+		gotoxy(0, 13);
 		printf(" >>> 부서를 선택해주세요. (0-3) \n");
 		printf("     원장 : 0, 채널 : 1, 인프라 : 2, 경영지원 : 3 \n");
 		printf("     Team : ");
@@ -139,7 +147,6 @@ void SignUp()
 	} while (i > (sizeof(user.dept)-1) || i < 0);
 
 	user.dept = i;
-	char dept_str[sizeof(user.dept)][20] = { "원장팀", "채널팀", "인프라팀", "경영지원팀"};
 
 
 
@@ -154,7 +161,7 @@ void SignUp()
 	while (1)
 	{
 		do {
-			gotoxy(0, 11);
+			gotoxy(0, 17);
 			printf(" >>> 생일을 알려주세요. ex) 0926 \n");
 			printf("     YYDD : ");
 			gets(tmp);
@@ -211,7 +218,9 @@ void SignUp()
 
 	system("cls");
 	gotoxy(5, 1);
+	printf("                                    \n");
 	printf("환영합니다. %s님 :) \n", user.name);
+	printf("                                    \n");
 	printf("\n id: %s \n name: %s \n pw: %s \n 부서: %s \n 생일: %s \n",
 		user.id, user.name, user.pw, dept_str[user.dept], tmp);
 
