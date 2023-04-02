@@ -50,35 +50,40 @@ void MainScreen(void)
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 12);
         printf("      TEAM 일사천리     ");
 
-
-        while (!_kbhit()) 
+        int flag = 1;
+        while (1) 
         {
-            gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
-            printf("< 방향키를 눌러 시작해주세요 ! >");
-            Sleep(800);
-            gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
-            printf("                                 ");
-            Sleep(600);
 
-        }
+            if (_kbhit())
+            {
+                key = _getch();
+                if (key == -32)
+                {
+                    key = _getch();
+                    switch (key)
+                    {
+                    case LEFT:
+                        SignUp();
+                        flag = 0;
+                        break;
+                    case RIGHT:
+                        SignIn();
+                        flag = 0;
 
-        if (_kbhit())
-        {
-            key = _getch();
-            break;
-        }
-    }
-    if (key == -32)
-    {
-        key = _getch();
-        switch (key)
-        {
-        case LEFT:
-            SignUp();
-            break;
-        case RIGHT:
-            SignIn();
-            break;
+                        break;
+                    }
+                }
+            }
+            if (flag == 1)
+            {
+                gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
+                printf("< 방향키를 눌러 시작해주세요 ! >");
+                Sleep(800);
+                gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
+                printf("                                 ");
+                Sleep(600);
+
+            }
         }
 
     }
@@ -136,8 +141,10 @@ void Calender()
     int start_day = get_day(yyyy, mm);
     int day_num = get_month(yyyy, mm);
 
-    printf("\nToday is %d년 %d월 %d일 \n", yyyy, mm, dd);
+    printf("\n  Today is %d년 %d월 %d일 \n\n", yyyy, mm, dd);
     screen_cal(start_day, day_num);
+
+    
 }
 
 
@@ -173,6 +180,7 @@ int get_month(int yyyy, int mm)
     return day_of_month[mm];
 }
 
+// 말일 계산
 
 int is_leaf_year(int yyyy)
 {
