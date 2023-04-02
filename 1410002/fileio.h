@@ -1,3 +1,8 @@
+#include "schedule.h"
+
 void PublicFileSave();
-void PublicFileLoad();
+struct EVENT* PublicFileLoad(void);
+
+void PrivateFileSave(void);
+EVENT* PrivateFileLoad(void);
 
