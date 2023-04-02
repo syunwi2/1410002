@@ -21,6 +21,7 @@ typedef struct person {
 } PERSON;
 #endif
 
-void Login();
+
 void SignUp();
 void SignIn();
+void LogOn(PERSON user, char(*dept_str)[20]);

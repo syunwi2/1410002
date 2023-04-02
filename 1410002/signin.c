@@ -87,6 +87,13 @@ void SignIn()
 
 	} // 바깥 while(1) end.
 
+	LogOn(user, dept_str);
+
+}
+
+
+void LogOn(PERSON user, char (*dept_str)[20])
+{
 
 	// 구조체 user 동적메모리 할당
 	PERSON* user_ptr = malloc(sizeof(PERSON));
@@ -109,7 +116,9 @@ void SignIn()
 	printf("환영합니다. %s님 :) \n", user_ptr->name);
 	printf("\n     id : %3s, 부서 : %3s  \n",
 		user_ptr->id, dept_str[user_ptr->dept]);
-	gotoxy(1, 6);
 
 	Calender();
+
+
+
 }
