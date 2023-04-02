@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "user.h"
 #include "screen.h"
 
-#include <stdlib.h>
-#include <string.h>
+
 
 void SignIn()
 {
@@ -107,4 +109,7 @@ void SignIn()
 	printf("환영합니다. %s님 :) \n", user_ptr->name);
 	printf("\n     id : %3s, 부서 : %3s  \n",
 		user_ptr->id, dept_str[user_ptr->dept]);
+	gotoxy(1, 6);
+
+	Calender();
 }

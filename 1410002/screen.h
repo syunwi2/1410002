@@ -26,3 +26,11 @@ void MainScreen(void); //게임 시작화면
 void draw_map(void); // 게임판 테두리를 그림 
 void reset(void); //게임을 초기화
 void gotoxy(int x, int y);
+
+int get_day(int yyyy, int mm);
+int get_month(int yyyy, int mm);
+int is_leaf_year(int yyyy);
+void screen_cal(int start_day, int day_num);
+
+
+void Calender();

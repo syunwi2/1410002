@@ -211,7 +211,15 @@ void SignUp()
 	printf("파일 저장 완료. \n");
 
 
+	// 구조체 user 동적메모리 할당
+	PERSON* user_ptr = malloc(sizeof(PERSON));
 
+	// 구조체 멤버 값 할당
+	strcpy(user_ptr->id, user.id);
+	strcpy(user_ptr->name, user.name);
+	strcpy(user_ptr->pw, user.pw);
+	user_ptr->dept = user.dept;
+	user_ptr->birthday = user.birthday;
 
 
 	// ============ 회원가입 완료화면 ================
