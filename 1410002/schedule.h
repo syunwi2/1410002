@@ -15,8 +15,6 @@ typedef struct EVENT {
 	TAG tag;
 	int isPublic;
 	int importanceLevel;
-	struct EVENT* contPrev;
-	struct EVENT* contNext;
 	struct EVENT* parent;
 	struct EVENT* prev;
 	struct EVENT* next;
