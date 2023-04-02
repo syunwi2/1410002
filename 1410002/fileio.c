@@ -147,7 +147,7 @@ struct EVENT* PublicFileLoad(void)
 
 
 // 개인파일 저장 
-PrivateFileSave(void)
+void PrivateFileSave(void)
 {
 	EVENT* ptr;
 	FILE* fp = NULL;
@@ -172,7 +172,7 @@ PrivateFileSave(void)
 
 	fwrite(&seq_no, sizeof(int), 1, fp);
 
-	 
+	
 	while (ptr)
 	{
 		fwrite(ptr, sizeof(EVENT), 1, fp);
@@ -182,7 +182,6 @@ PrivateFileSave(void)
 
 	printf("일정 저장이 완료되었습니다. \n");
 
-	return 0;
 }
 
 // 개인파일 로드 
