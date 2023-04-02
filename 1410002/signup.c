@@ -16,7 +16,7 @@ void SignUp()
 {
 	PERSON user;
 	char tmp[100];		// 입력값제어 임시 배열, 변수
-	int i;					// 임시 변수
+	int i=0;				// 임시 변수
 	char dept_str[sizeof(user.dept)][20]
 		= { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
 
@@ -38,6 +38,7 @@ void SignUp()
 			gotoxy(0, 4);
 			printf(" >>> ID를 1 - 20글자 내로 입력해주세요. \n");
 			printf("     ID : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
 		} while (strlen(tmp) >= sizeof(user.id) || (strlen(tmp) < 1));
 		
@@ -91,6 +92,7 @@ void SignUp()
 		gotoxy(0, 7);
 		printf(" >>> 이름을 1-20글자 내로 입력해주세요. \n");
 		printf("     Name : ");
+		printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		gets(tmp);
 
 	} while (strlen(tmp) >= sizeof(user.name) || (strlen(tmp) < 1));
@@ -104,29 +106,32 @@ void SignUp()
 	// ============ 비밀번호 입력 ================
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
+	i = 0;					// 변수 초기화
+	int buffer = 0;
+
 	do {
 		gotoxy(0, 10);
 		printf(" >>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
-		printf("     PW : ");
-		gets(tmp);
+		printf("\n     PW : ");		// PW 입력
+		printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
-		/* 비밀번호 입력시 암호화하기 위한 코드 (예정)
-			while (1) {
-				// 사용자에게 문자를 입력받는다.
-				ch = _getch();
-				// 해당 문자가 엔터키면 작업을 중단한다.
-				if (ch == '\r')
-				{
-					break;
-				}
-				else
-				{
-					_putch('*');
-				}
+		for (i = 0;buffer != 13; i++)
+		{
+			tmp[i] = getch();
 
-				// 엔터키가 아니면 '*'문자를 출력한다.
+			if (tmp[i] == '\n')
+			{
+				i--;
+				continue;
 			}
-		*/
+
+			putch('*');
+
+			buffer = (int)tmp[i];	// buffer : 입력값이 엔터(13)인지 확인
+		}
+
+		tmp[i - 1] = '\0';
+
 
 	} while (strlen(tmp) >= sizeof(user.pw) || (strlen(tmp) < 1));
 
@@ -144,6 +149,7 @@ void SignUp()
 		printf(" >>> 부서를 선택해주세요. (0-3) \n");
 		printf("     원장 : 0, 채널 : 1, 인프라 : 2, 경영지원 : 3 \n");
 		printf("     Team : ");
+		printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		scanf("%d%*c", &i);
 
 	} while (i > (sizeof(user.dept)-1) || i < 0);
@@ -166,6 +172,7 @@ void SignUp()
 			gotoxy(0, 17);
 			printf(" >>> 생일을 알려주세요. ex) 0926 \n");
 			printf("     YYDD : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
 
 		} while (strlen(tmp) != 4);						// 생일 입력 4자리 넘을시 재입력 요청

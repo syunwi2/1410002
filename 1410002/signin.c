@@ -15,7 +15,7 @@
 void SignIn()
 {
 	PERSON user;
-	char tmp_id[100],tmp_pw[100];		// id, pw 입력값 임시배열
+	char tmp_id[100], tmp_pw[100];		// id, pw 입력값 임시배열
 	int i;								// 임시 변수
 	char dept_str[sizeof(user.dept)][20] 
 		= { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
@@ -34,19 +34,40 @@ void SignIn()
 
 	tmp_id[0] = '\0';					// 임시버퍼 초기화
 	tmp_pw[0] = '\0';					// 임시버퍼 초기화
-
+	i = 0;								// 변수 초기화
+	int buffer = 0;						
+	
+	
 	while (1)
 	{
 		do {
 			gotoxy(0, 4);
 			printf("     ID : ");		// ID 입력
+			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp_id);
 
 			printf("\n     PW : ");		// PW 입력
-			gets(tmp_pw);
+			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+			for (i = 0;buffer != 13; i++) 
+			{
+				tmp_pw[i] = getch();
+
+				if (tmp_pw[i] == '\n')
+				{
+					i--;
+					continue;
+				}
+
+				putch('*');
+
+				buffer = (int)tmp_pw[i];	// buffer : 입력값이 엔터(13)인지 확인
+			}
+
+			tmp_pw[i - 1] = '\0';
 
 		} while (strlen(tmp_id) >= sizeof(user.id) || strlen(tmp_id) < 1		// 설정한 배열값보다 크면 다시 입력받음
-				|| strlen(tmp_pw) >= sizeof(user.id) || strlen(tmp_pw) < 1);
+				|| strlen(tmp_pw) >= sizeof(user.pw) || strlen(tmp_pw) < 1);
 
 
 		// user.txt > 기존회원 데이터 읽어 id 중복체크 

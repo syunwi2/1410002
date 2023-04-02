@@ -46,7 +46,8 @@ void MainScreen(void)
 
         //    }
         //}
-
+        gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 2);
+        printf("  다우人 일정 관리 서비스 \n");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 5);
         printf("┌--------------------------┐");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 6);
