@@ -4,8 +4,13 @@
 
 #include "user.h"
 #include "screen.h"
+#include "fileio.h"
+#include "menu.h"
 
 
+
+
+// ============ 로그인 함수 ================
 
 void SignIn()
 {
@@ -34,13 +39,13 @@ void SignIn()
 	{
 		do {
 			gotoxy(0, 4);
-			printf("     ID : ");
+			printf("     ID : ");		// ID 입력
 			gets(tmp_id);
 
-			printf("\n     PW : ");
+			printf("\n     PW : ");		// PW 입력
 			gets(tmp_pw);
 
-		} while (strlen(tmp_id) >= sizeof(user.id) || strlen(tmp_id) < 1
+		} while (strlen(tmp_id) >= sizeof(user.id) || strlen(tmp_id) < 1		// 설정한 배열값보다 크면 다시 입력받음
 				|| strlen(tmp_pw) >= sizeof(user.id) || strlen(tmp_pw) < 1);
 
 
@@ -56,7 +61,7 @@ void SignIn()
 			exit(1);
 		}
 
-
+		// 기존회원 데이터 구조체변수에 입력
 		while (1)
 		{
 			i = fscanf(op, "%s %s %s %d %lld \n",
@@ -76,7 +81,7 @@ void SignIn()
 
 		} // 안쪽 while(1) end.
 
-		if (flag == 0)
+		if (flag == 0)						// id, pw 일치하여 flag == 0이면 반복문 중단
 		{
 			break;
 		}
@@ -87,10 +92,15 @@ void SignIn()
 
 	} // 바깥 while(1) end.
 
-	LogOn(user, dept_str);
+	LogOn(user, dept_str);					// 로그온 함수 호출 (로그인완료 화면)
 
 }
 
+
+
+
+
+// ============ 로그인 완료  ================
 
 void LogOn(PERSON user, char (*dept_str)[20])
 {
@@ -108,17 +118,25 @@ void LogOn(PERSON user, char (*dept_str)[20])
 
 
 
-	// ============ 로그인 완료화면 ================
+	// ============ 로그온 화면 ================
 
 	system("cls");
-	gotoxy(5, 1);
+	gotoxy(3, 1);
 	// Heap에서 데이터 사용
 	printf("환영합니다. %s님 :) \n", user_ptr->name);
 	printf("\n     id : %3s, 부서 : %3s  \n",
 		user_ptr->id, dept_str[user_ptr->dept]);
 
+
+	// 달력 출력
 	Calender();
 
+
+	//PrivateFileLoad();
+
+
+	// menu 출력
+	Menu();
 
 
 }

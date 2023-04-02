@@ -9,6 +9,9 @@
 
 #pragma warning(disable :4996)
 
+
+// ============ 회원가입 함수 ================
+
 void SignUp()
 {
 	PERSON user;
@@ -23,7 +26,6 @@ void SignUp()
 	printf("                                     \n");
 	printf(" ============= 회원가입 ============= \n");
 	printf("                                     \n");
-
 
 
 
@@ -166,9 +168,16 @@ void SignUp()
 			printf("     YYDD : ");
 			gets(tmp);
 
-		} while (strlen(tmp) != 4);
+		} while (strlen(tmp) != 4);						// 생일 입력 4자리 넘을시 재입력 요청
 
-		
+
+
+		/*
+			문자열로 받은 4자리 월/일 2자리씩 끊어,
+			int형으로 명시적 변환 후 유효한 날짜인지 재확인
+			올바른 입력값이면 GetTimeT 함수로 전달하여 생일에 저장
+		*/ 
+
 		for (i = 0; i < 4; i++)
 		{
 			if (i < 2)
@@ -194,7 +203,6 @@ void SignUp()
 
 
 
-
 	// ============ user 파일에 입력 ================
 
 	FILE* fp;
@@ -210,6 +218,9 @@ void SignUp()
 
 	printf("파일 저장 완료. \n");
 
+	
+
+	// ============ 로그인 완료화면 ================
 
 	LogOn(user, dept_str);
 

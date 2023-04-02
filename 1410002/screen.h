@@ -22,15 +22,12 @@ typedef struct person {
 } PERSON;
 #endif
 
-void MainScreen(void); //게임 시작화면 
-void draw_map(void); // 게임판 테두리를 그림 
-void reset(void); //게임을 초기화
-void gotoxy(int x, int y);
+void MainScreen(void);					// 프로그램 시작화면
+//void DrawMap(void);						// 화면 테두리 그림 
+void gotoxy(int x, int y);				// 커서 옮기는 라이브러리함수
 
-int get_day(int yyyy, int mm);
-int get_month(int yyyy, int mm);
-int is_leaf_year(int yyyy);
-void screen_cal(int start_day, int day_num);
-
-
-void Calender();
+void Calender();						// 달력 호출 함수
+int GetDay(int yyyy, int mm);			// 날짜 일수
+int GetMonth(int yyyy, int mm);			// 날짜 월
+int LeafYear(int yyyy);					// 말일 계산
+void ScreenCal(int start_day, int day_num);	// 달력 출력
