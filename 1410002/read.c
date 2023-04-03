@@ -51,11 +51,11 @@ void PrintEvent(EVENT* node, int choice, int t)
 {
     long long int TimeSap;
     TimeSap = TimeGet();
-    if (TimeSap < node->start < TimeSap+86400 && t == 1)
+    if (TimeSap < node->start && node->start < TimeSap+86400 && t == 1)
     {
         ChkChoice(node, choice);
     }
-    else if (TimeSap < node->start < TimeSap + 86400*7 && t == 2)
+    else if (TimeSap < node->start && node->start < TimeSap + 86400*7 && t == 2)
     {
         ChkChoice(node, choice);
     }
@@ -78,7 +78,7 @@ void InorderNode(EVENT* node, int choice, int t)
 
 void PersonalReadEvent(EVENT** root) 
 {
-    int t, choice;
+    int t, choice, slt;
     EVENT *node;
     node = *root;
     while(1)
@@ -127,7 +127,43 @@ void PersonalReadEvent(EVENT** root)
             printf("%s님의 기타일정\n", node->ownerID);
             InorderNode(node, choice, t);
         }
+        do 
+        {   
+            printf("일정을 수정하시거나 삭제하겠습니까? \n");
+            printf("수정 : 1, 삭제 : 2 ");
+            scanf("%d", &slt);
+        } while (slt != 1 && slt != 2);
+        if (slt == 1)
+        {
+            UpdateEvent(root);
+        }
+        else if (slt == 2)
+        {
+            int findnum;
+            char findid[7] = { 0 };
+            printf("삭제할 노드 번호 선택 : \n");
+            scanf_s("%d%*c", &findnum);
+            sprintf(findid, "%.6d", findnum);
 
+            EVENT* ptr = NULL;
+            while (node != NULL)
+            {
+                if (strcmp(node->nodeID, findid) < 0)
+                {
+                    node = node->next;
+                }
+                else if (strcmp(node->nodeID, findid) > 0)
+                {
+                    node = node->prev;
+                }
+                else
+                {
+                    ptr = node;
+                    break;
+                }
+            }
+            DeleteEvent(root, ptr);
+        }
     }
 }
 
