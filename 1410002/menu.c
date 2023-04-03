@@ -1,12 +1,13 @@
 #include "menu.h"
+#include "schedule.h"
 
 
-void Menu(PERSON* user_ptr)
+void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 {
 	int ans;			// 입력값 변수
 	
-	PublicFileSave(user_ptr);		// 파일 저장
-	PrivateFileSave(user_ptr);		// 파일 저장
+	PublicFileSave(user_ptr, teamRoot);		// 파일 저장
+	PrivateFileSave(user_ptr, personalRoot);		// 파일 저장
 
 
 	gotoxy(5, 18);
@@ -23,7 +24,7 @@ void Menu(PERSON* user_ptr)
 	{
 		// 1. 일정 생성
 		case 1:					
-			CreateEventScreen(user_ptr);
+			CreateEventScreen(personalRoot, teamRoot, user_ptr);
 			break;
 		// 2. 일정 조회
 		case 2:
