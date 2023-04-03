@@ -9,7 +9,7 @@ void test();
 
 int main() {
 	
-	//MainScreen();
+	MainScreen();
 	test();
 }
 

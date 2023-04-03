@@ -25,6 +25,7 @@ void SignIn()
 
 	tmp_id[0] = '\0';					// 임시버퍼 초기화
 	tmp_pw[0] = '\0';					// 임시버퍼 초기화
+
 	i = 0;								// 변수 초기화
 	int buffer = 0;						
 	
@@ -40,22 +41,32 @@ void SignIn()
 			printf("\n     PW : ");		// PW 입력
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
-			for (i = 0;buffer != 13; i++) 
+			while((tmp_pw[i] = getch()) != '\r')
 			{
-				tmp_pw[i] = getch();
 
-				if (tmp_pw[i] == '\n')
+				// 백스페이스 기능 추가 (비밀번호 잘못 입력시 다시 써도 되도록)
+				if (tmp_pw[i] == 8)
 				{
-					i--;
-					continue;
+					printf("\b");
+					fputs(" ", stdout);
+					printf("\b");
+
+					if (i > 0)
+					{
+						i--;
+					}
 				}
 
-				putch('*');
+				else
+				{
+					putch('*');
+					i++;
+				}
 
 				buffer = (int)tmp_pw[i];	// buffer : 입력값이 엔터(13)인지 확인
 			}
 
-			tmp_pw[i - 1] = '\0';
+			tmp_pw[i] = '\0';
 
 		} while (strlen(tmp_id) >= sizeof(user.id) || strlen(tmp_id) < 1		// 설정한 배열값보다 크면 다시 입력받음
 				|| strlen(tmp_pw) >= sizeof(user.pw) || strlen(tmp_pw) < 1);
@@ -99,7 +110,7 @@ void SignIn()
 		}
 		else
 		{
-			printf("     ※  ID / PW를 다시 입력해주세요. \n");	
+			printf("\n\n     ※  ID / PW를 다시 입력해주세요. \n");	
 		}
 
 	} // 바깥 while(1) end.
