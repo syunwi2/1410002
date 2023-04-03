@@ -31,30 +31,31 @@ void ChkChoice(EVENT* node, int choice)
 {
     if (choice == 1 )
     {
-        printf("%s %lld %lld %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
+        printf("%s %lld %lld %s %d %d\n", node->nodeID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
-        printf("%s %lld %lld %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
+        printf("%s %lld %lld %s %d %d\n", node->nodeID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
-        printf("%s %lld %lld %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
+        printf("%s %lld %lld %s %d %d\n", node->nodeID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
-        printf("%s %lld %lld %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
+        printf("%s %lld %lld %s %d %d\n", node->nodeID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
     }
 }
 
 void PrintEvent(EVENT* node, int choice, int t) 
 {
-
-    if (TimeGet() < node->start < TimeGet()+86400 && t == 1)
+    long long int TimeSap;
+    TimeSap = TimeGet();
+    if (TimeSap < node->start < TimeSap+86400 && t == 1)
     {
         ChkChoice(node, choice);
     }
-    else if (TimeGet() < node->start < TimeGet() + 86400*7 && t == 2)
+    else if (TimeSap < node->start < TimeSap + 86400*7 && t == 2)
     {
         ChkChoice(node, choice);
     }
@@ -135,7 +136,7 @@ void PersonalReadEvent(EVENT** root)
 
 void PrintEventCom(EVENT* node, int deptch)
 {
-    printf("%s %lld %lld %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
+    printf("%s %lld %lld %s %d %d\n", node->nodeID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
 }
 
 void InorderNodeCom(EVENT* node, int deptch) 
