@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "schedule.h"
 #include "fileio.h"
+#include "user.h"
 
 
 
@@ -147,15 +148,19 @@ struct EVENT* PublicFileLoad(void)
 
 
 // 개인파일 저장 
-void PrivateFileSave(void)
+void PrivateFileSave(PERSON* User)
 {
 	EVENT* ptr;
+	PERSON* userPtr;
 	FILE* fp = NULL;
 	char fileName[100];
 
-	sprintf(fileName, "%s.dat", ptr->ownerID);
-
 	ptr = head;
+	// 유저 주소값을 넘겨줘야 한다....
+	userPtr = User;
+
+	sprintf(fileName, "%s.dat", userPtr->id);
+
 
 	if (ptr == NULL)
 	{
@@ -185,16 +190,21 @@ void PrivateFileSave(void)
 }
 
 // 개인파일 로드 
-EVENT* PrivateFileLoad(void)
+EVENT* PrivateFileLoad(PERSON* User)
 {
 	FILE* fp = NULL;
 	EVENT* root;
 	EVENT* newNode = NULL;
 	EVENT* toproot = NULL;
+	
+	PERSON* ptr = NULL;	// 유저데이터 주소값을 받아와야 하는게 맞네.....
+
+	ptr = User;
 
 	char fileName[100];
 
-	sprintf(fileName, "%s.dat", root->ownerID);
+
+	sprintf(fileName, "%s.dat", ptr->id);	// 주소값 받아와서 찾기
 	
 	fp = fopen(fileName, "rb");
 	if (fp == NULL)
