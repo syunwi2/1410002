@@ -39,7 +39,6 @@ void PublicFileSave(PERSON* User, EVENT** root)
 	fwrite(eof, sizeof(EVENT), 1, fp);
 	fclose(fp);
 
-	printf("일정 저장이 완료되었습니다. \n");
 }
 
 // 퍼블릭파일 로드
@@ -74,8 +73,6 @@ struct EVENT* PublicFileLoad(PERSON* User)
 	}
 
 	fclose(fp);
-
-	printf("팀 일정 데이터 로드를 완료했습니다.\n");
 
 	return root;
 }
@@ -118,8 +115,6 @@ void PrivateFileSave(PERSON* User, EVENT** root)
 	fwrite(eof, sizeof(EVENT), 1, fp);
 	fclose(fp);
 
-	printf("일정 저장이 완료되었습니다. \n");
-
 }
 
 // 개인파일 로드 
@@ -154,8 +149,6 @@ EVENT* PrivateFileLoad(PERSON* User)
 	}
 
 	fclose(fp);
-
-	printf("개인 일정 데이터 로드를 완료했습니다.\n");
 
 	return root;
 }
