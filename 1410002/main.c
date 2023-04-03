@@ -80,6 +80,6 @@ void test() {
 	importanceLevel = 5;
 	CreateNewEvent(&myEvent, "test1", start, end, "f", tag, isPublic, importanceLevel);
 
-	UpdateEvent(&myEvent);
+	//PublicReadEvent(&myEvent);
 
 }
