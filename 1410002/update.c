@@ -22,8 +22,9 @@ void UpdateEvent(EVENT** root)
 	//수정 노드 선택
 
 	printf("choice");
-	scanf_s("%d", &tmp);
-	while (node != NULL && tmp != node->start) {
+	scanf_s("%lld", &tmp);
+	while (node != NULL && tmp != node->start) 
+	{
 		if ( node->start < tmp) {
 			node = node->prev;
 		}
