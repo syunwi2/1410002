@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "user.h"
-#include "screen.h"
-#include "fileio.h"
-#include "menu.h"
-
-
 
 
 // ============ 로그인 함수 ================
