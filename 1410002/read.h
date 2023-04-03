@@ -8,6 +8,6 @@ void ChkChoice(EVENT* node, int choice);
 void PrintEvent(EVENT* node, int choice, int t);
 void InorderNode(EVENT* node, int choice, int t);
 void PersonalReadEvent(EVENT** root);
-void PrintEventCom(EVENT* node, int deptch);
-void InorderNodeCom(EVENT* node, int deptch);
+void PrintEventCom(EVENT* node);
+void InorderNodeCom(EVENT* node);
 void PublicReadEvent(EVENT** root);
