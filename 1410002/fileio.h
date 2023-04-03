@@ -1,5 +1,5 @@
 #include "schedule.h"
-#include "user.h"
+#include "person.h"
 #include <string.h>
 #include <stdlib.h>
 

@@ -1,6 +1,4 @@
 #include "menu.h"
-#include "screen.h"
-#include "create.h"
 
 
 void Menu(PERSON* user_ptr)
