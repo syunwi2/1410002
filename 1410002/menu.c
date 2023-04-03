@@ -3,7 +3,7 @@
 #include "create.h"
 
 
-void Menu()
+void Menu(PERSON* user_ptr)
 {
 	int ans;			// 입력값 변수
 
@@ -14,14 +14,14 @@ void Menu()
 	printf("         3. 종료      \n");
 
 	printf("\n\n  ▶ 원하는 작업번호를 입력해주세요. : ");
-	scanf("%d", &ans);
+	scanf("%d%*c", &ans);
 
 
 	switch (ans)
 	{
 		// 1. 일정 생성
 		case 1:					
-			CreateEventScreen();
+			CreateEventScreen(user_ptr);
 			break;
 		// 2. 일정 조회
 		case 2:
