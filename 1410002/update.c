@@ -110,11 +110,23 @@ void UpdateEvent(EVENT** root, PERSON* user)
 
 	// 버퍼 초기화
 	tmp[0] = '\0';
+	int chk_con;
+	do
+	{
 
-	prtinf("");
+	printf("어떤 정보를 수정 하겠습니까? \n");
+	printf("1. 시작일 2. 종료일 3. 제목 4. 태그 5. ispublic 6. 중요도 \n");
+	scanf_s("%d", &chk_con);
+	} while (chk_con != 1 && chk_con != 2 && chk_con != 3 && chk_con != 4 &&
+		chk_con != 5 && chk_con != 6);
+	if (chk_con == 1)
+	{
+		CreateNewEvent(root, user->id, buffer.start, buffer.end, 
+			buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
+
+	}
 
 	// 새 일정 정보 생성
-	CreateNewEvent(root, user->id, buffer.start, buffer.end, buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
 	
 	//팀파일에서 수정
 	//DeleteEvent(root, ptr);
