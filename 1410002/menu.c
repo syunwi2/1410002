@@ -17,7 +17,9 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 	printf("         1. 일정 생성  \n");
 	printf("         2. 개인 일정 조회  \n");
 	printf("         3. 팀 일정 조회  \n");
-	printf("         4. 종료      \n");
+	printf("         4. 팀 일정 수정  \n");
+	printf("         5. 팀 일정 삭제  \n");
+	printf("         6. 종료      \n");
 
 	printf("\n\n  ▶ 원하는 작업번호를 입력해주세요. : ");
 	scanf("%d%*c", &ans);
@@ -33,14 +35,22 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 			case 2:
 				PersonalReadEvent(personalRoot);
 				break;
-			// 3. 종료
+			// 3. 팀 일정 조회
 			case 3:
 				PublicReadEvent(teamRoot);
 				break;
-			// 4. 종료
+			// 4. 일정 수정
 			case 4:
+				UpdateEvent(personalRoot);
+				break;
+			// 5. 일정 삭제
+			case 5:
+				//DeleteEvent(personalRoot);
+				break;
+			// 6. 종료
+			case 6:
 				exit(1);
 		}
 
-	} while (ans!=4);
+	} while (ans!=6);
 }
