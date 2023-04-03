@@ -1,12 +1,15 @@
 #include "menu.h"
+#include "schedule.h"
 
 
 void Menu(PERSON* user_ptr)
 {
 	int ans;			// 입력값 변수
+	EVENT* personalRoot = NULL;
+	EVENT* teamRoot = NULL;
 	
-	PublicFileSave(user_ptr);		// 파일 저장
-	PrivateFileSave(user_ptr);		// 파일 저장
+	PublicFileSave(user_ptr, &teamRoot);		// 파일 저장
+	PrivateFileSave(user_ptr, &personalRoot);		// 파일 저장
 
 
 	gotoxy(5, 18);

@@ -3,18 +3,18 @@
 #include <stdlib.h>
 #include "schedule.h"
 #include "fileio.h"
-#include "user.h"
 
 
 
 
-EVENT* head, * tail;
+
+// EVENT* head, * tail;
 int seq_no = 0;
 
 
 
 // 퍼블릭파일 저장 
-void PublicFileSave(PERSON* User)
+void PublicFileSave(PERSON* User, EVENT** root)
 {
 	EVENT* ptr;
 	FILE* fp = NULL;
@@ -25,11 +25,11 @@ void PublicFileSave(PERSON* User)
 
 	sprintf(fileName, "%d.dat", userPtr->dept);
 	
-	ptr = head;
+	ptr = *root;
 
 	if (ptr == NULL)
 	{
-		printf("노드가 존재하지 않습니다. \n");
+		printf("노드가 존재하ㄴㄴㄴ지 않습니다. \n");
 		return;
 	}
 	fp = fopen(fileName, "wb");
@@ -96,10 +96,10 @@ struct EVENT* PublicFileLoad(PERSON* User)
 			break;
 		}
 
-		if (head == NULL)
+		if (newNode == NULL)
 		{
-			head = tail = root;
-			toproot = head;
+			newNode = root;
+			toproot = newNode;
 		}
 		else
 		{
@@ -108,7 +108,7 @@ struct EVENT* PublicFileLoad(PERSON* User)
 			EVENT* tmp;
 
 			// 처음 들어온 주소가 root / 이 root부터 탐색 시작
-			tmp = head;
+			tmp = newNode;
 			while (1)
 			{	
 				// 시작일 비교, 탐색중인 노드보다 삽입할 노드의 시작일이 빠른 경우
@@ -152,7 +152,7 @@ struct EVENT* PublicFileLoad(PERSON* User)
 	free(root);
 
 
-	printf("일정 데이터 로드를 완료했습니다.\n");
+	printf("팀 일정 데이터 로드를 완료했습니다.\n");
 
 	return toproot;
 }
@@ -160,14 +160,14 @@ struct EVENT* PublicFileLoad(PERSON* User)
 
 
 // 개인파일 저장 
-void PrivateFileSave(PERSON* User)
+void PrivateFileSave(PERSON* User, EVENT** root)
 {
 	EVENT* ptr;
 	PERSON* userPtr;
 	FILE* fp = NULL;
 	char fileName[100];
 
-	ptr = head;
+	ptr = *root;
 	// 유저 주소값을 넘겨줘야 한다....
 	userPtr = User;
 
@@ -176,7 +176,7 @@ void PrivateFileSave(PERSON* User)
 
 	if (ptr == NULL)
 	{
-		printf("노드가 존재하지 않습니다. \n");
+		printf("노드가 존ㅇㅇㅇ재하지 않습니다. \n");
 		return;
 	}
 	fp = fopen(fileName, "wb");
@@ -241,10 +241,10 @@ EVENT* PrivateFileLoad(PERSON* User)
 			break;
 		}
 
-		if (head == NULL)
+		if (newNode == NULL)
 		{
-			head = tail = root;
-			toproot = head;
+			newNode = root;
+			toproot = newNode;
 		}
 		else
 		{
@@ -253,7 +253,7 @@ EVENT* PrivateFileLoad(PERSON* User)
 			EVENT* tmp;
 
 			// 처음 들어온 주소가 root / 이 root부터 탐색 시작
-			tmp = head;
+			tmp = newNode;
 			while (1)
 			{
 				// 시작일 비교, 탐색중인 노드보다 삽입할 노드의 시작일이 빠른 경우
@@ -297,11 +297,10 @@ EVENT* PrivateFileLoad(PERSON* User)
 	free(root);
 
 
-	printf("일정 데이터 로드를 완료했습니다.\n");
+	printf("내 일정 데이터 로드를 완료했습니다.\n");
 
 
 	return toproot;
 }
-
 
 
