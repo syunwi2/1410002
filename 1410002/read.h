@@ -1,9 +1,5 @@
 #include <string.h>
 #include <stdlib.h>
-<<<<<<< HEAD
-#include <stdio.h>
-#include "schedule.h"
-=======
 #include "schedule.h"
 #include <stdio.h>
 
@@ -15,4 +11,3 @@ void PersonalReadEvent(EVENT** root);
 void PrintEventCom(EVENT* node, int deptch);
 void InorderNodeCom(EVENT* node, int deptch);
 void PublicReadEvent(EVENT** root);
->>>>>>> 35aa98233ad1c8f8141191ff527af6196f50c3ba
