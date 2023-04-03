@@ -1,7 +1,28 @@
 #include "read.h"
 #include <stdbool.h>
 
+void TimePrint(EVENT* node, int choice)
+{
+    time_t now = time(NULL);
+    struct tm* today = localtime(&now);
+
+    if (node->start && today->tm_year && t == 1)
+    {
+        PrintEvent(node, choice);
+    }
+    else if (node->start && today->tm_year && t == 1)
+    {
+        PrintEvent(node, choice);
+    }
+    else if (node->start && today->tm_year && t == 1)
+    {
+        PrintEvent(node, choice);
+    }
+}
+
 void PrintEvent(EVENT* node, int choice) {
+
+
     if (choice == 1)
     {
         printf("%s %d %d %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
@@ -84,7 +105,8 @@ void InorderNodeCom(EVENT* node) {
 
 void PublicReadEvent(EVENT* root)
 {
-    int choice = 0;
+    static int choice = 0;
+    TimeCheck();
     do {
         printf("팀 일정을 출력하세요.\n");
         printf("채널 팀 일정 출력 : 1\n");
@@ -116,6 +138,18 @@ void PublicReadEvent(EVENT* root)
     }
 
 
+}
+
+void TimeCheck()
+{
+    extern int t;
+    do
+    {
+        printf("일정 시간 확인 ? ");
+        printf("하루 : 1, 일주일 : 2 전체 : 3");
+        scanf_s("%d", &t);
+        
+    } while (t != 1 && t != 2 && t != 3);
 }
 
 //void ReadEvent(EVENT* root)
