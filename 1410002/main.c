@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "schedule.h"
 #include "create.h"
 #include "delete.h"
@@ -8,7 +7,7 @@
 void test();
 
 int main() {
-	
+	SetConsoleTitle("1410002 일사천리");
 	MainScreen();
 	test();
 }
