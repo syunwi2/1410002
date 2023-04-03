@@ -79,9 +79,9 @@ void InorderNode(EVENT* node, int choice, int t)
 void PersonalReadEvent(EVENT** root) 
 {
     int t, choice, slt;
-    EVENT *node;
-    node = *root;
-    if (node == NULL)
+    EVENT* node, * ptr;
+    
+    if ((*root) == NULL)
     {
         printf("일정이 존재하지 않습니다.");
         return;
@@ -95,13 +95,14 @@ void PersonalReadEvent(EVENT** root)
     printf("==================================");
 
     textcolor(15);
+
     while(1)
     {
         do 
         {
 
             gotoxy(27, 17);
-            printf("%s님의 개인 일정을 출력하세요.", node->ownerID);
+            printf("%s님의 개인 일정을 출력하세요.", (*root)->ownerID);
             gotoxy(27, 18);
             printf("                                            ");
             gotoxy(27, 19);
@@ -117,7 +118,6 @@ void PersonalReadEvent(EVENT** root)
             gotoxy(27, 23);
             printf("       5.  조회 종료                         \n");
             printf("                                                                           ");
-
 
             gotoxy(27, 25);
             textcolor(14);
@@ -148,23 +148,23 @@ void PersonalReadEvent(EVENT** root)
 
         if (choice == 1)
         {
-            printf("%s님의 일정\n", node->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s님의 일정\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
         else if (choice == 2)
         {
-            printf("%s님의 개인일정\n", node->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s님의 개인일정\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
         else if (choice == 3)
         {
-            printf("%s님의 회사일정\n", node->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s님의 회사일정\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
         else if (choice == 4)
         {
-            printf("%s님의 기타일정\n", node->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s님의 기타일정\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
 
         textcolor(14);
@@ -189,7 +189,7 @@ void PersonalReadEvent(EVENT** root)
             scanf_s("%d%*c", &findnum);
             sprintf(findid, "%.6d", findnum);
 
-            EVENT* ptr = NULL;
+            node = *root, ptr = NULL;
             while (node != NULL)
             {
                 if (strcmp(node->nodeID, findid) < 0)
