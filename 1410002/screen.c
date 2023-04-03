@@ -590,25 +590,27 @@ void CreateEventScreen(PERSON *user_ptr)
 
 
     char key;
-
-    if (_kbhit())
+    // ÇÃ·¡±×
+    while (1)
     {
-        key = _getch();
-        if (key == -32)
+        if (_kbhit())
         {
             key = _getch();
-            switch (key)
+            if (key == -32)
             {
-            case LEFT:
-                LogOn(*user_ptr, dept_str);
-                break;
-            case RIGHT:
-                CreateEventScreen(user_ptr);
-                break;
+                key = _getch();
+                switch (key)
+                {
+                case LEFT:
+                    LogOn(*user_ptr, dept_str);
+                    break;
+                case RIGHT:
+                    CreateEventScreen(user_ptr);
+                    break;
+                }
             }
         }
     }
-
 }
 
 

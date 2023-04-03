@@ -7,6 +7,7 @@
 
 #include "person.h"
 #include "schedule.h"
+#include "fileio.h"
 #include "signin.h"
 #include "signup.h"
 #include "create.h"
