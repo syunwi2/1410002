@@ -80,5 +80,6 @@ void test() {
 	importanceLevel = 5;
 	CreateNewEvent(&myEvent, "test1", start, end, title, tag, isPublic, importanceLevel);
 
+
 	UpdateEvent(&myEvent);
 }
