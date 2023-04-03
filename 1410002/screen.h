@@ -13,7 +13,6 @@
 
 
 void MainScreen(void);							// 프로그램 시작화면
-//void DrawMap(void);							// 화면 테두리 그림 
 void gotoxy(int x, int y);						// 커서 옮기는 라이브러리함수
 
 void Calender();								// 달력 호출 함수

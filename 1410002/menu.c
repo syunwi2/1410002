@@ -9,14 +9,27 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 	PublicFileSave(user_ptr, teamRoot);		// 파일 저장
 	PrivateFileSave(user_ptr, personalRoot);		// 파일 저장
 
+	textcolor(14);
+	gotoxy(27, 13);
+	printf("==================================");
+	gotoxy(27, 14);
+	printf("               MENU         ");
+	gotoxy(27, 15);
+	printf("==================================");
 
-	gotoxy(5, 18);
-	printf("\n            MENU  \n\n");
-	printf("         1. 일정 생성  \n");
-	printf("         2. 일정 조회  \n");
-	printf("         3. 종료      \n");
+	textcolor(15);
+	gotoxy(27, 17);
+	printf("         1. 일정 생성  ");
+	gotoxy(27, 18);
+	printf("         2. 개인 일정 조회  ");
+	gotoxy(27, 19);
+	printf("         3. 팀 일정 조회  ");
+	gotoxy(27, 20);
+	printf("         4. 종료      ");
 
-	printf("\n\n  ▶ 원하는 작업번호를 입력해주세요. : ");
+	gotoxy(26, 23);
+	textcolor(14);
+	printf("▶ 원하는 작업번호를 입력해주세요. : ");
 	scanf("%d%*c", &ans);
 
 
