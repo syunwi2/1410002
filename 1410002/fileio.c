@@ -19,16 +19,16 @@ void PublicFileSave(PERSON* User, EVENT** root)
 
 	sprintf(fileName, "%s.dat", userPtr->id);
 
-	if (ptr == NULL)
-	{
-		return;
-	}
 	fp = fopen(fileName, "wb");
-
 	if (fp == NULL)
 	{
 		printf("저장에 실패했습니다. 관리자에게 문의해주세요\n");
 		exit(1);
+	}
+
+	if (ptr == NULL)
+	{
+		return;
 	}
 
 	InorderSave(fp, ptr);
@@ -96,18 +96,18 @@ void PrivateFileSave(PERSON* User, EVENT** root)
 
 	sprintf(fileName, "%s.dat", userPtr->id);
 
-
-	if (ptr == NULL)
-	{
-		//printf("노드가 존ㅇㅇㅇ재하지 않습니다. \n");
-		return;
-	}
 	fp = fopen(fileName, "wb");
 
 	if (fp == NULL)
 	{
 		printf("저장에 실패했습니다. 관리자에게 문의해주세요\n");
 		exit(1);
+	}
+
+	if (ptr == NULL)
+	{
+		//printf("노드가 존ㅇㅇㅇ재하지 않습니다. \n");
+		return;
 	}
 	
 	InorderSave(fp, ptr);

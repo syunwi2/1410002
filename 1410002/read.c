@@ -81,16 +81,48 @@ void PersonalReadEvent(EVENT** root)
     int t, choice, slt;
     EVENT *node;
     node = *root;
+    if (node == NULL)
+    {
+        printf("일정이 존재하지 않습니다.");
+
+    }
+    textcolor(14);
+    gotoxy(27, 13);
+    printf("==================================");
+    gotoxy(27, 14);
+    printf("        2. 개인 일정 조회         ");
+    gotoxy(27, 15);
+    printf("==================================");
+
+    textcolor(15);
     while(1)
     {
         do 
         {
-            printf("개인 일정을 출력하세요.\n");
-            printf("전체 일정 출력 : 1\n");
-            printf("개인 일정 출력 : 2\n");
-            printf("회사 일정 출력 : 3\n");
-            printf("기타 일정 출력 : 4\n");
-            printf("조회 종료 : 5\n");
+
+            gotoxy(27, 17);
+            printf("%s님의 개인 일정을 출력하세요.", node->ownerID);
+            gotoxy(27, 18);
+            printf("                                            ");
+            gotoxy(27, 19);
+            printf("       1.  전체 일정 출력      ");
+            gotoxy(27, 20);
+            printf("       2.  개인 일정 출력       ");
+            gotoxy(27, 21);
+            printf("       3.  회사 일정 출력       ");
+            gotoxy(27, 22); 
+            printf("       4.  기타 일정 출력      ");
+            gotoxy(0, 23);
+            printf("                                                                                                         ");
+            gotoxy(27, 23);
+            printf("       5.  조회 종료                         \n");
+            printf("                                                                           ");
+
+
+            gotoxy(27, 25);
+            textcolor(14);
+            printf("▶ 원하는 작업번호를 입력해주세요. : ");
+
             scanf_s("%d%*c", &choice);
         } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5);
 
@@ -99,13 +131,20 @@ void PersonalReadEvent(EVENT** root)
             break;
         }
 
+  
+
         do
         {
-            printf("조회 할 기간을 선택해 주세요. \n");
-            printf("하루 : 1, 일주일 : 2 전체 : 3 \n");
+            gotoxy(27, 27);
+            printf("  조회 할 기간을 선택해 주세요. \n");
+            printf("                             1.하루  2.일주일  3.전체  \n");
+            printf("                           ▶ 조회 기간 : ");
             scanf_s("%d%*c", &t);
         
         } while (t != 1 && t != 2 && t != 3);
+
+        gotoxy(27, 30);
+        textcolor(15);
 
         if (choice == 1)
         {
@@ -127,11 +166,16 @@ void PersonalReadEvent(EVENT** root)
             printf("%s님의 기타일정\n", node->ownerID);
             InorderNode(node, choice, t);
         }
+
+        textcolor(14);
         do 
         {   
-            printf("일정을 수정하시거나 삭제하겠습니까? \n");
-            printf("수정 : 1, 삭제 : 2 다시조회 : 3 \n");
-            scanf("%d%*c", &slt);
+
+            printf("                        일정을 수정하시거나 삭제하겠습니까? \n");
+            printf("                           1.수정  2.삭제  3.다시 조회     \n");
+            printf("                        ▶ 일정 수정/삭제 여부 : ");
+
+            scanf("%d", &slt);
         } while (slt != 1 && slt != 2 && slt != 3);
         if (slt == 1)
         {
@@ -163,7 +207,7 @@ void PersonalReadEvent(EVENT** root)
                 }
             }
             DeleteEvent(root, ptr);
-            ptr = NULL;
+            //ptr = NULL;
 
         }
         else if (slt == 3)

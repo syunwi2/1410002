@@ -8,6 +8,7 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 	
 	PublicFileSave(user_ptr, teamRoot);		// 颇老 历厘
 	PrivateFileSave(user_ptr, personalRoot);		// 颇老 历厘
+
 	gotoxy(5, 18);
 	do
 	{

@@ -112,7 +112,7 @@ void UpdateEvent(EVENT** root)
 	
 	//기존 일정 정보 삭제
 	DeleteEvent(root, ptr);
-	ptr = NULL;
+	//ptr = NULL;
 	// 버퍼 초기화
 	tmp[0] = '\0';
 	
