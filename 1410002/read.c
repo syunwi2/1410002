@@ -79,13 +79,12 @@ void InorderNode(EVENT* node, int choice, int t)
 void PersonalReadEvent(EVENT** root) 
 {
     int t, choice, slt;
-    EVENT *node;
-    node = *root;
+    EVENT* node, * ptr;
     while(1)
     {
         do 
         {
-            printf("%s님의 개인 일정을 출력하세요.\n", node->ownerID);
+            printf("%s님의 개인 일정을 출력하세요.\n", (*root)->ownerID);
             printf("전체 일정 출력 : 1\n");
             printf("개인 일정 출력 : 2\n");
             printf("회사 일정 출력 : 3\n");
@@ -109,22 +108,22 @@ void PersonalReadEvent(EVENT** root)
 
         if (choice == 1)
         {
-            printf("%s님의 일정\n", node->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s님의 일정\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
         else if (choice == 2)
         {
-            printf("%s님의 개인일정\n", node->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s님의 개인일정\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
         else if (choice == 3)
         {
-            printf("%s님의 회사일정\n", node->ownerID);
+            printf("%s님의 회사일정\n", (*root)->ownerID);
             InorderNode(node, choice, t);
         }
         else if (choice == 4)
         {
-            printf("%s님의 기타일정\n", node->ownerID);
+            printf("%s님의 기타일정\n", (*root)->ownerID);
             InorderNode(node, choice, t);
         }
         do 
@@ -145,7 +144,7 @@ void PersonalReadEvent(EVENT** root)
             scanf_s("%d%*c", &findnum);
             sprintf(findid, "%.6d", findnum);
 
-            EVENT* ptr = NULL;
+            node = *root, ptr = NULL;
             while (node != NULL)
             {
                 if (strcmp(node->nodeID, findid) < 0)
