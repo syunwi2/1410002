@@ -1,4 +1,5 @@
-#include "user.h"
+#include "person.h"
+#include <stdio.h>
 
 
 // ============ 로그인 함수 ================
