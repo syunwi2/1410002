@@ -13,6 +13,3 @@
 #include "signin.h"
 #include "signup.h"
 
-//void SignUp();
-//void SignIn();
-void LogOn(PERSON user, char(*dept_str)[20]);
