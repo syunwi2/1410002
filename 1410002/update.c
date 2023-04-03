@@ -4,7 +4,7 @@ void UpdateEvent(EVENT** root)
 {
 	int chk;
 	int i;
-	long int tmp;
+	long long int tmp;
 	EVENT* node = root;
 	printf("일정을 수정 할 수 있습니다. \n");
 	printf("어떤 일정을 수정하시겠습니까? \n");
@@ -22,8 +22,9 @@ void UpdateEvent(EVENT** root)
 	//수정 노드 선택
 
 	printf("choice");
-	scanf_s("%d", &tmp);
-	while (node != NULL && tmp != node->start) {
+	scanf_s("%lld", &tmp);
+	while (node != NULL && tmp != node->start) 
+	{
 		if ( node->start < tmp) {
 			node = node->prev;
 		}
@@ -33,9 +34,9 @@ void UpdateEvent(EVENT** root)
 	}
 
 	//개인파일에서 수정
-//	DeleteEvent(root, ptr);
-//	CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
-//	//팀파일에서 수정
-//	DeleteEvent(root, ptr);
-//	CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
+	//DeleteEvent(root, ptr);
+	//CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
+	//팀파일에서 수정
+	//DeleteEvent(root, ptr);
+	//CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
 }
