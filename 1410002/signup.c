@@ -1,11 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <Windows.h>		// gotoxy 헤더파일
-
 #include "user.h"
-#include "screen.h"
-#include "schedule.h"
 
 #pragma warning(disable :4996)
 

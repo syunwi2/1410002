@@ -1,5 +1,5 @@
 #include "user.h"
-#include "menu.h"
+
 
 
 #define LEFT 75			// 방향키별 아스키코드값
@@ -42,7 +42,7 @@ void LogOn(PERSON user, char(*dept_str)[20])
 	Calender();
 
 
-	//PrivateFileLoad();
+	PrivateFileLoad(&user);
 
 
 	// menu 출력

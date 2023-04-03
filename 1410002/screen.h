@@ -5,24 +5,12 @@
 #include <Windows.h>		// gotoxy 헤더파일
 #include <conio.h>
 
+#include "person.h"
 #include "schedule.h"
 #include "signin.h"
 #include "signup.h"
 #include "create.h"
 
-
-#ifndef __USER_H__
-#define __USER_H__
-typedef enum DEPT { 원장팀, 채널팀, 인프라팀, 경영지원팀 } DEPT;
-
-typedef struct person {
-	char id[20];
-	char name[20];
-	char pw[20];
-	DEPT dept;
-	time_t birthday;
-} PERSON;
-#endif
 
 void MainScreen(void);							// 프로그램 시작화면
 //void DrawMap(void);							// 화면 테두리 그림 

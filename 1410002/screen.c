@@ -530,9 +530,13 @@ void CreateEventScreen(PERSON *user_ptr)
     printf("일정이 생성되었습니다. :-)");
 
     gotoxy(3, 5);
-    printf("    메인으로 돌아가기 ◁  ▷  프로그램 종료   ");
+    printf("    메인으로 돌아가기 ◁  ▷  일정 추가 생성   ");
 
-    int flag = 1;
+
+    char dept_str[sizeof(user_ptr->dept)][20]
+        = { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
+
+
     char key;
 
     if (_kbhit())
@@ -544,13 +548,10 @@ void CreateEventScreen(PERSON *user_ptr)
             switch (key)
             {
             case LEFT:
-                SignUp();
-                flag = 0;
+                LogOn(user_ptr, dept_str);
                 break;
             case RIGHT:
-                SignIn();
-                flag = 0;
-
+                CreateEventScreen(user_ptr);
                 break;
             }
         }

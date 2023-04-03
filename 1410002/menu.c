@@ -1,11 +1,13 @@
 #include "menu.h"
-#include "screen.h"
-#include "create.h"
 
 
 void Menu(PERSON* user_ptr)
 {
 	int ans;			// 입력값 변수
+	
+	PublicFileSave(user_ptr);		// 파일 저장
+	PrivateFileSave(user_ptr);		// 파일 저장
+
 
 	gotoxy(5, 15);
 	printf("\n            MENU  \n\n");

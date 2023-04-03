@@ -6,22 +6,13 @@
 #include <conio.h>
 
 #include "screen.h"
+#include "person.h"
 #include "schedule.h"
+#include "menu.h"
+#include "fileio.h"
+#include "signin.h"
+#include "signup.h"
 
-#ifndef __USER_H__
-#define __USER_H__
-typedef enum DEPT { ¿øÀåÆÀ, Ã¤³ÎÆÀ, ÀÎÇÁ¶óÆÀ, °æ¿µÁö¿øÆÀ } DEPT;
-
-typedef struct person {
-	char id[20];
-	char name[20];
-	char pw[20];
-	DEPT dept;
-	time_t birthday;
-} PERSON;
-#endif
-
-
-void SignUp();
-void SignIn();
+//void SignUp();
+//void SignIn();
 void LogOn(PERSON user, char(*dept_str)[20]);
