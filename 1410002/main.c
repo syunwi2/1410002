@@ -9,7 +9,7 @@ void test();
 
 int main() {
 	
-	MainScreen();
+	//MainScreen();
 	test();
 }
 
@@ -27,13 +27,13 @@ void test() {
 	myEvent = NULL;
 	id = "id";
 
-	// 첫 이벤트
-	start = GetTimeT(2023, 3, 30, 12, 00);
-	end = GetTimeT(2023, 3, 30, 13, 00);
+	// 다섯 번째 이벤트
+	start = GetTimeT(2023, 1, 28, 12, 00);
+	end = GetTimeT(2023, 1, 28, 13, 00);
 	title = "title";
 	tag = 회사;
 	isPublic = 1;
-	importanceLevel = 3;
+	importanceLevel = 0;
 	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
 	// 두 번째 이벤트
@@ -45,15 +45,6 @@ void test() {
 	importanceLevel = 1;
 	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
-	// 세 번째 이벤트
-	start = GetTimeT(2023, 4, 28, 12, 00);
-	end = GetTimeT(2023, 4, 28, 13, 00);
-	title = "title";
-	tag = 회사;
-	isPublic = 1;
-	importanceLevel = 4;
-	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
-
 	// 네 번째 이벤트
 	start = GetTimeT(2023, 3, 28, 12, 00);
 	end = GetTimeT(2023, 3, 28, 13, 00);
@@ -63,13 +54,22 @@ void test() {
 	importanceLevel = 2;
 	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
-	// 다섯 번째 이벤트
-	start = GetTimeT(2023, 1, 28, 12, 00);
-	end = GetTimeT(2023, 1, 28, 13, 00);
+	// 첫 이벤트
+	start = GetTimeT(2023, 3, 30, 12, 00);
+	end = GetTimeT(2023, 3, 30, 13, 00);
 	title = "title";
 	tag = 회사;
 	isPublic = 1;
-	importanceLevel = 0;
+	importanceLevel = 3;
+	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
+
+	// 세 번째 이벤트
+	start = GetTimeT(2023, 4, 28, 12, 00);
+	end = GetTimeT(2023, 4, 28, 13, 00);
+	title = "title";
+	tag = 회사;
+	isPublic = 1;
+	importanceLevel = 4;
 	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
 	// 여섯 번째 이벤트

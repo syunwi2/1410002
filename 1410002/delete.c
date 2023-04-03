@@ -116,18 +116,3 @@ EVENT* FindNext(EVENT* node)
 
 	return nextEvent;
 }
-
-/*
-* CopyEvent(EVENT* to, EVENT* from)
-* from 노드의 일정을 to 노드에 복사한다.
-*/
-void CopyEvent(EVENT* to, EVENT* from)
-{
-	strcpy(to->ownerID, from->ownerID);
-	to->start = from->start;
-	to->end = from->start;
-	strcpy(to->title, from->title);
-	to->tag = from->tag;
-	to->isPublic = from->isPublic;
-	to->importanceLevel = from->importanceLevel;
-}
