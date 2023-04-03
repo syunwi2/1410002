@@ -28,15 +28,16 @@ void DeleteEvent(EVENT** root, EVENT* node)
 		else if (((node->prev) != NULL) || ((node->next) != NULL))
 		{
 			// root의 prev나 next 노드를 root로 수정한다.
-			if (node->parent->prev == node)
+			if (node->prev)
 			{
-				tmp = (node->prev != NULL) ? node->prev : node->next;
+				tmp = node->prev;
+
 				tmp->parent = NULL;
 				*root = tmp;
 			}
 			else
 			{
-				tmp = (node->prev != NULL) ? node->prev : node->next;
+				tmp = node->next;
 				tmp->parent = NULL;
 				*root = tmp;
 			}
@@ -56,6 +57,7 @@ void DeleteEvent(EVENT** root, EVENT* node)
 		{
 			// node와 가장 가까운 일정을 찾아 node에 넣는다.
 			tmp = FindNext(node);
+
 			CopyEvent(node, tmp);
 
 			// 찾은 노드 삭제
