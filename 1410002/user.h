@@ -7,6 +7,9 @@
 
 #include "screen.h"
 #include "schedule.h"
+#include "menu.h"
+#include "fileio.h"
+
 
 #ifndef __USER_H__
 #define __USER_H__
