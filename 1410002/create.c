@@ -1,33 +1,9 @@
 #include "create.h"
 
-void CreateEventScreen()
-{
-	system("cls");
-	gotoxy(3, 1);
-	// Heap¿¡¼­ µ¥ÀÌÅÍ »ç¿ë
-	printf("======== ÀÏÁ¤ »ı¼º ========= \n");
-	printf("\n\n ÀÏ½Ã (YYYY-MM-DD) : ");
-	// ÀÔ·Â
-	/*
-		1) id ¿¬°á 
-		2) time_t ÇÔ¼ö¿¡ ³ÖÀ» ½ÃÀÛ, ³¡ º¯È¯?
-		3) title
-		4) tag
-		5) public ¿©ºÎ
-		6) Áß¿äµµ
-	
-	*/
-	printf("\n ÀÏÁ¤ ³»¿ë : ");
-	// ÀÔ·Â
-
-
-}
-
-
 /*
 * CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
-* ³ëµå¿¡ ÀúÀåµÉ µ¥ÀÌÅÍ¸¦ ¹Ş¾Æ
-* ÀÌÁø Æ®¸®¿¡ »ğÀÔÇÕ´Ï´Ù.
+* ë…¸ë“œì— ì €ì¥ë  ë°ì´í„°ë¥¼ ë°›ì•„
+* ì´ì§„ íŠ¸ë¦¬ì— ì‚½ì…í•©ë‹ˆë‹¤.
 */
 void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 {
@@ -56,54 +32,54 @@ void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* titl
 
 /*
 * InsertEvent(EVENT** root, EVENT* newNode)
-* CreateEvent¿¡ ÀÇÇØ È£ÃâµÇ¾î
-* ÀÌÁø Æ®¸®ÀÇ ·çÆ®¿Í »ğÀÔµÉ ³ëµå¸¦ ¹Ş¾Æ
-* ³ëµå¸¦ ÀÌÁø Æ®¸®¿¡ »ğÀÔÇÕ´Ï´Ù.
+* CreateEventì— ì˜í•´ í˜¸ì¶œë˜ì–´
+* ì´ì§„ íŠ¸ë¦¬ì˜ ë£¨íŠ¸ì™€ ì‚½ì…ë  ë…¸ë“œë¥¼ ë°›ì•„
+* ë…¸ë“œë¥¼ ì´ì§„ íŠ¸ë¦¬ì— ì‚½ì…í•©ë‹ˆë‹¤.
 */
 void InsertEvent(EVENT** root, EVENT* newNode)
 {
-	// root°¡ ¾øÀ¸¸é ÀÌÁø Æ®¸®¸¦ ¸¸µç´Ù
+	// rootê°€ ì—†ìœ¼ë©´ ì´ì§„ íŠ¸ë¦¬ë¥¼ ë§Œë“ ë‹¤
 	if (*root == NULL)
 	{
 		*root = newNode;
 		return;
 	}
-	// root°¡ ÀÖÀ¸¸é ÀÌÁø Æ®¸®¿¡ newNode¸¦ »ğÀÔÇÑ´Ù.
+	// rootê°€ ìˆìœ¼ë©´ ì´ì§„ íŠ¸ë¦¬ì— newNodeë¥¼ ì‚½ì…í•œë‹¤.
 	else
 	{
 		EVENT* tmp;
 
-		// rootºÎÅÍ Å½»öÀ» ½ÃÀÛÇÑ´Ù.
+		// rootë¶€í„° íƒìƒ‰ì„ ì‹œì‘í•œë‹¤.
 		tmp = *root;
 		while (1)
 		{
-			// Å½»ö ÁßÀÎ ³ëµåº¸´Ù »ğÀÔÇÒ ³ëµåÀÇ ½ÃÀÛÀÏÀÌ ºü¸¥ °æ¿ì
+			// íƒìƒ‰ ì¤‘ì¸ ë…¸ë“œë³´ë‹¤ ì‚½ì…í•  ë…¸ë“œì˜ ì‹œì‘ì¼ì´ ë¹ ë¥¸ ê²½ìš°
 			if (newNode->start < tmp->start)
 			{
-				// ÇöÀç Å½»ö ÁßÀÎ ³ëµå ÀÌÀü ÀÏÁ¤ÀÌ ¾øÀ¸¸é ÀÌ À§Ä¡¿¡ »ğÀÔÇÑ´Ù.
+				// í˜„ì¬ íƒìƒ‰ ì¤‘ì¸ ë…¸ë“œ ì´ì „ ì¼ì •ì´ ì—†ìœ¼ë©´ ì´ ìœ„ì¹˜ì— ì‚½ì…í•œë‹¤.
 				if (tmp->prev == NULL)
 				{
 					tmp->prev = newNode;
 					newNode->parent = tmp;
 					break;
 				}
-				// ÇöÀç Å½»ö ÁßÀÎ ³ëµåÀÇ ÀÌÀü ÀÏÁ¤ÀÌ ÀÖÀ¸¸é ÇØ´ç ³ëµå¸¦ ±âÁØÀ¸·Î ´Ù½Ã Å½»öÇÑ´Ù.
+				// í˜„ì¬ íƒìƒ‰ ì¤‘ì¸ ë…¸ë“œì˜ ì´ì „ ì¼ì •ì´ ìˆìœ¼ë©´ í•´ë‹¹ ë…¸ë“œë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‹¤ì‹œ íƒìƒ‰í•œë‹¤.
 				else
 				{
 					tmp = tmp->prev;
 				}
 			}
-			// Å½»ö ÁßÀÎ ³ëµåº¸´Ù »ğÀÔÇÒ ³ëµåÀÇ ½ÃÀÛÀÏÀÌ ´À¸° °æ¿ì
+			// íƒìƒ‰ ì¤‘ì¸ ë…¸ë“œë³´ë‹¤ ì‚½ì…í•  ë…¸ë“œì˜ ì‹œì‘ì¼ì´ ëŠë¦° ê²½ìš°
 			else
 			{
-				// ÇöÀç Å½»ö ÁßÀÎ ³ëµå ÀÌÈÄ ÀÏÁ¤ÀÌ ¾øÀ¸¸é ÀÌ À§Ä¡¿¡ »ğÀÔÇÑ´Ù.
+				// í˜„ì¬ íƒìƒ‰ ì¤‘ì¸ ë…¸ë“œ ì´í›„ ì¼ì •ì´ ì—†ìœ¼ë©´ ì´ ìœ„ì¹˜ì— ì‚½ì…í•œë‹¤.
 				if (tmp->next == NULL)
 				{
 					tmp->next = newNode;
 					newNode->parent = tmp;
 					break;
 				}
-				// ÇöÀç Å½»ö ÁßÀÎ ³ëµå ÀÌÈÄ ÀÏÁ¤ÀÌ ÀÖÀ¸¸é ÇØ´ç ³ëµå¸¦ ±âÁØÀ¸·Î ´Ù½Ã Å½»öÇÑ´Ù.
+				// í˜„ì¬ íƒìƒ‰ ì¤‘ì¸ ë…¸ë“œ ì´í›„ ì¼ì •ì´ ìˆìœ¼ë©´ í•´ë‹¹ ë…¸ë“œë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‹¤ì‹œ íƒìƒ‰í•œë‹¤.
 				else
 				{
 					tmp = tmp->next;
@@ -112,7 +88,7 @@ void InsertEvent(EVENT** root, EVENT* newNode)
 		}
 	}
 
-	// AVL(¿ÏÀü ÀÌÁø Æ®¸®) ±¸Çö À§ÇØ ·çÆ® º¯È¯ ÇÊ¿ä
+	// AVL(ì™„ì „ ì´ì§„ íŠ¸ë¦¬) êµ¬í˜„ ìœ„í•´ ë£¨íŠ¸ ë³€í™˜ í•„ìš”
 	BalanceTree(root, newNode);
 
 	return;

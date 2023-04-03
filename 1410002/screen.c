@@ -260,3 +260,375 @@ int LeafYear(int yyyy)
     return 0;
 
 }
+
+
+
+
+// ============ 일정 생성 호출 함수 ================
+
+void CreateEventScreen(PERSON *user_ptr)
+{
+    EVENT* myevent = NULL;
+    char tmp[100], ch;
+    int tmp_i, i = 0;
+
+    char hh_ch[10], mm_ch[10];
+    int hh, mm;
+
+    time_t start;
+    time_t end;
+
+    char title[100];
+    TAG tag;
+    int isPublic;
+    int imPortanceLevel;
+
+
+
+    system("cls");
+    gotoxy(3, 1);
+
+
+    
+    // Heap에서 데이터 사용
+
+    printf("======== 일정 생성 ========= \n");
+
+    // 1) id => user_ptr->id
+
+
+
+    // 2) time_t 
+
+    // ================= start =======================
+
+    tmp[0] = '\0';			// 임시버퍼 초기화
+    int date, year, month, day, result = 0;
+
+    while (!result)
+    {
+
+        do {
+
+            gotoxy(3, 3);
+
+            printf("\n 일정 시작일 (ex.20140704) : ");
+            printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+            gets(tmp);
+
+        } while (strlen(tmp)!=8);
+
+
+        date = atoi(tmp);
+
+        year = date / 10000;
+        month = (date - (year * 10000)) / 100;
+        day = date % 100;
+
+        result = checkDate(year, month, day);
+
+    }
+
+
+
+
+    tmp[0] = '\0';			// 임시버퍼 초기화
+
+
+    while (1)
+    {
+        do {
+            gotoxy(3, 4);
+            printf("\n 일정 시작시간 (ex. 1516) : ");
+            printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+            gets(tmp);
+
+        } while (strlen(tmp) != 4);						// 시간 입력 4자리 넘을시 재입력 요청
+
+        /*
+            문자열로 받은 4자리 시/분 2자리씩 끊어,
+            int형으로 명시적 변환 후 유효한 시간인지 재확인
+            올바른 입력값이면 GetTimeT 함수로 전달하여 시간에 저장
+        */
+
+        for (i = 0; i < 4; i++)
+        {
+            if (i < 2)
+            {
+                hh_ch[i] = tmp[i];
+            }
+            else
+            {
+                mm_ch[i - 2] = tmp[i];
+            }
+        }
+        hh = atoi(hh_ch);
+        mm = atoi(mm_ch);
+
+        if (hh >= 1 && hh <= 23 && mm >= 0 && mm <= 59)
+            break;
+
+
+    }	// while(1) end.
+
+
+    start = GetTimeT(year, month, day, hh, mm);
+
+
+
+
+
+    // ================= end =======================
+
+    date = 0, year = 0, month = 0, day = 0, result = 0;
+
+
+    while (!result)
+    {
+
+        do {
+
+            gotoxy(3, 6);
+
+            printf("\n 일정 종료일 (ex.20140704) : ");
+            printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+            gets(tmp);
+
+        } while (strlen(tmp) != 8);
+
+
+        date = atoi(tmp);
+
+        year = date / 10000;
+        month = (date - (year * 10000)) / 100;
+        day = date % 100;
+
+        result = checkDate(year, month, day);
+
+    }
+
+
+
+    while (1)
+    {
+        do {
+            printf("\n 일정 종료시간 (ex. 1516) : ");
+            printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+            gets(tmp);
+
+        } while (strlen(tmp) != 4);						// 시간 입력 4자리 넘을시 재입력 요청
+
+
+        for (i = 0; i < 4; i++)
+        {
+            if (i < 2)
+            {
+                hh_ch[i] = tmp[i];
+            }
+            else
+            {
+                mm_ch[i - 2] = tmp[i];
+            }
+        }
+        hh = atoi(hh_ch);
+        mm = atoi(mm_ch);
+
+        if (hh >= 1 && hh <= 23 && mm >= 0 && mm <= 59)
+            break;
+
+
+    }	// while(1) end.
+
+
+    end = GetTimeT(year, month, day, hh, mm);
+
+
+
+
+    // 3) title
+
+    do {
+
+        printf("\n 일정명 : ");
+        printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+        gets(tmp);
+
+    } while (strlen(tmp) >= sizeof(myevent->title));
+    strcpy(title, tmp);
+
+
+
+    // 4) tag
+
+    tmp[0] = '\0';			// 임시버퍼 초기화
+    tmp_i = -1;
+
+    do {
+
+        printf("\n 태그 ( 회사 (0) / 개인 (1) / 기타 (2) ): ");
+        printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+        scanf("%d%*c", &tmp_i);
+
+    } while (tmp_i < 0 && tmp_i >= sizeof(TAG));
+
+    tag = tmp_i;
+
+
+
+    // 5) public 여부 1(Y): 공용, 0(N): 개인
+
+    do {
+
+        printf("\n 공개 여부(Y / N) : ");
+        printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+        ch = getchar();
+
+    } while (ch != 'y' && ch != 'Y' && ch != 'n' && ch!= 'N');
+
+    if (ch == 'y' || ch == 'Y')
+    {
+        isPublic = 1;
+    }
+    else
+    {
+        isPublic = 0;
+    }
+
+
+    //6) 중요도
+
+    tmp_i = 0; // 변수 초기화
+
+    do {
+
+        printf("\n 중요도 (0-5) : ");
+        printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+        scanf("%d%*c", &tmp_i);
+
+    } while (tmp_i > 5 || tmp_i <0);
+
+    imPortanceLevel = tmp_i;
+    
+
+
+
+    // 입력 전달
+    CreateNewEvent(&myevent, user_ptr->id, start, end, title, tag, isPublic, imPortanceLevel);
+    
+
+    // 일정 저장 완료 알림
+
+    system("cls");
+    gotoxy(3, 1);
+    
+    printf("일정이 생성되었습니다. :-)");
+
+    gotoxy(3, 5);
+    printf("    메인으로 돌아가기 ◁  ▷  프로그램 종료   ");
+
+    int flag = 1;
+    char key;
+
+    if (_kbhit())
+    {
+        key = _getch();
+        if (key == -32)
+        {
+            key = _getch();
+            switch (key)
+            {
+            case LEFT:
+                SignUp();
+                flag = 0;
+                break;
+            case RIGHT:
+                SignIn();
+                flag = 0;
+
+                break;
+            }
+        }
+    }
+
+}
+
+
+
+
+// 날짜 검사 함수 
+
+int checkDate(int year, int month, int day) 
+{
+    // 월 검사
+    if (month <= 0 || 13 <= month)
+    {
+        return 0;
+    }
+
+    // 홀수 달 검사
+    if (month % 2 == 1) 
+    {
+        // 1, 3, 5, 7월은 31일까지 있다.
+        if (1 <= month && month <= 7)
+        {
+            if (day <= 0 || day >= 32)
+            {
+                return 0;
+            }
+        }
+        // 9, 11월은 30일까지 있다.
+        else
+        {
+            if (day <= 0 || day >= 31) return 0;
+        }
+    }
+    // 짝수 달 검사
+    else
+    {
+        // 2, 4, 6월 검사
+        if (month <= 6)
+        {
+            // 2월 검사
+            if (month == 2)
+            {
+                // 2월은 윤년에는 29일까지 있다.
+                if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+                {
+                    if (day <= 0 || day >= 30)
+                    {
+                        return 0;
+                    }
+                }
+                // 2월은 평년에는 28일까지 있다.
+                else if (day <= 0 || day >= 29)
+                {
+                    return 0;
+                }
+            }
+            // 4, 6월 검사
+            else
+            {
+                // 4, 6월은 30일까지 있다.
+                if (day <= 0 || day >= 31)
+                {
+                    return 0;
+                }
+            }
+        }
+        // 8, 10, 12월 검사
+        else {
+            // 8, 10, 12월은 31일까지 있다.
+            if (day <= 0 || day >= 32)
+            {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
