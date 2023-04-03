@@ -27,4 +27,3 @@ int GetBalanceFactor(EVENT* node);
 int GetHeight(EVENT* node);
 void LeftRotate(EVENT** root, EVENT* node);
 void RightRotate(EVENT** root, EVENT* node);
-void CopyEvent(EVENT* to, EVENT* from);
