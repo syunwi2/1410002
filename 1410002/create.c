@@ -1,5 +1,29 @@
 #include "create.h"
 
+void CreateEventScreen()
+{
+	system("cls");
+	gotoxy(3, 1);
+	// Heap에서 데이터 사용
+	printf("======== 일정 생성 ========= \n");
+	printf("\n\n 일시 (YYYY-MM-DD) : ");
+	// 입력
+	/*
+		1) id 연결 
+		2) time_t 함수에 넣을 시작, 끝 변환?
+		3) title
+		4) tag
+		5) public 여부
+		6) 중요도
+	
+	*/
+	printf("\n 일정 내용 : ");
+	// 입력
+
+
+}
+
+
 /*
 * CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 * 노드에 저장될 데이터를 받아
