@@ -281,7 +281,7 @@ PERSON* UserPtr(PERSON user)
 
 // ============ 로그온 함수 ================
 
-void LogOn(PERSON user, char(*dept_str)[20])
+void LogOn(EVENT** personalRoot, EVENT** teamRoot, PERSON user, char(*dept_str)[20])
 {
     PERSON* user_ptr = UserPtr(user);
 
@@ -303,7 +303,7 @@ void LogOn(PERSON user, char(*dept_str)[20])
 
 
     // menu 출력
-    Menu(user_ptr);
+    Menu(personalRoot, teamRoot, user_ptr);
 
 
 }
@@ -320,9 +320,8 @@ void LogOn(PERSON user, char(*dept_str)[20])
 
 // ============ 일정 생성 호출 함수 ================
 
-void CreateEventScreen(PERSON *user_ptr)
+void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
 {
-    EVENT* myevent = NULL;
     char tmp[100], ch;
     int tmp_i, i = 0;
 
@@ -523,7 +522,7 @@ void CreateEventScreen(PERSON *user_ptr)
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         gets(tmp);
 
-    } while (strlen(tmp) >= sizeof(myevent->title));
+    } while (strlen(tmp) >= sizeof((*personalRoot)->title));
     strcpy(title, tmp);
 
 
@@ -584,8 +583,11 @@ void CreateEventScreen(PERSON *user_ptr)
     
 
     // 입력 전달
-    CreateNewEvent(&myevent, user_ptr->id, start, end, title, tag, isPublic, imPortanceLevel);
-    
+    CreateNewEvent(personalRoot, user_ptr->id, start, end, title, tag, isPublic, imPortanceLevel);
+    if (isPublic)
+    {
+        CreateNewEvent(teamRoot, user_ptr->id, start, end, title, tag, isPublic, imPortanceLevel);
+    }
 
     // 일정 저장 완료 알림
 
@@ -620,10 +622,11 @@ void CreateEventScreen(PERSON *user_ptr)
                 switch (key)
                 {
                 case LEFT:
-                    LogOn(*user_ptr, dept_str);
+                    //LogOn(*user_ptr, dept_str);
+                    LogOn(personalRoot, teamRoot, *user_ptr, dept_str);
                     break;
                 case RIGHT:
-                    CreateEventScreen(user_ptr);
+                    CreateEventScreen(personalRoot, teamRoot, user_ptr);
                     break;
                 }
             }

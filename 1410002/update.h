@@ -9,3 +9,4 @@
 #include "screen.h"
 
 void UpdateEvent(EVENT** root);
+long long int TimeUpdate();

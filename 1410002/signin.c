@@ -1,5 +1,4 @@
-#include "person.h"
-#include <stdio.h>
+#include "signin.h"
 
 
 // ============ 로그인 함수 ================
@@ -116,6 +115,17 @@ void SignIn()
 
 	} // 바깥 while(1) end.
 
-	LogOn(user, dept_str);					// 로그온 함수 호출 (로그인완료 화면)
+	EVENT* personalRoot = NULL;
+	EVENT* teamRoot = NULL;
+
+	//personalRoot->parent = NULL;
+	//personalRoot->prev = NULL;
+	//personalRoot->next = NULL;
+
+	//teamRoot->parent = NULL;
+	//teamRoot->prev = NULL;
+	//teamRoot->next = NULL;
+
+	LogOn(&personalRoot, &teamRoot, user, dept_str);					// 로그온 함수 호출 (로그인완료 화면)
 
 }

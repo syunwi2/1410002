@@ -42,15 +42,7 @@ void PublicFileSave(PERSON* User, EVENT** root)
 
 	fwrite(&seq_no, sizeof(int), 1, fp);
 
-	
-	while (ptr)
-	{
-		if (ptr->isPublic)
-		{
-			fwrite(ptr, sizeof(EVENT), 1, fp);
-		}
-		ptr = ptr->next;
-	}
+	InorderSave(fp, ptr);
 	fclose(fp);
 
 	printf("일정 저장이 완료되었습니다. \n");
@@ -190,11 +182,7 @@ void PrivateFileSave(PERSON* User, EVENT** root)
 	fwrite(&seq_no, sizeof(int), 1, fp);
 
 	
-	while (ptr)
-	{
-		fwrite(ptr, sizeof(EVENT), 1, fp);
-		ptr = ptr->next;	// 노드 순회로 수정 필요 
-	}
+	InorderSave(fp, ptr);
 	fclose(fp);
 
 	printf("일정 저장이 완료되었습니다. \n");
@@ -303,4 +291,14 @@ EVENT* PrivateFileLoad(PERSON* User)
 	return toproot;
 }
 
-
+// 재귀로 노드 파일에 저장
+void InorderSave(FILE* fp, EVENT* node)
+{
+	if (node == NULL)
+	{
+		return;
+	}
+	InorderSave(fp, node->prev);
+	fwrite(node, sizeof(EVENT), 1, fp);
+	InorderSave(fp, node->next);
+}
