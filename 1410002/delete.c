@@ -125,6 +125,7 @@ EVENT* FindNext(EVENT* node)
 */
 void CopyEvent(EVENT* to, EVENT* from)
 {
+	strcpy(to->nodeID, from->nodeID);
 	strcpy(to->ownerID, from->ownerID);
 	to->start = from->start;
 	to->end = from->start;
