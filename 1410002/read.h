@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "schedule.h"
 #include <stdio.h>
+#include "update.h"
+
 
 long long int TimeGet();
 void ChkChoice(EVENT* node, int choice);
