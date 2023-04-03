@@ -1,11 +1,5 @@
 #include "create.h"
 
-/*
-* CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
-* 노드에 저장될 데이터를 받아
-* 이진 트리에 삽입합니다.
-*/
-
 void CreateEventScreen()
 {
 	system("cls");
@@ -30,6 +24,11 @@ void CreateEventScreen()
 }
 
 
+/*
+* CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
+* 노드에 저장될 데이터를 받아
+* 이진 트리에 삽입합니다.
+*/
 void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 {
 	EVENT* newNode;
@@ -114,7 +113,7 @@ void InsertEvent(EVENT** root, EVENT* newNode)
 	}
 
 	// AVL(완전 이진 트리) 구현 위해 루트 변환 필요
-	UpdateRoot(root);
+	BalanceTree(root, newNode);
 
 	return;
 }

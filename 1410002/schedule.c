@@ -18,43 +18,77 @@ time_t GetTimeT(int year, int mon, int day, int hour, int min)
 }
 
 /*
-* UpdateRoot()
-* AVL 기반 완전 이진 트리 유지를 위해 노드 생성이나 삭제 시
-* 이진 트리의 root를 받아
-* 새로운 root 탐색 및 반환
+* BalanceTree()
+* AVL 트리 유지를 위해 노드 생성이나 삭제 시
+* 노드를 시작으로 균형이 깨진 부분을 찾아
+* 트리의 균형을 유지하는 동작 실행
 */
-void UpdateRoot(EVENT** root)
+void BalanceTree(EVENT** root, EVENT* node)
 {
-	// 이진 트리가 없는 경우 새 root를 찾을 필요가 없다.
-	if (*root == NULL)
-	{
-		return;
-	}
-
 	int BF;
-	BF = GetBalanceFactor(*root);
 
-	// 이미 완전 이진 트리인 경우 새 root를 찾을 필요가 없다.
-	if (-2 < BF && BF < 2)
+	// root까지 탐색을 마치면 트리의 균형을 맞출 필요가 없다.
+	if (node == NULL)
 	{
 		return;
 	}
+
+	// 탐색 중인 노드에서 균형이 깨졌는지 검사한다.
+	BF = GetBalanceFactor(node);
+
+	// 탐색 중인 노드가 균형이 깨지지 않았으면 부모 노드로 올라가 검사한다.
+	if (-1 <= BF && BF <= 1)
+	{
+		BalanceTree(root, node->parent);
+	}
+	// 탐색 중인 노드에서 균형이 깨졌다면 아래의 4가지 방법 중 하나를 시행한다.
+	else if (1 < BF)
+	{
+		BF = GetBalanceFactor(node->prev);
+		// 1. LL 형태: 우회전
+		if (1 <= BF)
+		{
+			RightRotate(root, node);
+		}
+		// 2. LR 형태: 좌회전 후 우회전
+		else
+		{
+			LeftRotate(root, node);
+			RightRotate(root, node);
+		}
+	}
+	else
+	{
+		BF = GetBalanceFactor(node->next);
+		// 3. RR 형태 : 좌회전
+		if (BF <= -1)
+		{
+			LeftRotate(root, node);
+		}
+		// 4. RL 형태 : 우회전 후 좌회전
+		else
+		{
+			RightRotate(root, node);
+			LeftRotate(root, node);
+		}
+	}
+
 }
 
 /*
-* GetBalanceFactor()
-* 완전 이진 트리 유지를 위해
-* BalanceFactor 계산해 반환
+* GetBalanceFactor(EVENT* node)
+* 어떤 노드를 받아
+* 그 노드의 BalanceFactor를 계산해 반환한다.
 */
-int GetBalanceFactor(EVENT* root)
+int GetBalanceFactor(EVENT* node)
 {
-	return GetHeight(root->prev) - GetHeight(root->next);
+	return GetHeight(node->prev) - GetHeight(node->next);
 }
 
 /*
-* GetHeight()
-* BalanceFactor 계산 위해
-* root->prev의 트리 높이, root->next의 트리 높이 계산해 반환
+* GetHeight(EVENT* node)
+* 어떤 노드를 받아
+* 그 노드의 높이를 계산해 반환한다.
 */
 int GetHeight(EVENT* node)
 {
@@ -64,19 +98,89 @@ int GetHeight(EVENT* node)
 		return 0;
 	}
 
-	int left, right;
+	int leftHeight, rightHeight, Height;
 
-	left = 0;
-	right = 0;
+	leftHeight = GetHeight(node->prev);
+	rightHeight = GetHeight(node->next);
+	Height = (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
 
-	if (node->prev)
+	return Height;
+}
+
+/*
+* LeftRotate(EVENT** root, EVENT* node)
+* node를 root로 하는 서브 트리를 좌회전 한다.
+* 필요하다면 이진 트리의 root를 변경한다.
+*/
+void LeftRotate(EVENT** root, EVENT* node)
+{
+	EVENT* nextNode;
+
+	nextNode = node->next;
+
+	// 좌회전
+	node->next = nextNode->prev;
+	if (nextNode->prev != NULL)
 	{
-		left = GetHeight(node->prev);
+		nextNode->prev->parent = node;
 	}
-	if (node->next)
+	nextNode->prev = node;
+	nextNode->parent = node->parent;
+	if (node->parent != NULL)
 	{
-		right = GetHeight(node->next);
+		if (node->parent->prev == node)
+		{
+			node->parent->prev = nextNode;
+		}
+		else
+		{
+			node->parent->next = nextNode;
+		}
 	}
+	node->parent = nextNode;
 
-	return (left > right) ? left + 1 : right + 1;
+	// 필요시 root 변경
+	if (nextNode->parent == NULL)
+	{
+		*root = nextNode;
+	}
+}
+
+/*
+* RightRotate(EVENT** root, EVENT* node)
+* node를 root로 하는 서브 트리를 우회전 한다.
+* 필요하다면 이진 트리의 root를 변경한다.
+*/
+void RightRotate(EVENT** root, EVENT* node)
+{
+	EVENT* prevNode;
+
+	prevNode = node->prev;
+
+	// 우회전
+	node->prev = prevNode->next;
+	if (prevNode->next != NULL)
+	{
+		prevNode->next->parent = node;
+	}
+	prevNode->next = node;
+	prevNode->parent = node->parent;
+	if (node->parent != NULL)
+	{
+		if (node->parent->prev == node)
+		{
+			node->parent->prev = prevNode;
+		}
+		else
+		{
+			node->parent->next = prevNode;
+		}
+	}
+	node->parent = prevNode;
+
+	// 필요시 root 변경
+	if (prevNode->parent == NULL)
+	{
+		*root = prevNode;
+	}
 }
