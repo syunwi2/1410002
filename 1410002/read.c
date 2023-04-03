@@ -114,12 +114,12 @@ void PersonalReadEvent(EVENT** root)
         }
         else if (choice == 2)
         {
-            printf("%s님의 회사일정\n", node->ownerID);
+            printf("%s님의 개인일정\n", node->ownerID);
             InorderNode(node, choice, t);
         }
         else if (choice == 3)
         {
-            printf("%s님의 개인일정\n", node->ownerID);
+            printf("%s님의 회사일정\n", node->ownerID);
             InorderNode(node, choice, t);
         }
         else if (choice == 4)
@@ -130,9 +130,9 @@ void PersonalReadEvent(EVENT** root)
         do 
         {   
             printf("일정을 수정하시거나 삭제하겠습니까? \n");
-            printf("수정 : 1, 삭제 : 2 ");
+            printf("수정 : 1, 삭제 : 2 다시조회 : 3");
             scanf("%d", &slt);
-        } while (slt != 1 && slt != 2);
+        } while (slt != 1 && slt != 2 && slt != 3);
         if (slt == 1)
         {
             UpdateEvent(root);
@@ -163,6 +163,10 @@ void PersonalReadEvent(EVENT** root)
                 }
             }
             DeleteEvent(root, ptr);
+        }
+        else if (slt == 3)
+        {
+            continue;
         }
     }
 }
