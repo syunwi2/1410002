@@ -4,7 +4,6 @@
 #include <string.h>
 #include <Windows.h>		// gotoxy 헤더파일
 #include <conio.h>
-
 #include "person.h"
 #include "schedule.h"
 #include "fileio.h"
