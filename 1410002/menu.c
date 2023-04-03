@@ -4,10 +4,10 @@
 
 void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 {
-	int ans;			// ì…ë ¥ê°’ ë³€ìˆ˜
+	int ans;			// ÀÔ·Â°ª º¯¼ö
 	
-	PublicFileSave(user_ptr, teamRoot);		// íŒŒì¼ ì €ì¥
-	PrivateFileSave(user_ptr, personalRoot);		// íŒŒì¼ ì €ì¥
+	PublicFileSave(user_ptr, teamRoot);		// ÆÄÀÏ ÀúÀå
+	PrivateFileSave(user_ptr, personalRoot);		// ÆÄÀÏ ÀúÀå
 
 
 	gotoxy(5, 18);
@@ -24,36 +24,36 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 
 		textcolor(15);
 		gotoxy(27, 17);
-		printf("         1. ì¼ì • ìƒì„±  ");
+		printf("         1. ÀÏÁ¤ »ı¼º  ");
 		gotoxy(27, 18);
-		printf("         2. ê°œì¸ ì¼ì • ì¡°íšŒ  ");
+		printf("         2. °³ÀÎ ÀÏÁ¤ Á¶È¸  ");
 		gotoxy(27, 19);
-		printf("         3. íŒ€ ì¼ì • ì¡°íšŒ  ");
+		printf("         3. ÆÀ ÀÏÁ¤ Á¶È¸  ");
 		gotoxy(27, 20);
-		printf("         4. ì¢…ë£Œ      ");
+		printf("         4. Á¾·á      ");
 
 		gotoxy(26, 23);
 		textcolor(14);
-		printf("â–¶ ì›í•˜ëŠ” ì‘ì—…ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
+		printf("¢º ¿øÇÏ´Â ÀÛ¾÷¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
 		scanf("%d%*c", &ans);
 
 
 
 		switch (ans)
 		{
-			// 1. ì¼ì • ìƒì„±
+			// 1. ÀÏÁ¤ »ı¼º
 			case 1:					
 				CreateEventScreen(personalRoot, teamRoot, user_ptr);
 				break;
-			// 2. ì¼ì • ì¡°íšŒ
+			// 2. ÀÏÁ¤ Á¶È¸
 			case 2:
 				PersonalReadEvent(personalRoot);
 				break;
-			// 3. íŒ€ ì¼ì • ì¡°íšŒ
+			// 3. ÆÀ ÀÏÁ¤ Á¶È¸
 			case 3:
 				PublicReadEvent(teamRoot);
 				break;
-			// 4. ì¢…ë£Œ
+			// 4. Á¾·á
 			case 4:
 				exit(1);
 		}

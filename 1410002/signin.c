@@ -15,7 +15,7 @@ void SignIn()
 
 
 	system("cls");
-	gotoxy(15, 7);
+	gotoxy(15, 6);
 	textcolor(14);
 	printf("                                                                            \n");
 	printf("                             ＊＊＊＊ login ＊＊＊＊                         \n");
@@ -42,20 +42,22 @@ void SignIn()
 	printf("                    ┌────────────────────────────────────────┐ \n");
 	printf("                    │ password │                             │ \n");
 	printf("                    └────────────────────────────────────────┘ \n");
+	printf("                                                               \n");
+
 
 	while (1)
 	{
 		textcolor(15);
 		do {
 			// ID 입력
-			gotoxy(35, 12);
-			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+			gotoxy(55, 10);
+			printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp_id);
 
 			// PW 입력
 
-			gotoxy(35, 15);
-			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+			gotoxy(55, 13);
+			printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
 			while ((tmp_pw[i] = getch()) != '\r')
 			{
