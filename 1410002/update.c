@@ -1,11 +1,11 @@
 #include "update.h"
 
-void UpdateEvent(EVENT** root)
+void UpdateEvent(EVENT** root, PERSON* user)
 {
 	int chk;
 	int i;
 	long long int tmpt;
-	EVENT* node;
+	EVENT* node, buffer;
 	node = *root;
 	printf("일정을 수정 할 수 있습니다. \n");
 	printf("어떤 일정을 수정하시겠습니까? \n");
@@ -96,10 +96,26 @@ void UpdateEvent(EVENT** root)
 			ptr = node;
 		}
 	}
+
+	strcpy(buffer.ownerID, ptr->ownerID);
+	buffer.start = ptr->start;
+	buffer.end = ptr->end;
+	strcpy(buffer.title, ptr->title);
+	buffer.tag = ptr->tag;
+	buffer.isPublic = ptr->isPublic;
+	buffer.importanceLevel = ptr->importanceLevel;
 	
-	//개인파일에서 수정
+	//기존 일정 정보 삭제
 	DeleteEvent(root, ptr);
-	CreateEventScreen(ptr);
+
+	// 버퍼 초기화
+	tmp[0] = '\0';
+
+	prtinf("");
+
+	// 새 일정 정보 생성
+	CreateNewEvent(root, user->id, buffer.start, buffer.end, buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
+	
 	//팀파일에서 수정
 	//DeleteEvent(root, ptr);
 	//CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);

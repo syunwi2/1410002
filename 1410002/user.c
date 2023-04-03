@@ -27,6 +27,8 @@ void LogOn(PERSON user, char(*dept_str)[20])
 {
 	PERSON* user_ptr = UserPtr(user);
 
+
+
 	// ============ 로그온 화면 ================
 
 
