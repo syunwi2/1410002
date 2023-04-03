@@ -3,20 +3,23 @@
 
 // ============ 로그인 함수 ================
 
+
+
 void SignIn()
 {
 	PERSON user;
 	char tmp_id[100], tmp_pw[100];		// id, pw 입력값 임시배열
 	int i;								// 임시 변수
-	char dept_str[sizeof(user.dept)][20] 
+	char dept_str[sizeof(user.dept)][20]
 		= { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
 
 
 	system("cls");
-	gotoxy(3, 0);
-	printf("                                    \n");
-	printf(" ============= 로그인 ============= \n");
-	printf("                                    \n");
+	gotoxy(15, 7);
+	textcolor(14);
+	printf("                                                                            \n");
+	printf("                             ＊＊＊＊ login ＊＊＊＊                         \n");
+	printf("                                                                            \n");
 
 
 
@@ -27,21 +30,34 @@ void SignIn()
 	tmp_pw[0] = '\0';					// 임시버퍼 초기화
 
 	i = 0;								// 변수 초기화
-	int buffer = 0;						
-	
-	
+	int buffer = 0;
+
+	textcolor(15);
+
+	// id, pw 입력칸
+
+	printf("                    ┌────────────────────────────────────────┐ \n");
+	printf("                    │    id    │                             │ \n");
+	printf("                    └────────────────────────────────────────┘ \n");
+	printf("                    ┌────────────────────────────────────────┐ \n");
+	printf("                    │ password │                             │ \n");
+	printf("                    └────────────────────────────────────────┘ \n");
+
 	while (1)
 	{
+		textcolor(15);
 		do {
-			gotoxy(0, 4);
-			printf("     ID : ");		// ID 입력
+			// ID 입력
+			gotoxy(35, 12);
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp_id);
 
-			printf("\n     PW : ");		// PW 입력
+			// PW 입력
+
+			gotoxy(35, 15);
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
-			while((tmp_pw[i] = getch()) != '\r')
+			while ((tmp_pw[i] = getch()) != '\r')
 			{
 
 				// 백스페이스 기능 추가 (비밀번호 잘못 입력시 다시 써도 되도록)
@@ -68,8 +84,9 @@ void SignIn()
 
 			tmp_pw[i] = '\0';
 
+
 		} while (strlen(tmp_id) >= sizeof(user.id) || strlen(tmp_id) < 1		// 설정한 배열값보다 크면 다시 입력받음
-				|| strlen(tmp_pw) >= sizeof(user.pw) || strlen(tmp_pw) < 1);
+			|| strlen(tmp_pw) >= sizeof(user.pw) || strlen(tmp_pw) < 1);
 
 
 		// user.txt > 기존회원 데이터 읽어 id 중복체크 
@@ -110,10 +127,12 @@ void SignIn()
 		}
 		else
 		{
-			printf("\n\n     ※  ID / PW를 다시 입력해주세요. \n");	
+			textcolor(14);
+			printf("\n\n                   ※  ID / PW를 다시 입력해주세요. \n");
 		}
 
 	} // 바깥 while(1) end.
+
 
 	EVENT* personalRoot = NULL;
 	EVENT* teamRoot = NULL;
