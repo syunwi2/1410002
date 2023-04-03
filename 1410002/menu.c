@@ -11,6 +11,8 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 
 
 	gotoxy(5, 18);
+	do
+	{
 	printf("\n            MENU  \n\n");
 	printf("         1. 일정 생성  \n");
 	printf("         2. 개인 일정 조회  \n");
@@ -21,28 +23,24 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 	scanf("%d%*c", &ans);
 
 
-	switch (ans)
-	{
-		// 1. 일정 생성
-		case 1:					
-			CreateEventScreen(personalRoot, teamRoot, user_ptr);
-			break;
-		// 2. 일정 조회
-		case 2:
-			PersonalReadEvent(personalRoot);
-			break;
-		// 3. 종료
-		case 3:
-			PublicReadEvent(teamRoot);
-			break;
-		// 4. 종료
-		case 4:
-			exit(1);
+		switch (ans)
+		{
+			// 1. 일정 생성
+			case 1:					
+				CreateEventScreen(personalRoot, teamRoot, user_ptr);
+				break;
+			// 2. 일정 조회
+			case 2:
+				PersonalReadEvent(personalRoot);
+				break;
+			// 3. 종료
+			case 3:
+				PublicReadEvent(teamRoot);
+				break;
+			// 4. 종료
+			case 4:
+				exit(1);
+		}
 
-
-
-
-		
-	}
-
+	} while (ans!=4);
 }
