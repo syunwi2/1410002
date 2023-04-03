@@ -64,7 +64,8 @@ void PrintEvent(EVENT* node, int choice, int t)
     }
 }
 
-void InorderNode(EVENT* node, int choice, int t) {
+void InorderNode(EVENT* node, int choice, int t) 
+{
     if (node == NULL)
     {
         printf("일정이 존재 하지 않습니다.");
@@ -87,7 +88,8 @@ void InorderNode(EVENT* node, int choice, int t) {
 //    } while (t != 1 && t != 2 && t != 3);
 //}
 
-void PersonalReadEvent(EVENT** root) {
+void PersonalReadEvent(EVENT** root) 
+{
     int t, choice;
     EVENT *node;
     node = *root;
@@ -136,7 +138,8 @@ void PrintEventCom(EVENT* node, int deptch)
     printf("%s %lld %lld %s %d %d\n", node->ownerID, node->start, node->end, node->title, node->isPublic, node->importanceLevel);
 }
 
-void InorderNodeCom(EVENT* node, int deptch) {
+void InorderNodeCom(EVENT* node, int deptch) 
+{
     if (node == NULL)
     {
         printf("일정이 존재 하지 않습니다.");

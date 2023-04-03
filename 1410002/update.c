@@ -34,9 +34,9 @@ void UpdateEvent(EVENT** root)
 	}
 
 	//개인파일에서 수정
-//	DeleteEvent(root, ptr);
-//	CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
-//	//팀파일에서 수정
-//	DeleteEvent(root, ptr);
-//	CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
+	//DeleteEvent(root, ptr);
+	//CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
+	//팀파일에서 수정
+	//DeleteEvent(root, ptr);
+	//CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
 }
