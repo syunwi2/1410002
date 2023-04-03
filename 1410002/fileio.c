@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "schedule.h"
 #include "fileio.h"
+#include "user.h"
 
 
 
@@ -13,11 +14,16 @@ int seq_no = 0;
 
 
 // 퍼블릭파일 저장 
-void PublicFileSave(void)
+void PublicFileSave(PERSON* User)
 {
 	EVENT* ptr;
 	FILE* fp = NULL;
+	PERSON* userPtr = NULL;
+	char fileName[100];
+	
+	userPtr = User;
 
+	sprintf(fileName, "%d.dat", userPtr->dept);
 	
 	ptr = head;
 
@@ -26,7 +32,7 @@ void PublicFileSave(void)
 		printf("노드가 존재하지 않습니다. \n");
 		return;
 	}
-	fp = fopen("public.dat", "wb");
+	fp = fopen(fileName, "wb");
 
 	if (fp == NULL)
 	{
@@ -53,15 +59,22 @@ void PublicFileSave(void)
 }
 
 // 퍼블릭파일 로드
-struct EVENT* PublicFileLoad(void)
+struct EVENT* PublicFileLoad(PERSON* User)
 {
 	FILE* fp = NULL;
 	EVENT* root;
 	EVENT* newNode = NULL;
 	EVENT* toproot = NULL;
 
+	PERSON* userPtr = NULL;
+	char fileName[100];
 
-	fp = fopen("public.dat", "rb");
+	userPtr = User;
+
+	sprintf(fileName, "%d.dat", userPtr->dept);
+
+
+	fp = fopen(fileName, "rb");
 	if (fp == NULL)
 	{
 		printf("ERROR!! 파일이 존재하지 않습니다. 관리자에게 문의 해주세요 \n");
@@ -147,15 +160,19 @@ struct EVENT* PublicFileLoad(void)
 
 
 // 개인파일 저장 
-void PrivateFileSave(void)
+void PrivateFileSave(PERSON* User)
 {
 	EVENT* ptr;
+	PERSON* userPtr;
 	FILE* fp = NULL;
 	char fileName[100];
 
-	sprintf(fileName, "%s.dat", ptr->ownerID);
-
 	ptr = head;
+	// 유저 주소값을 넘겨줘야 한다....
+	userPtr = User;
+
+	sprintf(fileName, "%s.dat", userPtr->id);
+
 
 	if (ptr == NULL)
 	{
@@ -185,16 +202,21 @@ void PrivateFileSave(void)
 }
 
 // 개인파일 로드 
-EVENT* PrivateFileLoad(void)
+EVENT* PrivateFileLoad(PERSON* User)
 {
 	FILE* fp = NULL;
 	EVENT* root;
 	EVENT* newNode = NULL;
 	EVENT* toproot = NULL;
+	
+	PERSON* ptr = NULL;	// 유저데이터 주소값을 받아와야 하는게 맞네.....
+
+	ptr = User;
 
 	char fileName[100];
 
-	sprintf(fileName, "%s.dat", root->ownerID);
+
+	sprintf(fileName, "%s.dat", ptr->id);	// 주소값 받아와서 찾기
 	
 	fp = fopen(fileName, "rb");
 	if (fp == NULL)

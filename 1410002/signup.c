@@ -112,7 +112,7 @@ void SignUp()
 	do {
 		gotoxy(0, 10);
 		printf(" >>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
-		printf("\n     PW : ");		// PW 입력
+		printf("     PW : ");		// PW 입력
 		printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
 		for (i = 0;buffer != 13; i++)

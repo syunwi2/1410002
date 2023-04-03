@@ -1,8 +1,9 @@
 #include "schedule.h"
+#include "user.h"
+#include <string.h>
+#include <stdlib.h>
 
-void PublicFileSave();
-struct EVENT* PublicFileLoad(void);
-
-void PrivateFileSave(void);
-EVENT* PrivateFileLoad(void);
-
+void PublicFileSave(PERSON* User);
+struct EVENT* PublicFileLoad(PERSON* User);
+void PrivateFileSave(PERSON* User);
+EVENT* PrivateFileLoad(PERSON* User);
