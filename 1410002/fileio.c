@@ -14,11 +14,16 @@ int seq_no = 0;
 
 
 // 퍼블릭파일 저장 
-void PublicFileSave(void)
+void PublicFileSave(PERSON* User)
 {
 	EVENT* ptr;
 	FILE* fp = NULL;
+	PERSON* userPtr = NULL;
+	char fileName[100];
+	
+	userPtr = User;
 
+	sprintf(fileName, "%d.dat", userPtr->dept);
 	
 	ptr = head;
 
@@ -27,7 +32,7 @@ void PublicFileSave(void)
 		printf("노드가 존재하지 않습니다. \n");
 		return;
 	}
-	fp = fopen("public.dat", "wb");
+	fp = fopen(fileName, "wb");
 
 	if (fp == NULL)
 	{
@@ -54,15 +59,22 @@ void PublicFileSave(void)
 }
 
 // 퍼블릭파일 로드
-struct EVENT* PublicFileLoad(void)
+struct EVENT* PublicFileLoad(PERSON* User)
 {
 	FILE* fp = NULL;
 	EVENT* root;
 	EVENT* newNode = NULL;
 	EVENT* toproot = NULL;
 
+	PERSON* userPtr = NULL;
+	char fileName[100];
 
-	fp = fopen("public.dat", "rb");
+	userPtr = User;
+
+	sprintf(fileName, "%d.dat", userPtr->dept);
+
+
+	fp = fopen(fileName, "rb");
 	if (fp == NULL)
 	{
 		printf("ERROR!! 파일이 존재하지 않습니다. 관리자에게 문의 해주세요 \n");

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void PublicFileSave(void);
-struct EVENT* PublicFileLoad(void);
+void PublicFileSave(PERSON* User);
+struct EVENT* PublicFileLoad(PERSON* User);
 void PrivateFileSave(PERSON* User);
 EVENT* PrivateFileLoad(PERSON* User);
