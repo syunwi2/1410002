@@ -212,6 +212,9 @@ void SignUp()
 	EVENT* personalRoot = NULL;
 	EVENT* teamRoot = NULL;
 
+	personalRoot = PrivateFileLoad(&user);
+	teamRoot = PublicFileLoad(&user);
+
 	// ============ 로그인 완료화면 ================
 
 	LogOn(&personalRoot, &teamRoot, user, dept_str);

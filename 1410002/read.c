@@ -81,47 +81,57 @@ void PersonalReadEvent(EVENT** root)
     int t, choice;
     EVENT *node;
     node = *root;
-    do
+    while(1)
     {
-        printf("조회 할 기간을 선택해 주세요. \n");
-        printf("하루 : 1, 일주일 : 2 전체 : 3 \n");
-        scanf_s("%d%*c", &t);
+        do 
+        {
+            printf("%s님의 개인 일정을 출력하세요.\n", node->ownerID);
+            printf("전체 일정 출력 : 1\n");
+            printf("개인 일정 출력 : 2\n");
+            printf("회사 일정 출력 : 3\n");
+            printf("기타 일정 출력 : 4\n");
+            printf("조회 종료 : 5\n");
+            scanf_s("%d%*c", &choice);
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5);
+
+        if (choice == 5)
+        {
+            break;
+        }
+
+        do
+        {
+            printf("조회 할 기간을 선택해 주세요. \n");
+            printf("하루 : 1, 일주일 : 2 전체 : 3 \n");
+            scanf_s("%d%*c", &t);
         
-    } while (t != 1 && t != 2 && t != 3);
+        } while (t != 1 && t != 2 && t != 3);
 
-    do 
-    {
-        printf("%s님의 개인 일정을 출력하세요.\n", node->ownerID);
-        printf("전체 일정 출력 : 1\n");
-        printf("개인 일정 출력 : 2\n");
-        printf("회사 일정 출력 : 3\n");
-        printf("기타 일정 출력 : 4\n");
-        scanf_s("%d%*c", &choice);
-    } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
+        if (choice == 1)
+        {
+            printf("%s님의 일정\n", node->ownerID);
+            InorderNode(node, choice, t);
+        }
+        else if (choice == 2)
+        {
+            printf("%s님의 회사일정\n", node->ownerID);
+            InorderNode(node, choice, t);
+        }
+        else if (choice == 3)
+        {
+            printf("%s님의 개인일정\n", node->ownerID);
+            InorderNode(node, choice, t);
+        }
+        else if (choice == 4)
+        {
+            printf("%s님의 기타일정\n", node->ownerID);
+            InorderNode(node, choice, t);
+        }
 
-    if (choice == 1)
-    {
-        printf("%s님의 일정\n", node->ownerID);
-        InorderNode(node, choice, t);
-    }
-    else if (choice == 2)
-    {
-        printf("%s님의 회사일정\n", node->ownerID);
-        InorderNode(node, choice, t);
-    }
-    else if (choice == 3)
-    {
-        printf("%s님의 개인일정\n", node->ownerID);
-        InorderNode(node, choice, t);
-    }
-    else if (choice == 4)
-    {
-        printf("%s님의 기타일정\n", node->ownerID);
-        InorderNode(node, choice, t);
     }
 }
 
-void PrintEventCom(EVENT* node, int deptch)
+void PrintEventCom(EVENT* node)
 {
     struct tm* tmpStart, * tmpEnd;
 
@@ -133,51 +143,24 @@ void PrintEventCom(EVENT* node, int deptch)
         node->title, node->importanceLevel);
 }
 
-void InorderNodeCom(EVENT* node, int deptch) 
+void InorderNodeCom(EVENT* node) 
 {
     if (node == NULL)
     {
         return;
     }
-    InorderNodeCom(node->prev, deptch);
-    PrintEventCom(node, deptch);
-    InorderNodeCom(node->next, deptch);
+    InorderNodeCom(node->prev);
+    PrintEventCom(node);
+    InorderNodeCom(node->next);
 }
 
 
 void PublicReadEvent(EVENT** root)
 {
-    static int deptch = 0;
     EVENT* node;
     node = *root;
     //TimeCheck();
-    do {
-        printf("팀 일정을 출력하세요.\n");
-        printf("채널 팀 일정 출력 : 1\n");
-        printf("원장 팀 일정 출력 : 2\n");
-        printf("경영지원 팀 일정 출력 : 3\n");
-        printf("본부 팀 일정 출력 : 4\n");
-        scanf_s("%d%*c", &deptch);
-    } while (deptch != 1 && deptch != 2 && deptch != 3 && deptch != 4);
 
-    if (deptch == 1)
-    {
-        printf("원장팀의 일정\n");
-        InorderNodeCom(node, deptch);
-    }
-    else if (deptch == 2)
-    {
-        printf("채널팀의 일정\n");
-        InorderNodeCom(node, deptch);
-    }
-    else if (deptch == 3)
-    {
-        printf("인프라팀의 일정\n");
-        InorderNodeCom(node, deptch);
-    }
-    else if (deptch == 4)
-    {
-        printf("경영지원팀의 일정\n");
-        InorderNodeCom(node, deptch);
-    }
+    printf("팀 일정을 출력하세요.\n");
+    InorderNodeCom(node);
 }

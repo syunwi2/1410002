@@ -297,11 +297,6 @@ void LogOn(EVENT** personalRoot, EVENT** teamRoot, PERSON user, char(*dept_str)[
     Calender();
 
 
-    PrivateFileLoad(&user);
-    PublicFileLoad(&user);
-
-
-
     // menu Ãâ·Â
     Menu(personalRoot, teamRoot, user_ptr);
 
