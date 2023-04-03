@@ -11,39 +11,39 @@ long long int TimeGet()
 
 void ChkChoice(EVENT* node, int choice)
 {
-    struct tm* tmpStart, *tmpEnd;
+    struct tm tmpStart, tmpEnd;
 
-    tmpStart = localtime(&(node->start));
-    tmpEnd = localtime(&(node->end));
+    tmpStart = *(localtime(&(node->start)));
+    tmpEnd = *(localtime(&(node->end)));
 
     if (choice == 1 )
     {
 
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                  tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                  tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
+                                                  tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
+                                                  tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                   node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
+                                                    tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
+                                                    tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
+                                                    node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
+                                                    tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
+                                                    tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
+                                                    node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
+                                                    tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
+                                                    tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
+                                                    node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
 }
 
