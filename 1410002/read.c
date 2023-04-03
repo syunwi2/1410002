@@ -84,7 +84,7 @@ void PersonalReadEvent(EVENT** root)
     if (node == NULL)
     {
         printf("일정이 존재하지 않습니다.");
-
+        return;
     }
     textcolor(14);
     gotoxy(27, 13);
