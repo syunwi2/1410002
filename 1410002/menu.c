@@ -9,7 +9,7 @@ void Menu(PERSON* user_ptr)
 	PrivateFileSave(user_ptr);		// 颇老 历厘
 
 
-	gotoxy(5, 15);
+	gotoxy(5, 18);
 	printf("\n            MENU  \n\n");
 	printf("         1. 老沥 积己  \n");
 	printf("         2. 老沥 炼雀  \n");

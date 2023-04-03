@@ -176,8 +176,6 @@ void Calender()
 
 
 
-
-
 // ============ 달력 출력 함수 ================
 
 void ScreenCal(int start_day, int day_num)
@@ -201,6 +199,9 @@ void ScreenCal(int start_day, int day_num)
         }
 
     }
+    printf("\n");
+    printf("\n");
+
 }
 
 
@@ -260,6 +261,60 @@ int LeafYear(int yyyy)
     return 0;
 
 }
+
+
+// ============ 로그인 완료  ================
+PERSON* UserPtr(PERSON user)
+{
+    // 구조체 user 동적메모리 할당
+    PERSON* user_ptr = malloc(sizeof(PERSON));
+
+    // 구조체 멤버 값 할당
+    strcpy(user_ptr->id, user.id);
+    strcpy(user_ptr->name, user.name);
+    strcpy(user_ptr->pw, user.pw);
+    user_ptr->dept = user.dept;
+    user_ptr->birthday = user.birthday;
+
+    return user_ptr;
+}
+
+
+
+
+// ============ 로그온 함수 ================
+
+void LogOn(PERSON user, char(*dept_str)[20])
+{
+    PERSON* user_ptr = UserPtr(user);
+
+    system("cls");
+    gotoxy(3, 1);
+    // Heap에서 데이터 사용
+    printf("환영합니다. %s님 :) \n", user_ptr->name);
+    printf("\n     id : %3s, 부서 : %3s  \n",
+        user_ptr->id, dept_str[user_ptr->dept]);
+
+
+    // 달력 출력
+    Calender();
+
+
+    PrivateFileLoad(&user);
+
+
+    // menu 출력
+    Menu(user_ptr);
+
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -390,7 +445,6 @@ void CreateEventScreen(PERSON *user_ptr)
         do {
 
             gotoxy(3, 6);
-
             printf("\n 일정 종료일 (ex.20140704) : ");
             printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
@@ -414,6 +468,7 @@ void CreateEventScreen(PERSON *user_ptr)
     while (1)
     {
         do {
+            gotoxy(3, 7);
             printf("\n 일정 종료시간 (ex. 1516) : ");
             printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             gets(tmp);
@@ -450,10 +505,8 @@ void CreateEventScreen(PERSON *user_ptr)
     // 3) title
 
     do {
-
         printf("\n 일정명 : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
-
         gets(tmp);
 
     } while (strlen(tmp) >= sizeof(myevent->title));
@@ -468,9 +521,9 @@ void CreateEventScreen(PERSON *user_ptr)
 
     do {
 
-        printf("\n 태그 ( 회사 (0) / 개인 (1) / 기타 (2) ): ");
+        printf("\n # tag  회사 : 0, 개인 : 1, 기타 : 2 ");
+        printf("\n Tag : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
-
         scanf("%d%*c", &tmp_i);
 
     } while (tmp_i < 0 && tmp_i >= sizeof(TAG));
@@ -482,7 +535,6 @@ void CreateEventScreen(PERSON *user_ptr)
     // 5) public 여부 1(Y): 공용, 0(N): 개인
 
     do {
-
         printf("\n 공개 여부(Y / N) : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
@@ -548,7 +600,7 @@ void CreateEventScreen(PERSON *user_ptr)
             switch (key)
             {
             case LEFT:
-                LogOn(user_ptr, dept_str);
+                LogOn(*user_ptr, dept_str);
                 break;
             case RIGHT:
                 CreateEventScreen(user_ptr);
@@ -633,3 +685,7 @@ int checkDate(int year, int month, int day)
     }
     return 1;
 }
+
+
+
+

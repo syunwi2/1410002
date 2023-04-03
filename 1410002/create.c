@@ -8,6 +8,8 @@
 void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* title, TAG tag, int isPublic, int imPortanceLevel)
 {
 	EVENT* newNode;
+	char tmp[20];
+	static int no = 0;
 
 	newNode = (EVENT*)malloc(sizeof(EVENT));
 	if (newNode == NULL)
@@ -16,6 +18,8 @@ void CreateNewEvent(EVENT** root, char* id, time_t start, time_t end, char* titl
 		exit(1);
 	}
 
+	no++;
+	sprintf(newNode->nodeID, "%.6d", no);
 	strcpy(newNode->ownerID, id);
 	newNode->start = start;
 	newNode->end = end;
