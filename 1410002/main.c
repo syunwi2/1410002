@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "user.h"
 #include "schedule.h"
 #include "create.h"
 #include "delete.h"
@@ -9,7 +8,7 @@ void test();
 
 int main() {
 	
-	MainScreen();
+	//MainScreen();
 	test();
 }
 
@@ -81,5 +80,6 @@ void test() {
 	importanceLevel = 5;
 	CreateNewEvent(&myEvent, "test1", start, end, title, tag, isPublic, importanceLevel);
 
-	UpdateEvent(&myEvent);
+	PersonalReadEvent(&myEvent);
+
 }

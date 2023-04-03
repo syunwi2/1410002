@@ -5,7 +5,7 @@ long long int TimeUpdate()
 	int i;
 	long long int tmpt;
 
-	printf("choice");
+	//printf("choice");
 	char tmp[100];
 	tmp[0] = '\0';
 	char year_ch[10], mon_ch[10], day_ch[10], hour_ch[10], min_ch[10];
@@ -15,16 +15,10 @@ long long int TimeUpdate()
 	{
 		do {
 			printf(" >>> 날짜를 알려주세요. ex) 2309261500 \n");
-			printf("     YYMMDDHHMM : ");
+			printf("     YYMMDDHHMM : \n");
 			gets(tmp);
 
 		} while (strlen(tmp) != 10);
-
-		/*
-			문자열로 받은 6자리 월/일 2자리씩 끊어,
-			int형으로 명시적 변환 후 유효한 날짜인지 재확인
-			올바른 입력값이면 GetTimeT 함수로 전달하여 생일에 저장
-		*/
 
 		for (i = 0; i < 10; i++)
 		{
@@ -58,9 +52,7 @@ long long int TimeUpdate()
 		if (mon >= 1 && mon <= 12 && day >= 1 && day <= 31
 			&& hour >= 0 && hour <= 24 && min >= 0 && min <= 60)
 			break;
-
-
-	}	// while(1) end.
+	}
 
 	tmpt = GetTimeT(year, mon, day, hour, min);
 	return tmpt;
@@ -77,7 +69,7 @@ void UpdateEvent(EVENT** root)
 	//일정 전체 출력
 	do
 	{
-		printf("일정 다시 확인하기 (yes: 1, no: 2)");
+		printf("일정 다시 확인하기 (yes: 1, no: 2)\n");
 		scanf_s("%d%*c", &chk);
 	} while (chk != 1 && chk != 2);
 
@@ -87,7 +79,7 @@ void UpdateEvent(EVENT** root)
 	}
 
 	//수정 노드 선택
-	printf("\n삭제할 노드 번호 선택 : ");
+	printf("삭제할 노드 번호 선택 : \n");
 	scanf_s("%d%*c", &findnum);
 
 	EVENT* ptr = "";
@@ -108,6 +100,7 @@ void UpdateEvent(EVENT** root)
 	}
 
 	strcpy(buffer.nodeID, ptr->nodeID);
+	strcpy(buffer.ownerID, ptr->ownerID);
 	buffer.start = ptr->start;
 	buffer.end = ptr->end;
 	strcpy(buffer.title, ptr->title);
@@ -125,12 +118,11 @@ void UpdateEvent(EVENT** root)
 		do
 		{
 			// 새 일정 정보 생성
-
 			printf("어떤 정보를 수정 하겠습니까? \n");
-			printf("1. 시작일 2. 종료일 3. 제목 4. 태그 5. ispublic 6. 중요도 7. 수정된 정보 저장\n");
-			scanf_s("%d", &chk_con);
+			printf("1. 시작일 2. 종료일 3. 제목 4. 태그 5. ispublic 6. 중요도 7. 수정된 정보 저장 8. 수정 완료\n");
+			scanf_s("%d%*c", &chk_con);
 		} while (chk_con != 1 && chk_con != 2 && chk_con != 3 && chk_con != 4 &&
-			chk_con != 5 && chk_con != 6 && chk_con != 7);
+			chk_con != 5 && chk_con != 6 && chk_con != 7 && chk_con != 8);
 		// 시작일 수정
 		if (chk_con == 1)
 		{
@@ -146,7 +138,7 @@ void UpdateEvent(EVENT** root)
 		{
 			do
 			{
-				printf("\n 일정명 : ");
+				printf("일정 내용 : \n");
 				printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 				gets(tmp);
 
@@ -200,9 +192,14 @@ void UpdateEvent(EVENT** root)
 			} while (buffer.importanceLevel > 5 || buffer.importanceLevel < 0);
 		}
 		// 수정된 정보 업데이트
-		else
+		else if (chk_con == 7)
 		{
 			CreateNewEvent(root, buffer.ownerID, buffer.start, buffer.end, buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
+			printf("수정이 완료되었습니다.\n");
+		}
+		else if (chk_con == 8)
+		{
+			break;
 		}
 	}
 	

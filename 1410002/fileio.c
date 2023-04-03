@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include "schedule.h"
 #include "fileio.h"
-#include "user.h"
 
 
 
