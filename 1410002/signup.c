@@ -1,4 +1,4 @@
-#include "user.h"
+#include "signup.h"
 
 #pragma warning(disable :4996)
 
@@ -208,10 +208,12 @@ void SignUp()
 	printf("파일 저장 완료. \n");
 
 	
+	EVENT* personalRoot = NULL;
+	EVENT* teamRoot = NULL;
 
 	// ============ 로그인 완료화면 ================
 
-	LogOn(user, dept_str);
+	LogOn(&personalRoot, &teamRoot, user, dept_str);
 
 
 } // SignUp() end.

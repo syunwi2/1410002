@@ -3,4 +3,4 @@
 #include "create.h"
 #include "fileio.h"
 
-void Menu(PERSON* user_ptr);
+void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr);
