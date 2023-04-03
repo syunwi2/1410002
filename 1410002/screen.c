@@ -5,14 +5,14 @@
 #define MAP_WIDTH 30
 #define MAP_HEIGHT 20
 
-#define LEFT 75			// ¹æÇâÅ°º° ¾Æ½ºÅ°ÄÚµå°ª
+#define LEFT 75			// ë°©í–¥í‚¤ë³„ ì•„ìŠ¤í‚¤ì½”ë“œê°’
 #define RIGHT 77
 
 
 
 
 
-// ============ Ä¿¼­ ÁÂÇ¥ º¯°æ ÇÔ¼ö ================
+// ============ ì»¤ì„œ ì¢Œí‘œ ë³€ê²½ í•¨ìˆ˜ ================
 
 void gotoxy(int x, int y)
 {
@@ -25,20 +25,20 @@ void gotoxy(int x, int y)
 
 
 
-// ============ Ã¹ È­¸é ÇÔ¼ö ================
+// ============ ì²« í™”ë©´ í•¨ìˆ˜ ================
 
 void MainScreen(void)
 {
-    char key;			// ¹æÇâÅ° ÀÔ·Â º¯¼ö
+    char key;			// ë°©í–¥í‚¤ ì…ë ¥ ë³€ìˆ˜
     while (1)
     {
 
         int i, j;
 
-        ////DrawMap();    // Å×µÎ¸®¸¦ ±×¸² 
+        ////DrawMap();    // í…Œë‘ë¦¬ë¥¼ ê·¸ë¦¼ 
         //for (i = MAP_Y + 1; i < MAP_Y + MAP_HEIGHT - 1; i++) 
         //{ 
-        //    // Å×µÎ¸® ¾ÈÂÊÀ» ºóÄ­À¸·Î Ã¤¿ò 
+        //    // í…Œë‘ë¦¬ ì•ˆìª½ì„ ë¹ˆì¹¸ìœ¼ë¡œ ì±„ì›€ 
         //    for (j = MAP_X + 1; j < MAP_X + MAP_WIDTH - 1; j++)
         //    {
         //        gotoxy(j, i);
@@ -47,20 +47,20 @@ void MainScreen(void)
         //    }
         //}
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 2);
-        printf("  ´Ù¿ììÑ ÀÏÁ¤ °ü¸® ¼­ºñ½º \n");
+        printf("  ë‹¤ìš°äºº ì¼ì • ê´€ë¦¬ ì„œë¹„ìŠ¤ \n");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 5);
-        printf("¦£--------------------------¦¤");
+        printf("â”Œ--------------------------â”");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 6);
-        printf("¦¢        14 1000 2         ¦¢");
+        printf("â”‚        14 1000 2         â”‚");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 7);
-        printf("¦¦--------------------------¦¥");
+        printf("â””--------------------------â”˜");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 10);
-        printf("    È¸¿ø°¡ÀÔ ¢·  ¢¹  ·Î±×ÀÎ   ");
+        printf("    íšŒì›ê°€ì… â—  â–·  ë¡œê·¸ì¸   ");
         gotoxy(MAP_X + (MAP_WIDTH / 2) - 7, MAP_Y + 12);
-        printf("      TEAM ÀÏ»çÃµ¸®     ");
+        printf("      TEAM ì¼ì‚¬ì²œë¦¬     ");
 
 
-        // ¹æÇâÅ° <> ÀÔ·Â½Ã ½ÇÇà ·ÎÁ÷
+        // ë°©í–¥í‚¤ <> ì…ë ¥ì‹œ ì‹¤í–‰ ë¡œì§
         int flag = 1;
         while (1) 
         {
@@ -86,11 +86,11 @@ void MainScreen(void)
                 }
             }
 
-            // ¹æÇâÅ° <> ¿Ü µ¿ÀÛ ½Ã ¾È³»¹®
+            // ë°©í–¥í‚¤ <> ì™¸ ë™ì‘ ì‹œ ì•ˆë‚´ë¬¸
             if (flag == 1)
             {
                 gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
-                printf("< ¹æÇâÅ°¸¦ ´­·¯ ½ÃÀÛÇØÁÖ¼¼¿ä ! >");
+                printf("< ë°©í–¥í‚¤ë¥¼ ëˆŒëŸ¬ ì‹œì‘í•´ì£¼ì„¸ìš” ! >");
                 Sleep(800);
                 gotoxy(MAP_X + (MAP_WIDTH / 2) - 8, MAP_Y + 15);
                 printf("                                 ");
@@ -108,88 +108,88 @@ void MainScreen(void)
 void Reset(void) 
 {
     int i;
-    system("cls"); //È­¸éÀ» Áö¿ò 
-    DrawMap(); //¸Ê Å×µÎ¸®¸¦ ±×¸² 
+    system("cls"); //í™”ë©´ì„ ì§€ì›€ 
+    DrawMap(); //ë§µ í…Œë‘ë¦¬ë¥¼ ê·¸ë¦¼ 
 }
 
-// ========== Å×µÎ¸® ±×¸®´Â ÇÔ¼ö 
+// ========== í…Œë‘ë¦¬ ê·¸ë¦¬ëŠ” í•¨ìˆ˜ 
 void DrawMap(void)
 { 
     int i, j;
     for (i = 0; i < MAP_WIDTH; i++) 
     {
         gotoxy(MAP_X + i, MAP_Y);
-        printf("¡á");
+        printf("â– ");
     }
     for (i = MAP_Y + 1; i < MAP_Y + MAP_HEIGHT - 1; i++) 
     {
         gotoxy(MAP_X, i);
-        printf("¡á");
+        printf("â– ");
         gotoxy(MAP_X + MAP_WIDTH - 1, i);
-        printf("¡á");
+        printf("â– ");
 
     }
     for (i = 0; i < MAP_WIDTH; i++) 
     {
         gotoxy(MAP_X + i, MAP_Y + MAP_HEIGHT - 1);
-        printf("¡á");
+        printf("â– ");
 
     }
 }
 
 
 
-*/          // Å×µÎ¸® ±×¸°´Ù¸é È°¼ºÈ­ =====
+*/          // í…Œë‘ë¦¬ ê·¸ë¦°ë‹¤ë©´ í™œì„±í™” =====
 
 
 
 
 
 
-// ============ ´Ş·Â ÇÔ¼ö ================
+// ============ ë‹¬ë ¥ í•¨ìˆ˜ ================
 
 void Calender()
 {
-    // ´Ş·Â Ãâ·Â ÇÔ¼ö
+    // ë‹¬ë ¥ ì¶œë ¥ í•¨ìˆ˜
     int yyyy, mm, dd; 
     time_t timer = time(NULL);
     struct tm* t = localtime(&timer);
     
-    // ÇöÀç Á¢¼Ó ¿ù,ÀÏ ¾ò±â
+    // í˜„ì¬ ì ‘ì† ì›”,ì¼ ì–»ê¸°
     yyyy = t->tm_year + 1900;
     mm = t->tm_mon + 1;
     dd = t->tm_mday;
     
 
-    // ´Ş·Â ½ÃÀÛÀÏ, Á¾·áÀÏ °è»ê
+    // ë‹¬ë ¥ ì‹œì‘ì¼, ì¢…ë£Œì¼ ê³„ì‚°
     int start_day = GetDay(yyyy, mm);
     int day_num = GetMonth(yyyy, mm);
     
-    printf(" \n\n   \" Today is %d³â %d¿ù %dÀÏ \" \n", yyyy, mm, dd);
+    printf(" \n\n   \" Today is %dë…„ %dì›” %dì¼ \" \n", yyyy, mm, dd);
     printf(" ------------------------------ \n");
 
     
-    // ÇöÀç Á¢¼Ó ¿ù,ÀÏ ´Ş·Â Ãâ·Â ÇÔ¼ö·Î Àü´Ş
+    // í˜„ì¬ ì ‘ì† ì›”,ì¼ ë‹¬ë ¥ ì¶œë ¥ í•¨ìˆ˜ë¡œ ì „ë‹¬
     ScreenCal(start_day, day_num);
     
 }
 
 
 
-// ============ ´Ş·Â Ãâ·Â ÇÔ¼ö ================
+// ============ ë‹¬ë ¥ ì¶œë ¥ í•¨ìˆ˜ ================
 
 void ScreenCal(int start_day, int day_num)
 {
-    printf("  Sun Mon Tue Wed Thu Fri Sat\n");                      // ¿äÀÏ Ãâ·Â
+    printf("  Sun Mon Tue Wed Thu Fri Sat\n");                      // ìš”ì¼ ì¶œë ¥
 
     int i, day, sd;
 
     for (i = 0; i < start_day; i++)
     {
-        printf("    ");                                             // Ã¹ ÁÖ ½ÃÀÛ ³¯Â¥±îÁö °ø¹é Ãâ·Â
+        printf("    ");                                             // ì²« ì£¼ ì‹œì‘ ë‚ ì§œê¹Œì§€ ê³µë°± ì¶œë ¥
     }
 
-    for (day = 1, sd = start_day; day <= day_num; day++, sd++)      // ÀÏÁÖÀÏ ´ÜÀ§·Î ÀÏÀÚ Ãâ·Â
+    for (day = 1, sd = start_day; day <= day_num; day++, sd++)      // ì¼ì£¼ì¼ ë‹¨ìœ„ë¡œ ì¼ì ì¶œë ¥
     {
         printf("%4d", day);
 
@@ -209,7 +209,7 @@ void ScreenCal(int start_day, int day_num)
 
 
 
-// ============ ¿ùº° ½ÃÀÛ ³¯Â¥ °è»ê ÇÔ¼ö ================
+// ============ ì›”ë³„ ì‹œì‘ ë‚ ì§œ ê³„ì‚° í•¨ìˆ˜ ================
 
 int GetDay(int yyyy, int mm)
 {
@@ -232,7 +232,7 @@ int GetDay(int yyyy, int mm)
 
 
 
-// ============ ¿ùº° ¸¶Áö¸· ³¯Â¥ °è»ê ÇÔ¼ö ================
+// ============ ì›”ë³„ ë§ˆì§€ë§‰ ë‚ ì§œ ê³„ì‚° í•¨ìˆ˜ ================
 
 
 int GetMonth(int yyyy, int mm)
@@ -248,7 +248,7 @@ int GetMonth(int yyyy, int mm)
 
 
 
-// ============ ¸»ÀÏ °è»ê ÇÔ¼ö ================
+// ============ ë§ì¼ ê³„ì‚° í•¨ìˆ˜ ================
 
 int LeafYear(int yyyy)
 {
@@ -263,13 +263,13 @@ int LeafYear(int yyyy)
 }
 
 
-// ============ ·Î±×ÀÎ ¿Ï·á  ================
+// ============ ë¡œê·¸ì¸ ì™„ë£Œ  ================
 PERSON* UserPtr(PERSON user)
 {
-    // ±¸Á¶Ã¼ user µ¿Àû¸Ş¸ğ¸® ÇÒ´ç
+    // êµ¬ì¡°ì²´ user ë™ì ë©”ëª¨ë¦¬ í• ë‹¹
     PERSON* user_ptr = malloc(sizeof(PERSON));
 
-    // ±¸Á¶Ã¼ ¸â¹ö °ª ÇÒ´ç
+    // êµ¬ì¡°ì²´ ë©¤ë²„ ê°’ í• ë‹¹
     strcpy(user_ptr->id, user.id);
     strcpy(user_ptr->name, user.name);
     strcpy(user_ptr->pw, user.pw);
@@ -282,7 +282,7 @@ PERSON* UserPtr(PERSON user)
 
 
 
-// ============ ·Î±×¿Â ÇÔ¼ö ================
+// ============ ë¡œê·¸ì˜¨ í•¨ìˆ˜ ================
 
 void LogOn(PERSON user, char(*dept_str)[20])
 {
@@ -290,20 +290,20 @@ void LogOn(PERSON user, char(*dept_str)[20])
 
     system("cls");
     gotoxy(3, 1);
-    // Heap¿¡¼­ µ¥ÀÌÅÍ »ç¿ë
-    printf("È¯¿µÇÕ´Ï´Ù. %s´Ô :) \n", user_ptr->name);
-    printf("\n     id : %3s, ºÎ¼­ : %3s  \n",
+    // Heapì—ì„œ ë°ì´í„° ì‚¬ìš©
+    printf("í™˜ì˜í•©ë‹ˆë‹¤. %së‹˜ :) \n", user_ptr->name);
+    printf("\n     id : %3s, ë¶€ì„œ : %3s  \n",
         user_ptr->id, dept_str[user_ptr->dept]);
 
 
-    // ´Ş·Â Ãâ·Â
+    // ë‹¬ë ¥ ì¶œë ¥
     Calender();
 
 
     PrivateFileLoad(&user);
 
 
-    // menu Ãâ·Â
+    // menu ì¶œë ¥
     Menu(user_ptr);
 
 
@@ -319,7 +319,7 @@ void LogOn(PERSON user, char(*dept_str)[20])
 
 
 
-// ============ ÀÏÁ¤ »ı¼º È£Ãâ ÇÔ¼ö ================
+// ============ ì¼ì • ìƒì„± í˜¸ì¶œ í•¨ìˆ˜ ================
 
 void CreateEventScreen(PERSON *user_ptr)
 {
@@ -345,9 +345,9 @@ void CreateEventScreen(PERSON *user_ptr)
 
 
     
-    // Heap¿¡¼­ µ¥ÀÌÅÍ »ç¿ë
+    // Heapì—ì„œ ë°ì´í„° ì‚¬ìš©
 
-    printf("======== ÀÏÁ¤ »ı¼º ========= \n");
+    printf("======== ì¼ì • ìƒì„± ========= \n");
 
     // 1) id => user_ptr->id
 
@@ -357,7 +357,7 @@ void CreateEventScreen(PERSON *user_ptr)
 
     // ================= start =======================
 
-    tmp[0] = '\0';			// ÀÓ½Ã¹öÆÛ ÃÊ±âÈ­
+    tmp[0] = '\0';			// ì„ì‹œë²„í¼ ì´ˆê¸°í™”
     int date, year, month, day, result = 0;
 
     while (!result)
@@ -367,7 +367,7 @@ void CreateEventScreen(PERSON *user_ptr)
 
             gotoxy(3, 3);
 
-            printf("\n ÀÏÁ¤ ½ÃÀÛÀÏ (ex.20140704) : ");
+            printf("\n ì¼ì • ì‹œì‘ì¼ (ex.20140704) : ");
             printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
             gets(tmp);
@@ -388,23 +388,23 @@ void CreateEventScreen(PERSON *user_ptr)
 
 
 
-    tmp[0] = '\0';			// ÀÓ½Ã¹öÆÛ ÃÊ±âÈ­
+    tmp[0] = '\0';			// ì„ì‹œë²„í¼ ì´ˆê¸°í™”
 
 
     while (1)
     {
         do {
             gotoxy(3, 4);
-            printf("\n ÀÏÁ¤ ½ÃÀÛ½Ã°£ (ex. 1516) : ");
+            printf("\n ì¼ì • ì‹œì‘ì‹œê°„ (ex. 1516) : ");
             printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             gets(tmp);
 
-        } while (strlen(tmp) != 4);						// ½Ã°£ ÀÔ·Â 4ÀÚ¸® ³ÑÀ»½Ã ÀçÀÔ·Â ¿äÃ»
+        } while (strlen(tmp) != 4);						// ì‹œê°„ ì…ë ¥ 4ìë¦¬ ë„˜ì„ì‹œ ì¬ì…ë ¥ ìš”ì²­
 
         /*
-            ¹®ÀÚ¿­·Î ¹ŞÀº 4ÀÚ¸® ½Ã/ºĞ 2ÀÚ¸®¾¿ ²÷¾î,
-            intÇüÀ¸·Î ¸í½ÃÀû º¯È¯ ÈÄ À¯È¿ÇÑ ½Ã°£ÀÎÁö ÀçÈ®ÀÎ
-            ¿Ã¹Ù¸¥ ÀÔ·Â°ªÀÌ¸é GetTimeT ÇÔ¼ö·Î Àü´ŞÇÏ¿© ½Ã°£¿¡ ÀúÀå
+            ë¬¸ìì—´ë¡œ ë°›ì€ 4ìë¦¬ ì‹œ/ë¶„ 2ìë¦¬ì”© ëŠì–´,
+            intí˜•ìœ¼ë¡œ ëª…ì‹œì  ë³€í™˜ í›„ ìœ íš¨í•œ ì‹œê°„ì¸ì§€ ì¬í™•ì¸
+            ì˜¬ë°”ë¥¸ ì…ë ¥ê°’ì´ë©´ GetTimeT í•¨ìˆ˜ë¡œ ì „ë‹¬í•˜ì—¬ ì‹œê°„ì— ì €ì¥
         */
 
         for (i = 0; i < 4; i++)
@@ -445,7 +445,7 @@ void CreateEventScreen(PERSON *user_ptr)
         do {
 
             gotoxy(3, 6);
-            printf("\n ÀÏÁ¤ Á¾·áÀÏ (ex.20140704) : ");
+            printf("\n ì¼ì • ì¢…ë£Œì¼ (ex.20140704) : ");
             printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
             gets(tmp);
@@ -469,11 +469,11 @@ void CreateEventScreen(PERSON *user_ptr)
     {
         do {
             gotoxy(3, 7);
-            printf("\n ÀÏÁ¤ Á¾·á½Ã°£ (ex. 1516) : ");
+            printf("\n ì¼ì • ì¢…ë£Œì‹œê°„ (ex. 1516) : ");
             printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             gets(tmp);
 
-        } while (strlen(tmp) != 4);						// ½Ã°£ ÀÔ·Â 4ÀÚ¸® ³ÑÀ»½Ã ÀçÀÔ·Â ¿äÃ»
+        } while (strlen(tmp) != 4);						// ì‹œê°„ ì…ë ¥ 4ìë¦¬ ë„˜ì„ì‹œ ì¬ì…ë ¥ ìš”ì²­
 
 
         for (i = 0; i < 4; i++)
@@ -505,7 +505,7 @@ void CreateEventScreen(PERSON *user_ptr)
     // 3) title
 
     do {
-        printf("\n ÀÏÁ¤¸í : ");
+        printf("\n ì¼ì •ëª… : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         gets(tmp);
 
@@ -516,12 +516,12 @@ void CreateEventScreen(PERSON *user_ptr)
 
     // 4) tag
 
-    tmp[0] = '\0';			// ÀÓ½Ã¹öÆÛ ÃÊ±âÈ­
+    tmp[0] = '\0';			// ì„ì‹œë²„í¼ ì´ˆê¸°í™”
     tmp_i = -1;
 
     do {
 
-        printf("\n # tag  È¸»ç : 0, °³ÀÎ : 1, ±âÅ¸ : 2 ");
+        printf("\n # tag  íšŒì‚¬ : 0, ê°œì¸ : 1, ê¸°íƒ€ : 2 ");
         printf("\n Tag : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         scanf("%d%*c", &tmp_i);
@@ -532,10 +532,10 @@ void CreateEventScreen(PERSON *user_ptr)
 
 
 
-    // 5) public ¿©ºÎ 1(Y): °ø¿ë, 0(N): °³ÀÎ
+    // 5) public ì—¬ë¶€ 1(Y): ê³µìš©, 0(N): ê°œì¸
 
     do {
-        printf("\n °ø°³ ¿©ºÎ(Y / N) : ");
+        printf("\n ê³µê°œ ì—¬ë¶€(Y / N) : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
         ch = getchar();
@@ -552,13 +552,13 @@ void CreateEventScreen(PERSON *user_ptr)
     }
 
 
-    //6) Áß¿äµµ
+    //6) ì¤‘ìš”ë„
 
-    tmp_i = 0; // º¯¼ö ÃÊ±âÈ­
+    tmp_i = 0; // ë³€ìˆ˜ ì´ˆê¸°í™”
 
     do {
 
-        printf("\n Áß¿äµµ (0-5) : ");
+        printf("\n ì¤‘ìš”ë„ (0-5) : ");
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
         scanf("%d%*c", &tmp_i);
@@ -570,64 +570,66 @@ void CreateEventScreen(PERSON *user_ptr)
 
 
 
-    // ÀÔ·Â Àü´Ş
+    // ì…ë ¥ ì „ë‹¬
     CreateNewEvent(&myevent, user_ptr->id, start, end, title, tag, isPublic, imPortanceLevel);
     
 
-    // ÀÏÁ¤ ÀúÀå ¿Ï·á ¾Ë¸²
+    // ì¼ì • ì €ì¥ ì™„ë£Œ ì•Œë¦¼
 
     system("cls");
     gotoxy(3, 1);
     
-    printf("ÀÏÁ¤ÀÌ »ı¼ºµÇ¾ú½À´Ï´Ù. :-)");
+    printf("ì¼ì •ì´ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤. :-)");
 
     gotoxy(3, 5);
-    printf("    ¸ŞÀÎÀ¸·Î µ¹¾Æ°¡±â ¢·  ¢¹  ÀÏÁ¤ Ãß°¡ »ı¼º   ");
+    printf("    ë©”ì¸ìœ¼ë¡œ ëŒì•„ê°€ê¸° â—  â–·  ì¼ì • ì¶”ê°€ ìƒì„±   ");
 
 
     char dept_str[sizeof(user_ptr->dept)][20]
-        = { "¿øÀåÆÀ", "Ã¤³ÎÆÀ", "ÀÎÇÁ¶óÆÀ", "°æ¿µÁö¿øÆÀ" };  // ÆÀ name Ãâ·ÂÇÏ±â À§ÇÑ ¹è¿­
+        = { "ì›ì¥íŒ€", "ì±„ë„íŒ€", "ì¸í”„ë¼íŒ€", "ê²½ì˜ì§€ì›íŒ€" };  // íŒ€ name ì¶œë ¥í•˜ê¸° ìœ„í•œ ë°°ì—´
 
 
     char key;
-
-    if (_kbhit())
+    // í”Œë˜ê·¸
+    while (1)
     {
-        key = _getch();
-        if (key == -32)
+        if (_kbhit())
         {
             key = _getch();
-            switch (key)
+            if (key == -32)
             {
-            case LEFT:
-                LogOn(*user_ptr, dept_str);
-                break;
-            case RIGHT:
-                CreateEventScreen(user_ptr);
-                break;
+                key = _getch();
+                switch (key)
+                {
+                case LEFT:
+                    LogOn(*user_ptr, dept_str);
+                    break;
+                case RIGHT:
+                    CreateEventScreen(user_ptr);
+                    break;
+                }
             }
         }
     }
-
 }
 
 
 
 
-// ³¯Â¥ °Ë»ç ÇÔ¼ö 
+// ë‚ ì§œ ê²€ì‚¬ í•¨ìˆ˜ 
 
 int checkDate(int year, int month, int day) 
 {
-    // ¿ù °Ë»ç
+    // ì›” ê²€ì‚¬
     if (month <= 0 || 13 <= month)
     {
         return 0;
     }
 
-    // È¦¼ö ´Ş °Ë»ç
+    // í™€ìˆ˜ ë‹¬ ê²€ì‚¬
     if (month % 2 == 1) 
     {
-        // 1, 3, 5, 7¿ùÀº 31ÀÏ±îÁö ÀÖ´Ù.
+        // 1, 3, 5, 7ì›”ì€ 31ì¼ê¹Œì§€ ìˆë‹¤.
         if (1 <= month && month <= 7)
         {
             if (day <= 0 || day >= 32)
@@ -635,22 +637,22 @@ int checkDate(int year, int month, int day)
                 return 0;
             }
         }
-        // 9, 11¿ùÀº 30ÀÏ±îÁö ÀÖ´Ù.
+        // 9, 11ì›”ì€ 30ì¼ê¹Œì§€ ìˆë‹¤.
         else
         {
             if (day <= 0 || day >= 31) return 0;
         }
     }
-    // Â¦¼ö ´Ş °Ë»ç
+    // ì§ìˆ˜ ë‹¬ ê²€ì‚¬
     else
     {
-        // 2, 4, 6¿ù °Ë»ç
+        // 2, 4, 6ì›” ê²€ì‚¬
         if (month <= 6)
         {
-            // 2¿ù °Ë»ç
+            // 2ì›” ê²€ì‚¬
             if (month == 2)
             {
-                // 2¿ùÀº À±³â¿¡´Â 29ÀÏ±îÁö ÀÖ´Ù.
+                // 2ì›”ì€ ìœ¤ë…„ì—ëŠ” 29ì¼ê¹Œì§€ ìˆë‹¤.
                 if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
                 {
                     if (day <= 0 || day >= 30)
@@ -658,25 +660,25 @@ int checkDate(int year, int month, int day)
                         return 0;
                     }
                 }
-                // 2¿ùÀº Æò³â¿¡´Â 28ÀÏ±îÁö ÀÖ´Ù.
+                // 2ì›”ì€ í‰ë…„ì—ëŠ” 28ì¼ê¹Œì§€ ìˆë‹¤.
                 else if (day <= 0 || day >= 29)
                 {
                     return 0;
                 }
             }
-            // 4, 6¿ù °Ë»ç
+            // 4, 6ì›” ê²€ì‚¬
             else
             {
-                // 4, 6¿ùÀº 30ÀÏ±îÁö ÀÖ´Ù.
+                // 4, 6ì›”ì€ 30ì¼ê¹Œì§€ ìˆë‹¤.
                 if (day <= 0 || day >= 31)
                 {
                     return 0;
                 }
             }
         }
-        // 8, 10, 12¿ù °Ë»ç
+        // 8, 10, 12ì›” ê²€ì‚¬
         else {
-            // 8, 10, 12¿ùÀº 31ÀÏ±îÁö ÀÖ´Ù.
+            // 8, 10, 12ì›”ì€ 31ì¼ê¹Œì§€ ìˆë‹¤.
             if (day <= 0 || day >= 32)
             {
                 return 0;
