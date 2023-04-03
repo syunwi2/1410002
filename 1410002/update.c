@@ -44,7 +44,7 @@ long long int TimeUpdate()
 			}
 		}
 		year = atoi(year_ch) + 2000;
-		mon = atoi(mon_ch) + 1;
+		mon = atoi(mon_ch);
 		day = atoi(day_ch);
 		hour = atoi(hour_ch);
 		min = atoi(min_ch);

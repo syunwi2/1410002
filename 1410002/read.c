@@ -11,61 +11,61 @@ long long int TimeGet()
 
 void ChkChoice(EVENT* node, int choice)
 {
-    struct tm* tmpStart, *tmpEnd;
+    struct tm* tmpStart, * tmpEnd;
 
     tmpStart = localtime(&(node->start));
     tmpEnd = localtime(&(node->end));
 
-    if (choice == 1 )
+    if (choice == 1)
     {
 
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                  tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                  tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                  node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
+            tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
+            tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
+            node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
+            tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
+            tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
+            node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
+            tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
+            tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
+            node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
         printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
-                                                tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
-                                                tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
+            tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
+            tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
+            node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
 }
 
-void PrintEvent(EVENT* node, int choice, int t) 
+void PrintEvent(EVENT* node, int choice, int t)
 {
     long long int TimeSap;
     TimeSap = TimeGet();
-    if (TimeSap < node->start && node->start < TimeSap+86400 && t == 1)
+    if (TimeSap < node->start && node->start < TimeSap + 86400 && t == 1)
     {
         ChkChoice(node, choice);
     }
-    else if (TimeSap < node->start && node->start < TimeSap + 86400*7 && t == 2)
+    else if (TimeSap < node->start && node->start < TimeSap + 86400 * 7 && t == 2)
     {
         ChkChoice(node, choice);
     }
-    else if (t ==3)
+    else if (t == 3)
     {
         ChkChoice(node, choice);
     }
 }
 
-void InorderNode(EVENT* node, int choice, int t) 
+void InorderNode(EVENT* node, int choice, int t)
 {
     if (node == NULL)
     {
@@ -76,11 +76,11 @@ void InorderNode(EVENT* node, int choice, int t)
     InorderNode(node->next, choice, t);
 }
 
-void PersonalReadEvent(EVENT** root) 
+void PersonalReadEvent(EVENT** root)
 {
     int t, choice, slt;
     EVENT* node, * ptr;
-    
+
     if ((*root) == NULL)
     {
         printf("일정이 존재하지 않습니다.");
@@ -96,9 +96,9 @@ void PersonalReadEvent(EVENT** root)
 
     textcolor(15);
 
-    while(1)
+    while (1)
     {
-        do 
+        do
         {
 
             gotoxy(27, 17);
@@ -111,7 +111,7 @@ void PersonalReadEvent(EVENT** root)
             printf("       2.  개인 일정 출력       ");
             gotoxy(27, 21);
             printf("       3.  회사 일정 출력       ");
-            gotoxy(27, 22); 
+            gotoxy(27, 22);
             printf("       4.  기타 일정 출력      ");
             gotoxy(0, 23);
             printf("                                                                                                         ");
@@ -131,7 +131,7 @@ void PersonalReadEvent(EVENT** root)
             break;
         }
 
-  
+
 
         do
         {
@@ -140,7 +140,7 @@ void PersonalReadEvent(EVENT** root)
             printf("                             1.하루  2.일주일  3.전체  \n");
             printf("                           ▶ 조회 기간 : ");
             scanf_s("%d%*c", &t);
-        
+
         } while (t != 1 && t != 2 && t != 3);
 
         gotoxy(27, 30);
@@ -168,8 +168,8 @@ void PersonalReadEvent(EVENT** root)
         }
 
         textcolor(14);
-        do 
-        {   
+        do
+        {
 
             printf("                        일정을 수정하시거나 삭제하겠습니까? \n");
             printf("                           1.수정  2.삭제  3.다시 조회     \n");
@@ -229,7 +229,7 @@ void PrintEventCom(EVENT* node)
         node->title, node->importanceLevel);
 }
 
-void InorderNodeCom(EVENT* node) 
+void InorderNodeCom(EVENT* node)
 {
     if (node == NULL)
     {
