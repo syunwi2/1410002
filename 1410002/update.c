@@ -8,7 +8,7 @@ long long int TimeUpdate()
 	//printf("choice");
 	char tmp[100];
 	tmp[0] = '\0';
-	char year_ch[10], mon_ch[10], day_ch[10], hour_ch[10], min_ch[10];
+	char year_ch[10] = { 0 } , mon_ch[10] = { 0 }, day_ch[10] = { 0 }, hour_ch[10] = { 0 }, min_ch[10] = { 0 };
 	int year, mon, day, hour, min;
 
 	while (1)
@@ -26,15 +26,15 @@ long long int TimeUpdate()
 			{
 				year_ch[i] = tmp[i];
 			}
-			else if (2 <= i < 4)
+			else if (2 <= i && i < 4)
 			{
 				mon_ch[i - 2] = tmp[i];
 			}
-			else if (4 <= i < 6)
+			else if (4 <= i && i < 6)
 			{
 				day_ch[i - 4] = tmp[i];
 			}
-			else if (6 <= i < 8)
+			else if (6 <= i && i < 8)
 			{
 				hour_ch[i - 6] = tmp[i];
 			}
@@ -43,7 +43,7 @@ long long int TimeUpdate()
 				min_ch[i - 8] = tmp[i];
 			}
 		}
-		year = atoi(year_ch);
+		year = atoi(year_ch) + 2000;
 		mon = atoi(mon_ch);
 		day = atoi(day_ch);
 		hour = atoi(hour_ch);
@@ -62,7 +62,7 @@ void UpdateEvent(EVENT** root)
 {
 	int chk, findnum, chk_con;
 	EVENT* node, buffer;
-	char tmp[100];
+	char tmp[100], findid[7] = { 0 };
 	node = *root;
 	printf("일정을 수정 할 수 있습니다. \n");
 	printf("어떤 일정을 수정하시겠습니까? \n");
@@ -81,21 +81,23 @@ void UpdateEvent(EVENT** root)
 	//수정 노드 선택
 	printf("삭제할 노드 번호 선택 : \n");
 	scanf_s("%d%*c", &findnum);
+	sprintf(findid, "%.6d", findnum);
 
 	EVENT* ptr = "";
-	while (node != NULL &&  findnum!= node->nodeID) 
+	while (node != NULL) 
 	{
-		if ( node->start > findnum)
-		{
-			node = node->prev;
-		}
-		else if (node->start < findnum)
+		if ( strcmp(node->nodeID, findid) < 0 )
 		{
 			node = node->next;
+		}
+		else if ( strcmp(node->nodeID, findid) > 0 )
+		{
+			node = node->prev;
 		}
 		else
 		{
 			ptr = node;
+			break;
 		}
 	}
 
@@ -126,16 +128,19 @@ void UpdateEvent(EVENT** root)
 		// 시작일 수정
 		if (chk_con == 1)
 		{
+
 			buffer.start = TimeUpdate();
 		}
 		// 종료일 수정
 		else if (chk_con == 2)
 		{
+
 			buffer.end = TimeUpdate();
 		}
 		// 제목 수정
 		else if (chk_con == 3)
 		{
+			printf("회사 : 0, 개인 : 1, 기타 : 2 \n");
 			do
 			{
 				printf("일정 내용 : \n");
