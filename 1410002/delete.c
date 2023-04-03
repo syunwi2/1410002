@@ -93,9 +93,10 @@ void DeleteEvent(EVENT** root, EVENT* node)
 			}
 		}
 	}
-	free(node);
+	
+	BalanceTree(*root, node);
 
-	UpdateRoot(root);
+	free(node);
 }
 
 /*

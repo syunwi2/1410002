@@ -1,19 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <Windows.h>		// gotoxy 헤더파일
+#include "signup.h"
 
-#include "user.h"
-#include "screen.h"
-#include "schedule.h"
-
+#include "signup.h"
 #pragma warning(disable :4996)
+
+
+// ============ 회원가입 함수 ================
 
 void SignUp()
 {
 	PERSON user;
-	char tmp[100];		// 입력값제어 임시 배열, 변수
-	int i;					// 임시 변수
+	char tmp[100];						// 입력값제어 임시 배열, 변수
+
+	int i=0;				// 임시 변수
 	char dept_str[sizeof(user.dept)][20]
 		= { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
 
@@ -26,19 +24,22 @@ void SignUp()
 
 
 
-
 	// ============ id 입력 ================
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
+
 	while (1)
 	{
 		do {
 			gotoxy(0, 4);
 			printf(" >>> ID를 1 - 20글자 내로 입력해주세요. \n");
-			printf("     ID : ");
+			printf("     ID : ");		// ID 입력
+			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
-		} while (strlen(tmp) >= sizeof(user.id) || (strlen(tmp) < 1));
-		
+
+		} while (strlen(tmp) >= sizeof(user.id) || strlen(tmp) < 1); 	// 설정한 배열값보다 크면 다시 입력받음
+
+
 
 		// user.txt > 기존회원 데이터 읽어 id 중복체크 
 		FILE* op;
@@ -89,6 +90,7 @@ void SignUp()
 		gotoxy(0, 7);
 		printf(" >>> 이름을 1-20글자 내로 입력해주세요. \n");
 		printf("     Name : ");
+		printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		gets(tmp);
 
 	} while (strlen(tmp) >= sizeof(user.name) || (strlen(tmp) < 1));
@@ -99,32 +101,20 @@ void SignUp()
 
 
 
+
 	// ============ 비밀번호 입력 ================
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
+	i = 0;					// 변수 초기화
+
+
 	do {
 		gotoxy(0, 10);
 		printf(" >>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
-		printf("     PW : ");
+		printf("     PW : ");		// PW 입력
+		printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		gets(tmp);
 
-		/* 비밀번호 입력시 암호화하기 위한 코드 (예정)
-			while (1) {
-				// 사용자에게 문자를 입력받는다.
-				ch = _getch();
-				// 해당 문자가 엔터키면 작업을 중단한다.
-				if (ch == '\r')
-				{
-					break;
-				}
-				else
-				{
-					_putch('*');
-				}
-
-				// 엔터키가 아니면 '*'문자를 출력한다.
-			}
-		*/
 
 	} while (strlen(tmp) >= sizeof(user.pw) || (strlen(tmp) < 1));
 
@@ -142,6 +132,7 @@ void SignUp()
 		printf(" >>> 부서를 선택해주세요. (0-3) \n");
 		printf("     원장 : 0, 채널 : 1, 인프라 : 2, 경영지원 : 3 \n");
 		printf("     Team : ");
+		printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		scanf("%d%*c", &i);
 
 	} while (i > (sizeof(user.dept)-1) || i < 0);
@@ -164,11 +155,19 @@ void SignUp()
 			gotoxy(0, 17);
 			printf(" >>> 생일을 알려주세요. ex) 0926 \n");
 			printf("     YYDD : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
 
-		} while (strlen(tmp) != 4);
+		} while (strlen(tmp) != 4);						// 생일 입력 4자리 넘을시 재입력 요청
 
-		
+
+
+		/*
+			문자열로 받은 4자리 월/일 2자리씩 끊어,
+			int형으로 명시적 변환 후 유효한 날짜인지 재확인
+			올바른 입력값이면 GetTimeT 함수로 전달하여 생일에 저장
+		*/ 
+
 		for (i = 0; i < 4; i++)
 		{
 			if (i < 2)
@@ -194,7 +193,6 @@ void SignUp()
 
 
 
-
 	// ============ user 파일에 입력 ================
 
 	FILE* fp;
@@ -210,28 +208,16 @@ void SignUp()
 
 	printf("파일 저장 완료. \n");
 
+	
+	EVENT* personalRoot = NULL;
+	EVENT* teamRoot = NULL;
 
-	// 구조체 user 동적메모리 할당
-	PERSON* user_ptr = malloc(sizeof(PERSON));
+	personalRoot = PrivateFileLoad(&user);
+	teamRoot = PublicFileLoad(&user);
 
-	// 구조체 멤버 값 할당
-	strcpy(user_ptr->id, user.id);
-	strcpy(user_ptr->name, user.name);
-	strcpy(user_ptr->pw, user.pw);
-	user_ptr->dept = user.dept;
-	user_ptr->birthday = user.birthday;
+	// ============ 로그인 완료화면 ================
 
-
-	// ============ 회원가입 완료화면 ================
-
-	system("cls");
-	gotoxy(5, 1);
-	printf("                                    \n");
-	printf("환영합니다. %s님 :) \n", user.name);
-	printf("                                    \n");
-	printf("\n id: %s \n name: %s \n pw: %s \n 부서: %s \n 생일: %s \n",
-		user.id, user.name, user.pw, dept_str[user.dept], tmp);
-
+	LogOn(&personalRoot, &teamRoot, user, dept_str);
 
 
 } // SignUp() end.

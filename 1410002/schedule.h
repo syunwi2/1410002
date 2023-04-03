@@ -8,6 +8,7 @@
 typedef enum TAG { 회사, 개인, 기타 } TAG;
 
 typedef struct EVENT {
+	char nodeID[20];
 	char ownerID[20];
 	time_t start;
 	time_t end;
@@ -22,4 +23,8 @@ typedef struct EVENT {
 #endif
 
 time_t GetTimeT(int year, int mon, int day, int hour, int min);
-void UpdateRoot(EVENT** root);
+void BalanceTree(EVENT** root, EVENT* newNode);
+int GetBalanceFactor(EVENT* node);
+int GetHeight(EVENT* node);
+void LeftRotate(EVENT** root, EVENT* node);
+void RightRotate(EVENT** root, EVENT* node);
