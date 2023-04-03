@@ -94,6 +94,11 @@ void PersonalReadEvent(EVENT** root)
             scanf_s("%d%*c", &choice);
         } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5);
 
+        if (choice == 5)
+        {
+            break;
+        }
+
         do
         {
             printf("조회 할 기간을 선택해 주세요. \n");
@@ -122,10 +127,7 @@ void PersonalReadEvent(EVENT** root)
             printf("%s님의 기타일정\n", node->ownerID);
             InorderNode(node, choice, t);
         }
-        else
-        {
-            break;
-        }
+
     }
 }
 
