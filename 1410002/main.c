@@ -7,9 +7,7 @@
 void test();
 
 int main() {
-	//SetConsoleTitle();
-	system("mode con cols=86 lines=35");
-	//cols = 칸/행 (가로)  lines = 줄/열 (세로)
+	SetConsoleTitle("1410002 일사천리");
 	MainScreen();
 	test();
 }

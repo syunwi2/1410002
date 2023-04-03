@@ -13,11 +13,10 @@ void SignIn()
 
 
 	system("cls");
-	gotoxy(15, 7);
-	textcolor(14);
-	printf("                                                                            \n");
-	printf("                             ＊＊＊＊ login ＊＊＊＊                         \n");
-	printf("                                                                            \n");
+	gotoxy(3, 0);
+	printf("                                    \n");
+	printf(" ============= 로그인 ============= \n");
+	printf("                                    \n");
 
 
 
@@ -30,29 +29,16 @@ void SignIn()
 	i = 0;								// 변수 초기화
 	int buffer = 0;						
 	
-	textcolor(15);
-
-	// id, pw 입력칸
-
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │    id    │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │ password │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-
+	
 	while (1)
 	{
-		textcolor(15);
 		do {
-			// ID 입력
-			gotoxy(35, 12);
+			gotoxy(0, 4);
+			printf("     ID : ");		// ID 입력
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
-			gets(tmp_id);				
-			
-			// PW 입력
+			gets(tmp_id);
 
-			gotoxy(35, 15);
+			printf("\n     PW : ");		// PW 입력
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
 			while((tmp_pw[i] = getch()) != '\r')
@@ -81,7 +67,6 @@ void SignIn()
 			}
 
 			tmp_pw[i] = '\0';
-
 
 		} while (strlen(tmp_id) >= sizeof(user.id) || strlen(tmp_id) < 1		// 설정한 배열값보다 크면 다시 입력받음
 				|| strlen(tmp_pw) >= sizeof(user.pw) || strlen(tmp_pw) < 1);
@@ -125,8 +110,7 @@ void SignIn()
 		}
 		else
 		{
-			textcolor(14);
-			printf("\n\n                   ※  ID / PW를 다시 입력해주세요. \n");	
+			printf("\n\n     ※  ID / PW를 다시 입력해주세요. \n");	
 		}
 
 	} // 바깥 while(1) end.

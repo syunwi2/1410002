@@ -17,30 +17,25 @@ void SignUp()
 
 
 	system("cls");
-	textcolor(14);
-	gotoxy(5, 3);
-	printf("                        ＊＊＊＊ Sign Up ＊＊＊＊                        \n");
-	printf("                                                                            \n");
-	textcolor(15);
+	gotoxy(3, 0);
+	printf("                                     \n");
+	printf(" ============= 회원가입 ============= \n");
+	printf("                                     \n");
+
+
+
+	// ============ id 입력 ================
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
-	printf("\n");
-	printf("                      >>> ID를 1 - 20글자 내로 입력해주세요.     \n");
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │    id    │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-	printf("\n");
-
-
-
 
 	while (1)
 	{
 		do {
-			gotoxy(34, 8);	
+			gotoxy(0, 4);
+			printf(" >>> ID를 1 - 20글자 내로 입력해주세요. \n");
+			printf("     ID : ");		// ID 입력
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
-			// ID 입력
-			gets(tmp); 
+			gets(tmp);
 
 		} while (strlen(tmp) >= sizeof(user.id) || strlen(tmp) < 1); 	// 설정한 배열값보다 크면 다시 입력받음
 
@@ -71,8 +66,7 @@ void SignUp()
 			// id가 중복이면 체크
 			if (strcmp(tmp, ex_user.id) == 0)
 			{
-				gotoxy(25, 10);
-				printf("※  중복된 id가 있습니다. : %s \n", ex_user.id);
+				printf("     ※  중복된 id가 있습니다. : %s \n", ex_user.id);
 				flag = 0;
 			}
 
@@ -90,17 +84,12 @@ void SignUp()
 
 
 	// ============ 이름 입력 ================
-	printf("\n");
-	printf("                      >>> 이름을 1-20글자 내로 입력해주세요.     \n");
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │   name   │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-	printf("\n");
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
 	do {
-		gotoxy(34, 12);
-
+		gotoxy(0, 7);
+		printf(" >>> 이름을 1-20글자 내로 입력해주세요. \n");
+		printf("     Name : ");
 		printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		gets(tmp);
 
@@ -114,19 +103,15 @@ void SignUp()
 
 
 	// ============ 비밀번호 입력 ================
-	printf("\n");
-	printf("                      >>> 비밀번호를 1-20글자 내로 입력해주세요.  \n");
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │ password │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-	printf("\n");
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
 	i = 0;					// 변수 초기화
 
 
 	do {
-		gotoxy(34, 16);
+		gotoxy(0, 10);
+		printf(" >>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
+		printf("     PW : ");		// PW 입력
 		printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		gets(tmp);
 
@@ -141,18 +126,12 @@ void SignUp()
 
 	// ============ 부서 입력 ================
 
-	printf("\n");
-	printf("                      >>> 부서를 선택해주세요. (0-3)             \n");
-	printf("		       원장: 0, 채널: 1, 인프라: 2, 경영지원: 3 \n");
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │   dept   │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-	printf("\n");
-
 	do {
 
-		gotoxy(34, 21);
-
+		gotoxy(0, 13);
+		printf(" >>> 부서를 선택해주세요. (0-3) \n");
+		printf("     원장 : 0, 채널 : 1, 인프라 : 2, 경영지원 : 3 \n");
+		printf("     Team : ");
 		printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 		scanf("%d%*c", &i);
 
@@ -165,14 +144,6 @@ void SignUp()
 
 
 	// ============ 생일 입력 ================
-	
-	printf("\n");
-	printf("                      >>> 생일을 알려주세요. (YYDD) ex) 0926     \n");
-	printf("                    ┌────────────────────────────────────────┐ \n");
-	printf("                    │ birthday │                             │ \n");
-	printf("                    └────────────────────────────────────────┘ \n");
-	printf("\n");
-
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
 	char mon_ch[10], day_ch[10];
@@ -181,7 +152,9 @@ void SignUp()
 	while (1)
 	{
 		do {
-			gotoxy(34, 25);
+			gotoxy(0, 17);
+			printf(" >>> 생일을 알려주세요. ex) 0926 \n");
+			printf("     YYDD : ");
 			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
 
