@@ -95,7 +95,7 @@ void DeleteEvent(EVENT** root, EVENT* node)
 			}
 		}
 	}
-	
+
 	BalanceTree(*root, node);
 
 	free(node);

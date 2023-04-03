@@ -83,7 +83,7 @@ void UpdateEvent(EVENT** root)
 	scanf_s("%d%*c", &findnum);
 	sprintf(findid, "%.6d", findnum);
 
-	EVENT* ptr = NULL;
+	EVENT* ptr;
 	while (node != NULL) 
 	{
 		if ( strcmp(node->nodeID, findid) < 0 )
@@ -112,7 +112,7 @@ void UpdateEvent(EVENT** root)
 	
 	//기존 일정 정보 삭제
 	DeleteEvent(root, ptr);
-
+	ptr = NULL;
 	// 버퍼 초기화
 	tmp[0] = '\0';
 	
@@ -140,7 +140,6 @@ void UpdateEvent(EVENT** root)
 		// 제목 수정
 		else if (chk_con == 3)
 		{
-			printf("회사 : 0, 개인 : 1, 기타 : 2 \n");
 			do
 			{
 				printf("일정 내용 : \n");

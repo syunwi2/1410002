@@ -14,33 +14,33 @@ void ChkChoice(EVENT* node, int choice)
     struct tm* tmpStart, *tmpEnd;
 
     tmpStart = localtime(&(node->start));
-    tmpEnd = localtime(&(node->start));
+    tmpEnd = localtime(&(node->end));
 
     if (choice == 1 )
     {
 
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d 일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
                                                   tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                   tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
                                                   node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d 일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
                                                 tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                 tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
                                                 node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d 일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
                                                 tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                 tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
                                                 node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d 일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
                                                 tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                 tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
                                                 node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
@@ -85,7 +85,7 @@ void PersonalReadEvent(EVENT** root)
     {
         do 
         {
-            printf("%s님의 개인 일정을 출력하세요.\n", node->ownerID);
+            printf("개인 일정을 출력하세요.\n");
             printf("전체 일정 출력 : 1\n");
             printf("개인 일정 출력 : 2\n");
             printf("회사 일정 출력 : 3\n");
@@ -130,8 +130,8 @@ void PersonalReadEvent(EVENT** root)
         do 
         {   
             printf("일정을 수정하시거나 삭제하겠습니까? \n");
-            printf("수정 : 1, 삭제 : 2 다시조회 : 3");
-            scanf("%d", &slt);
+            printf("수정 : 1, 삭제 : 2 다시조회 : 3 \n");
+            scanf("%d%*c", &slt);
         } while (slt != 1 && slt != 2 && slt != 3);
         if (slt == 1)
         {
@@ -163,6 +163,8 @@ void PersonalReadEvent(EVENT** root)
                 }
             }
             DeleteEvent(root, ptr);
+            ptr = NULL;
+
         }
         else if (slt == 3)
         {
@@ -177,7 +179,7 @@ void PrintEventCom(EVENT* node)
 
     tmpStart = localtime(&(node->start));
     tmpEnd = localtime(&(node->start));
-    printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d 일정: %s 중요도: %d\n", node->nodeID,
+    printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 중요도: %d\n", node->nodeID,
         tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
         tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
         node->title, node->importanceLevel);
