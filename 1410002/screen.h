@@ -21,4 +21,5 @@ int GetDay(int yyyy, int mm);					// 날짜 일수
 int GetMonth(int yyyy, int mm);					// 날짜 월
 int LeafYear(int yyyy);							// 말일 계산
 void ScreenCal(int start_day, int day_num);		// 달력 출력
+void LogOn(PERSON user, char(*dept_str)[20]);	// 로그온 함수
 int checkDate(int year, int month, int day);	// 날짜 검사 함수

@@ -8,7 +8,8 @@
 void SignUp()
 {
 	PERSON user;
-	char tmp[100];		// 입력값제어 임시 배열, 변수
+	char tmp[100];						// 입력값제어 임시 배열, 변수
+
 	int i=0;				// 임시 변수
 	char dept_str[sizeof(user.dept)][20]
 		= { "원장팀", "채널팀", "인프라팀", "경영지원팀" };  // 팀 name 출력하기 위한 배열
@@ -25,16 +26,19 @@ void SignUp()
 	// ============ id 입력 ================
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
+
 	while (1)
 	{
 		do {
 			gotoxy(0, 4);
 			printf(" >>> ID를 1 - 20글자 내로 입력해주세요. \n");
-			printf("     ID : ");
-			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+			printf("     ID : ");		// ID 입력
+			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
-		} while (strlen(tmp) >= sizeof(user.id) || (strlen(tmp) < 1));
-		
+
+		} while (strlen(tmp) >= sizeof(user.id) || strlen(tmp) < 1); 	// 설정한 배열값보다 크면 다시 입력받음
+
+
 
 		// user.txt > 기존회원 데이터 읽어 id 중복체크 
 		FILE* op;
@@ -96,34 +100,19 @@ void SignUp()
 
 
 
+
 	// ============ 비밀번호 입력 ================
 
 	tmp[0] = '\0';			// 임시버퍼 초기화
 	i = 0;					// 변수 초기화
-	int buffer = 0;
+
 
 	do {
 		gotoxy(0, 10);
 		printf(" >>> 비밀번호를 1-20글자 내로 입력해주세요. \n");
 		printf("     PW : ");		// PW 입력
 		printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
-
-		for (i = 0;buffer != 13; i++)
-		{
-			tmp[i] = getch();
-
-			if (tmp[i] == '\n')
-			{
-				i--;
-				continue;
-			}
-
-			putch('*');
-
-			buffer = (int)tmp[i];	// buffer : 입력값이 엔터(13)인지 확인
-		}
-
-		tmp[i - 1] = '\0';
+		gets(tmp);
 
 
 	} while (strlen(tmp) >= sizeof(user.pw) || (strlen(tmp) < 1));
