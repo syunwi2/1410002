@@ -19,31 +19,31 @@ void ChkChoice(EVENT* node, int choice)
     if (choice == 1 )
     {
 
-        printf("nodeID: %s ì‹œì‘ì¼: %d %d %d %d %d ì¢…ë£Œì¼: %d %d %d %d %d \nì¼ì •: %s ê³µê°œì—¬ë¶€: %s ì¤‘ìš”ë„: %d\n", node->nodeID,
+        printf("nodeID: %s ½ÃÀÛÀÏ: %d %d %d %d %d Á¾·áÀÏ: %d %d %d %d %d \nÀÏÁ¤: %s °ø°³¿©ºÎ: %s Áß¿äµµ: %d\n", node->nodeID,
                                                   tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                   tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                  node->title, (node->isPublic == 1)? "ê³µê°œ": "ë¹„ê³µê°œ", node->importanceLevel);
+                                                  node->title, (node->isPublic == 1)? "°ø°³": "ºñ°ø°³", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
-        printf("nodeID: %s ì‹œì‘ì¼: %d %d %d %d %d ì¢…ë£Œì¼: %d %d %d %d %d \nì¼ì •: %s ê³µê°œì—¬ë¶€: %s ì¤‘ìš”ë„: %d\n", node->nodeID,
+        printf("nodeID: %s ½ÃÀÛÀÏ: %d %d %d %d %d Á¾·áÀÏ: %d %d %d %d %d \nÀÏÁ¤: %s °ø°³¿©ºÎ: %s Áß¿äµµ: %d\n", node->nodeID,
                                                 tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                 tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "ê³µê°œ" : "ë¹„ê³µê°œ", node->importanceLevel);
+                                                node->title, (node->isPublic == 1) ? "°ø°³" : "ºñ°ø°³", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
-        printf("nodeID: %s ì‹œì‘ì¼: %d %d %d %d %d ì¢…ë£Œì¼: %d %d %d %d %d \nì¼ì •: %s ê³µê°œì—¬ë¶€: %s ì¤‘ìš”ë„: %d\n", node->nodeID,
+        printf("nodeID: %s ½ÃÀÛÀÏ: %d %d %d %d %d Á¾·áÀÏ: %d %d %d %d %d \nÀÏÁ¤: %s °ø°³¿©ºÎ: %s Áß¿äµµ: %d\n", node->nodeID,
                                                 tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                 tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "ê³µê°œ" : "ë¹„ê³µê°œ", node->importanceLevel);
+                                                node->title, (node->isPublic == 1) ? "°ø°³" : "ºñ°ø°³", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
-        printf("nodeID: %s ì‹œì‘ì¼: %d %d %d %d %d ì¢…ë£Œì¼: %d %d %d %d %d \nì¼ì •: %s ê³µê°œì—¬ë¶€: %s ì¤‘ìš”ë„: %d\n", node->nodeID,
+        printf("nodeID: %s ½ÃÀÛÀÏ: %d %d %d %d %d Á¾·áÀÏ: %d %d %d %d %d \nÀÏÁ¤: %s °ø°³¿©ºÎ: %s Áß¿äµµ: %d\n", node->nodeID,
                                                 tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
                                                 tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
-                                                node->title, (node->isPublic == 1) ? "ê³µê°œ" : "ë¹„ê³µê°œ", node->importanceLevel);
+                                                node->title, (node->isPublic == 1) ? "°ø°³" : "ºñ°ø°³", node->importanceLevel);
     }
 }
 
@@ -81,16 +81,16 @@ void PersonalReadEvent(EVENT** root)
     int t, choice, slt;
     EVENT* node, * ptr;
     
-    if (node == NULL)
+    if ((*root) == NULL)
     {
-        printf("ì¼ì •ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+        printf("ÀÏÁ¤ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
         return;
     }
     textcolor(14);
     gotoxy(27, 13);
     printf("==================================");
     gotoxy(27, 14);
-    printf("        2. ê°œì¸ ì¼ì • ì¡°íšŒ         ");
+    printf("        2. °³ÀÎ ÀÏÁ¤ Á¶È¸         ");
     gotoxy(27, 15);
     printf("==================================");
 
@@ -102,26 +102,26 @@ void PersonalReadEvent(EVENT** root)
         {
 
             gotoxy(27, 17);
-            printf("%së‹˜ì˜ ê°œì¸ ì¼ì •ì„ ì¶œë ¥í•˜ì„¸ìš”.", node->ownerID);
+            printf("%s´ÔÀÇ °³ÀÎ ÀÏÁ¤À» Ãâ·ÂÇÏ¼¼¿ä.", (*root)->ownerID);
             gotoxy(27, 18);
             printf("                                            ");
             gotoxy(27, 19);
-            printf("       1.  ì „ì²´ ì¼ì • ì¶œë ¥      ");
+            printf("       1.  ÀüÃ¼ ÀÏÁ¤ Ãâ·Â      ");
             gotoxy(27, 20);
-            printf("       2.  ê°œì¸ ì¼ì • ì¶œë ¥       ");
+            printf("       2.  °³ÀÎ ÀÏÁ¤ Ãâ·Â       ");
             gotoxy(27, 21);
-            printf("       3.  íšŒì‚¬ ì¼ì • ì¶œë ¥       ");
+            printf("       3.  È¸»ç ÀÏÁ¤ Ãâ·Â       ");
             gotoxy(27, 22); 
-            printf("       4.  ê¸°íƒ€ ì¼ì • ì¶œë ¥      ");
+            printf("       4.  ±âÅ¸ ÀÏÁ¤ Ãâ·Â      ");
             gotoxy(0, 23);
             printf("                                                                                                         ");
             gotoxy(27, 23);
-            printf("       5.  ì¡°íšŒ ì¢…ë£Œ                         \n");
+            printf("       5.  Á¶È¸ Á¾·á                         \n");
             printf("                                                                           ");
 
             gotoxy(27, 25);
             textcolor(14);
-            printf("â–¶ ì›í•˜ëŠ” ì‘ì—…ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”. : ");
+            printf("¢º ¿øÇÏ´Â ÀÛ¾÷¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä. : ");
 
             scanf_s("%d%*c", &choice);
         } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5);
@@ -136,9 +136,9 @@ void PersonalReadEvent(EVENT** root)
         do
         {
             gotoxy(27, 27);
-            printf("  ì¡°íšŒ í•  ê¸°ê°„ì„ ì„ íƒí•´ ì£¼ì„¸ìš”. \n");
-            printf("                             1.í•˜ë£¨  2.ì¼ì£¼ì¼  3.ì „ì²´  \n");
-            printf("                           â–¶ ì¡°íšŒ ê¸°ê°„ : ");
+            printf("  Á¶È¸ ÇÒ ±â°£À» ¼±ÅÃÇØ ÁÖ¼¼¿ä. \n");
+            printf("                             1.ÇÏ·ç  2.ÀÏÁÖÀÏ  3.ÀüÃ¼  \n");
+            printf("                           ¢º Á¶È¸ ±â°£ : ");
             scanf_s("%d%*c", &t);
         
         } while (t != 1 && t != 2 && t != 3);
@@ -148,32 +148,32 @@ void PersonalReadEvent(EVENT** root)
 
         if (choice == 1)
         {
-            printf("%së‹˜ì˜ ì¼ì •\n", (*root)->ownerID);
+            printf("%s´ÔÀÇ ÀÏÁ¤\n", (*root)->ownerID);
             InorderNode((*root), choice, t);
         }
         else if (choice == 2)
         {
-            printf("%së‹˜ì˜ ê°œì¸ì¼ì •\n", (*root)->ownerID);
+            printf("%s´ÔÀÇ °³ÀÎÀÏÁ¤\n", (*root)->ownerID);
             InorderNode((*root), choice, t);
         }
         else if (choice == 3)
         {
-            printf("%së‹˜ì˜ íšŒì‚¬ì¼ì •\n", (*root)->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s´ÔÀÇ È¸»çÀÏÁ¤\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
         else if (choice == 4)
         {
-            printf("%së‹˜ì˜ ê¸°íƒ€ì¼ì •\n", (*root)->ownerID);
-            InorderNode(node, choice, t);
+            printf("%s´ÔÀÇ ±âÅ¸ÀÏÁ¤\n", (*root)->ownerID);
+            InorderNode((*root), choice, t);
         }
 
         textcolor(14);
         do 
         {   
 
-            printf("                        ì¼ì •ì„ ìˆ˜ì •í•˜ì‹œê±°ë‚˜ ì‚­ì œí•˜ê² ìŠµë‹ˆê¹Œ? \n");
-            printf("                           1.ìˆ˜ì •  2.ì‚­ì œ  3.ë‹¤ì‹œ ì¡°íšŒ     \n");
-            printf("                        â–¶ ì¼ì • ìˆ˜ì •/ì‚­ì œ ì—¬ë¶€ : ");
+            printf("                        ÀÏÁ¤À» ¼öÁ¤ÇÏ½Ã°Å³ª »èÁ¦ÇÏ°Ú½À´Ï±î? \n");
+            printf("                           1.¼öÁ¤  2.»èÁ¦  3.´Ù½Ã Á¶È¸     \n");
+            printf("                        ¢º ÀÏÁ¤ ¼öÁ¤/»èÁ¦ ¿©ºÎ : ");
 
             scanf("%d", &slt);
         } while (slt != 1 && slt != 2 && slt != 3);
@@ -185,7 +185,7 @@ void PersonalReadEvent(EVENT** root)
         {
             int findnum;
             char findid[7] = { 0 };
-            printf("ì‚­ì œí•  ë…¸ë“œ ë²ˆí˜¸ ì„ íƒ : \n");
+            printf("»èÁ¦ÇÒ ³ëµå ¹øÈ£ ¼±ÅÃ : \n");
             scanf_s("%d%*c", &findnum);
             sprintf(findid, "%.6d", findnum);
 
@@ -223,7 +223,7 @@ void PrintEventCom(EVENT* node)
 
     tmpStart = localtime(&(node->start));
     tmpEnd = localtime(&(node->start));
-    printf("nodeID: %s ì‹œì‘ì¼: %d %d %d %d %d ì¢…ë£Œì¼: %d %d %d %d %d \nì¼ì •: %s ì¤‘ìš”ë„: %d\n", node->nodeID,
+    printf("nodeID: %s ½ÃÀÛÀÏ: %d %d %d %d %d Á¾·áÀÏ: %d %d %d %d %d \nÀÏÁ¤: %s Áß¿äµµ: %d\n", node->nodeID,
         tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
         tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
         node->title, node->importanceLevel);
@@ -247,6 +247,6 @@ void PublicReadEvent(EVENT** root)
     node = *root;
     //TimeCheck();
 
-    printf("íŒ€ ì¼ì •ì„ ì¶œë ¥í•˜ì„¸ìš”.\n");
+    printf("ÆÀ ÀÏÁ¤À» Ãâ·ÂÇÏ¼¼¿ä.\n");
     InorderNodeCom(node);
 }
