@@ -6,5 +6,6 @@
 #include "create.h"
 #include "read.h"
 #include "delete.h"
+#include "screen.h"
 
 void UpdateEvent(EVENT** root);

@@ -66,9 +66,9 @@ long long int TimeUpdate()
 	return tmpt;
 }
  
-void UpdateEvent(EVENT** root, PERSON* user)
+void UpdateEvent(EVENT** root)
 {
-	int chk;
+	int chk, findnum;
 	EVENT* node, buffer;
 	node = *root;
 	printf("일정을 수정 할 수 있습니다. \n");
@@ -83,27 +83,27 @@ void UpdateEvent(EVENT** root, PERSON* user)
 	{
 		PersonalReadEvent(root);
 	}
-
+	scanf_s("%d", &findnum);
 	//수정 노드 선택
 
-	//EVENT* ptr = "";
-	//while (node != NULL && tmpt != node->start) 
-	//{
-	//	if ( node->start > tmpt) 
-	//	{
-	//		node = node->prev;
-	//	}
-	//	else if (node->start < tmpt)
-	//	{
-	//		node = node->next;
-	//	}
-	//	else
-	//	{
-	//		ptr = node;
-	//	}
-	//}
+	EVENT* ptr = "";
+	while (node != NULL &&  findnum!= node->nodeID) 
+	{
+		if ( node->start > findnum)
+		{
+			node = node->prev;
+		}
+		else if (node->start < findnum)
+		{
+			node = node->next;
+		}
+		else
+		{
+			ptr = node;
+		}
+	}
 
-	strcpy(buffer.ownerID, ptr->ownerID);
+	strcpy(buffer.nodeID, ptr->nodeID);
 	buffer.start = ptr->start;
 	buffer.end = ptr->end;
 	strcpy(buffer.title, ptr->title);
@@ -115,25 +115,102 @@ void UpdateEvent(EVENT** root, PERSON* user)
 	DeleteEvent(root, ptr);
 
 	// 버퍼 초기화
+	char tmp[100];
 	tmp[0] = '\0';
 	int chk_con;
 	do
 	{
+	// 새 일정 정보 생성
 
 	printf("어떤 정보를 수정 하겠습니까? \n");
 	printf("1. 시작일 2. 종료일 3. 제목 4. 태그 5. ispublic 6. 중요도 \n");
 	scanf_s("%d", &chk_con);
 	} while (chk_con != 1 && chk_con != 2 && chk_con != 3 && chk_con != 4 &&
 		chk_con != 5 && chk_con != 6);
+	long long int tmpt_res;
 	if (chk_con == 1)
 	{
-		
-		CreateNewEvent(root, user->id, buffer.start, buffer.end, 
+		tmpt_res =TimeUpdate();
+		CreateNewEvent(root, buffer.nodeID, tmpt_res, buffer.end,
 			buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
-
 	}
+	else if (chk_con == 2)
+	{
+		tmpt_res = TimeUpdate();
+		CreateNewEvent(root, buffer.nodeID, buffer.start, tmpt_res,
+			buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
+	}
+	else if (chk_con == 3)
+	{
+		do {
+			printf("\n 일정명 : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+			gets(tmp);
 
-	// 새 일정 정보 생성
+		} while (strlen(tmp) >= 100);
+		//strcpy(title, tmp);
+		CreateNewEvent(root, buffer.nodeID, buffer.start, buffer.end,
+			tmp, buffer.tag, buffer.isPublic, buffer.importanceLevel);
+	}
+	else if (chk_con == 4)
+	{
+		int tmp_i;
+		tmp[0] = '\0';			// 임시버퍼 초기화
+		tmp_i = -1;
+
+		do {
+
+			printf("\n # tag  회사 : 0, 개인 : 1, 기타 : 2 ");
+			printf("\n Tag : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+			scanf("%d%*c", &tmp_i);
+
+		} while (tmp_i < 0 && tmp_i >= sizeof(TAG));
+
+		CreateNewEvent(root, buffer.nodeID, buffer.start, buffer.end,
+			buffer.title, tmp_i, buffer.isPublic, buffer.importanceLevel);
+	}
+	else if (chk_con == 5)
+	{
+		char ch;
+		int isPublic;
+		do {
+			printf("\n 공개 여부(Y / N) : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+			ch = getchar();
+
+		} while (ch != 'y' && ch != 'Y' && ch != 'n' && ch != 'N');
+
+		if (ch == 'y' || ch == 'Y')
+		{
+			isPublic = 1;
+		}
+		else
+		{
+			isPublic = 0;
+		}
+
+		CreateNewEvent(root, buffer.nodeID, buffer.start, buffer.end,
+			buffer.title, buffer.tag, isPublic, buffer.importanceLevel);
+	}
+	else if (chk_con == 6)
+	{
+		int tmp_i = 0; // 변수 초기화
+
+		do {
+
+			printf("\n 중요도 (0-5) : ");
+			printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
+			scanf_s("%d%*c", &tmp_i);
+
+		} while (tmp_i > 5 || tmp_i < 0);
+
+		CreateNewEvent(root, buffer.nodeID, buffer.start, buffer.end,
+			buffer.title, buffer.tag, buffer.isPublic, tmp_i);
+	}
+	
 	
 	//팀파일에서 수정
 	//DeleteEvent(root, ptr);
