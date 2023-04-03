@@ -9,7 +9,7 @@ void test();
 
 int main() {
 	
-	MainScreen();
+	//MainScreen();
 	test();
 }
 
@@ -37,9 +37,9 @@ void test() {
 	CreateNewEvent(&myEvent, "id", start, end, title, tag, isPublic, importanceLevel);
 
 	// 두 번째 이벤트
-	start = GetTimeT(2023, 2, 28, 12, 00);
-	end = GetTimeT(2023, 2, 28, 13, 00);
-	title = "title";
+	start = GetTimeT(2023, 1, 28, 12, 00);
+	end = GetTimeT(2023, 1, 28, 13, 00);
+	title = "title2";
 	tag = 회사;
 	isPublic = 1;
 	importanceLevel = 1;

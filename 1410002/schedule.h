@@ -8,6 +8,7 @@
 typedef enum TAG { 회사, 개인, 기타 } TAG;
 
 typedef struct EVENT {
+	char nodeID[20];
 	char ownerID[20];
 	time_t start;
 	time_t end;
