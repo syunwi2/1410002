@@ -69,7 +69,7 @@ void UpdateEvent(EVENT** root)
 	//일정 전체 출력
 	do
 	{
-		printf("일정 다시 확인하기 (yes: 1, no: 2)\n");
+		printf("일정 다시 확인하기 (다시조회: 1, 수정하기: 2)\n");
 		scanf_s("%d%*c", &chk);
 	} while (chk != 1 && chk != 2);
 
@@ -79,11 +79,11 @@ void UpdateEvent(EVENT** root)
 	}
 
 	//수정 노드 선택
-	printf("삭제할 노드 번호 선택 : \n");
+	printf("수정할 노드 번호 선택 : \n");
 	scanf_s("%d%*c", &findnum);
 	sprintf(findid, "%.6d", findnum);
 
-	EVENT* ptr = "";
+	EVENT* ptr = NULL;
 	while (node != NULL) 
 	{
 		if ( strcmp(node->nodeID, findid) < 0 )

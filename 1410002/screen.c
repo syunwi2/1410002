@@ -31,30 +31,49 @@ void gotoxy(int x, int y)
 
 void MainScreen(void)
 {
+    textcolor(15);
     char key;			// ¹æÇâÅ° ÀÔ·Â º¯¼ö
     while (1)
     {
 
         int i, j;
 
-        gotoxy(3, 1);
-        printf("      ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡             \n");
-        printf("                  £ª£ª£ª£ª ´Ù¿ììÑ ÀÏÁ¤ °ü¸® ¼­ºñ½º £ª£ª£ª£ª                      \n");
-        printf("         ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡             \n");
         printf("                                                                                 \n");
-        printf("                     ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤                             \n");
-        printf("                     ¦¢        14 1000 2         ¦¢                             \n");
-        printf("                     ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥                             \n\n");
-        printf("                        È¸¿ø°¡ÀÔ ¢·  ¢¹  ·Î±×ÀÎ                                 \n\n");
         printf("                                                                                 \n");
-        printf("                            TEAM ÀÏ»çÃµ¸®                                      \n");
-        printf("         ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡             \n");
+        printf("                                                                                 \n");
+        printf("                                                                                 \n");
+        printf("                                                                                 \n");
+        printf("                                                                                 \n");
+        printf("             ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤              \n");
+        printf("             ¦¢                ´Ù¿ììÑ ÀÏÁ¤ °ü¸® ¼­ºñ½º                 ¦¢             \n");
+        printf("             ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦©               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢             ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤               ¦¢               \n");
+        printf("             ¦¢             ¦¢        1 4 1000 2        ¦¢               ¦¢               \n");
+        printf("             ¦¢             ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥               ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢               È¸¿ø°¡ÀÔ ¢·  ¢¹  ·Î±×ÀÎ                    ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¢                    TEAM ÀÏ»çÃµ¸®                       ¦¢               \n");
+        printf("             ¦¢                                                        ¦¢               \n");
+        printf("             ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥               \n");
+        printf("                                                                                 \n");
 
 
 
         // ¹æÇâÅ° <> ÀÔ·Â½Ã ½ÇÇà ·ÎÁ÷
         int flag = 1;
-        while (1) 
+        while (1)
         {
 
             if (_kbhit())
@@ -81,10 +100,12 @@ void MainScreen(void)
             // ¹æÇâÅ° <> ¿Ü µ¿ÀÛ ½Ã ¾È³»¹®
             if (flag == 1)
             {
-                gotoxy(MAP_X + (MAP_WIDTH / 2) , MAP_Y + 15);
+                textcolor(14);
+
+                gotoxy(MAP_X + (MAP_WIDTH / 2 + 8), MAP_Y + 19);
                 printf("< ¹æÇâÅ°¸¦ ´­·¯ ½ÃÀÛÇØÁÖ¼¼¿ä ! >");
                 Sleep(800);
-                gotoxy(MAP_X + (MAP_WIDTH / 2) , MAP_Y + 15);
+                gotoxy(MAP_X + (MAP_WIDTH / 2 + 8), MAP_Y + 19);
                 printf("                                 ");
                 Sleep(600);
 
@@ -100,75 +121,34 @@ void MainScreen(void)
 
 
 
-/*
-
-void Reset(void) 
-{
-    int i;
-    system("cls"); //È­¸éÀ» Áö¿ò 
-    DrawMap(); //¸Ê Å×µÎ¸®¸¦ ±×¸² 
-}
-
-// ========== Å×µÎ¸® ±×¸®´Â ÇÔ¼ö 
-void DrawMap(void)
-{ 
-    int i, j;
-    for (i = 0; i < MAP_WIDTH; i++) 
-    {
-        gotoxy(MAP_X + i, MAP_Y);
-        printf("¡á");
-    }
-    for (i = MAP_Y + 1; i < MAP_Y + MAP_HEIGHT - 1; i++) 
-    {
-        gotoxy(MAP_X, i);
-        printf("¡á");
-        gotoxy(MAP_X + MAP_WIDTH - 1, i);
-        printf("¡á");
-
-    }
-    for (i = 0; i < MAP_WIDTH; i++) 
-    {
-        gotoxy(MAP_X + i, MAP_Y + MAP_HEIGHT - 1);
-        printf("¡á");
-
-    }
-}
-
-
-
-*/          // Å×µÎ¸® ±×¸°´Ù¸é È°¼ºÈ­ =====
-
-
-
-
-
-
 // ============ ´Þ·Â ÇÔ¼ö ================
 
 void Calender()
 {
     // ´Þ·Â Ãâ·Â ÇÔ¼ö
-    int yyyy, mm, dd; 
+    int yyyy, mm, dd;
     time_t timer = time(NULL);
     struct tm* t = localtime(&timer);
-    
+
     // ÇöÀç Á¢¼Ó ¿ù,ÀÏ ¾ò±â
     yyyy = t->tm_year + 1900;
     mm = t->tm_mon + 1;
     dd = t->tm_mday;
-    
+
 
     // ´Þ·Â ½ÃÀÛÀÏ, Á¾·áÀÏ °è»ê
     int start_day = GetDay(yyyy, mm);
     int day_num = GetMonth(yyyy, mm);
-    
-    printf(" \n\n   \" Today is %d³â %d¿ù %dÀÏ \" \n", yyyy, mm, dd);
-    printf(" ------------------------------ \n");
 
-    
+    textcolor(15);
+    printf(" \n\n     \" Today is %d³â %d¿ù %dÀÏ \" \n", yyyy, mm, dd);
+    textcolor(14);
+    printf("  ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡ \n");
+
+
     // ÇöÀç Á¢¼Ó ¿ù,ÀÏ ´Þ·Â Ãâ·Â ÇÔ¼ö·Î Àü´Þ
     ScreenCal(start_day, day_num);
-    
+
 }
 
 
@@ -177,17 +157,20 @@ void Calender()
 
 void ScreenCal(int start_day, int day_num)
 {
-    printf("  Sun Mon Tue Wed Thu Fri Sat\n");                      // ¿äÀÏ Ãâ·Â
+    textcolor(14);
+    printf("   Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");                      // ¿äÀÏ Ãâ·Â
 
     int i, day, sd;
+    textcolor(15);
 
     for (i = 0; i < start_day; i++)
     {
-        printf("    ");                                             // Ã¹ ÁÖ ½ÃÀÛ ³¯Â¥±îÁö °ø¹é Ãâ·Â
+        printf("     ");                                             // Ã¹ ÁÖ ½ÃÀÛ ³¯Â¥±îÁö °ø¹é Ãâ·Â
     }
 
     for (day = 1, sd = start_day; day <= day_num; day++, sd++)      // ÀÏÁÖÀÏ ´ÜÀ§·Î ÀÏÀÚ Ãâ·Â
     {
+        printf(" ");
         printf("%4d", day);
 
         if (sd % 7 == 6)
@@ -237,7 +220,7 @@ int GetMonth(int yyyy, int mm)
     int day_of_month[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     day_of_month[2] += LeafYear(yyyy);
-    
+
     return day_of_month[mm];
 }
 
@@ -286,15 +269,31 @@ void LogOn(EVENT** personalRoot, EVENT** teamRoot, PERSON user, char(*dept_str)[
     PERSON* user_ptr = UserPtr(user);
 
     system("cls");
-    gotoxy(3, 1);
-    // Heap¿¡¼­ µ¥ÀÌÅÍ »ç¿ë
-    printf("È¯¿µÇÕ´Ï´Ù. %s´Ô :) \n", user_ptr->name);
-    printf("\n     id : %3s, ºÎ¼­ : %3s  \n",
-        user_ptr->id, dept_str[user_ptr->dept]);
-
-
-    // ´Þ·Â Ãâ·Â
     Calender();
+    gotoxy(55, 2);
+    // Heap¿¡¼­ µ¥ÀÌÅÍ »ç¿ë
+    textcolor(14);
+    printf(" È¯¿µÇÕ´Ï´Ù. %s´Ô :) \n", user_ptr->name);
+    textcolor(15);
+    gotoxy(55, 4);
+    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¨¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ ");
+    gotoxy(55, 5);
+    printf("¦¢  id ¦¢              ¦¢ ");
+    gotoxy(55, 6);
+    printf("¦§¦¡¦¡¦¡¦¡¦¡¦«¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦©");
+    gotoxy(55, 7);
+    printf("¦¢ ºÎ¼­¦¢              ¦¢");
+    gotoxy(55, 8);
+    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦ª¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ \n");
+
+    gotoxy(64, 5);
+    printf("%3s \n", user_ptr->id);
+    gotoxy(64, 7);
+    printf("%3s \n", dept_str[user_ptr->dept]);
+
+    PrivateFileLoad(&user);
+    PublicFileLoad(&user);
+
 
 
     // menu Ãâ·Â
@@ -315,7 +314,7 @@ void LogOn(EVENT** personalRoot, EVENT** teamRoot, PERSON user, char(*dept_str)[
 
 // ============ ÀÏÁ¤ »ý¼º È£Ãâ ÇÔ¼ö ================
 
-void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
+void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 {
     char tmp[100], ch;
     int tmp_i, i = 0;
@@ -332,42 +331,41 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     int imPortanceLevel;
 
 
-    //system("COLOR E0");
     system("cls");
     gotoxy(3, 1);
 
 
     printf("\n");
     textcolor(14);
-    printf("                           £ª£ª£ª£ª ÀÏÁ¤ ÀÛ¼º¹ý £ª£ª£ª£ª                         \n");
-    printf("            ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡           \n");
-    printf("                                                                               \n");
-    printf("             £ª ÀÏÀÚ´Â 'YYYYMMDD' Çü½ÄÀ¸·Î ÀÛ¼ºÇÏ¼¼¿ä. (ex.20140704)             \n");
-    printf("             £ª ½Ã°£Àº 'HHMM' Çü½ÄÀ¸·Î ÀÛ¼ºÇÏ¼¼¿ä.     (ex.  1516  )             \n");
-    printf("             £ª ÀÏÁ¤¸íÀº 50±ÛÀÚ ³»·Î ÀÛ¼ºÇÏ¼¼¿ä.                                 \n");
-    printf("             £ª ÅÂ±×´Â '0-3 ³» ¼ýÀÚ'·Î ÀÛ¼ºÇÏ¼¼¿ä.                               \n");
-    printf("                # tag  È¸»ç : 0, °³ÀÎ : 1, ±âÅ¸ : 2                            \n");
-    printf("             £ªÀÏÁ¤ °øÀ¯ ¿©ºÎ¿¡ ´ëÇØ Y ¶Ç´Â NÀ¸·Î ÀÛ¼ºÇÏ¼¼¿ä.                    \n");
-    printf("             £ªÀÏÁ¤ Áß¿äµµ¿¡ ´ëÇØ '0-5 ³» ¼ýÀÚ'·Î ÀÛ¼ºÇÏ¼¼¿ä.                    \n");
-    printf("                                                                               \n");
-    printf("            ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡          \n");
+    printf("                             £ª£ª£ª£ª ÀÏÁ¤ ÀÛ¼º¹ý £ª£ª£ª£ª                         \n");
+    printf("              ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡           \n");
+    printf("                                                                                 \n");
+    printf("               £ª ÀÏÀÚ´Â 'YYYYMMDD' Çü½ÄÀ¸·Î ÀÛ¼ºÇÏ¼¼¿ä. (ex.20140704)             \n");
+    printf("               £ª ½Ã°£Àº 'HHMM' Çü½ÄÀ¸·Î ÀÛ¼ºÇÏ¼¼¿ä.     (ex.  1516  )             \n");
+    printf("               £ª ÀÏÁ¤¸íÀº 50±ÛÀÚ ³»·Î ÀÛ¼ºÇÏ¼¼¿ä.                                 \n");
+    printf("               £ª ÅÂ±×´Â '0-3 ³» ¼ýÀÚ'·Î ÀÛ¼ºÇÏ¼¼¿ä.                               \n");
+    printf("                  # tag  È¸»ç : 0, °³ÀÎ : 1, ±âÅ¸ : 2                            \n");
+    printf("               £ªÀÏÁ¤ °øÀ¯ ¿©ºÎ¿¡ ´ëÇØ Y ¶Ç´Â NÀ¸·Î ÀÛ¼ºÇÏ¼¼¿ä.                    \n");
+    printf("               £ªÀÏÁ¤ Áß¿äµµ¿¡ ´ëÇØ '0-5 ³» ¼ýÀÚ'·Î ÀÛ¼ºÇÏ¼¼¿ä.                    \n");
+    printf("                                                                                 \n");
+    printf("              ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡          \n");
 
     textcolor(15);
-    printf("          ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ \n");
-    printf("          ¦¢   ½ÃÀÛÀÏ       ¦¢                                        ¦¢ \n");
-    printf("          ¦¢   ½ÃÀÛ½Ã°£     ¦¢                                        ¦¢ \n");
-    printf("          ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
-    printf("          ¦¢   Á¾·áÀÏ       ¦¢                                        ¦¢ \n");
-    printf("          ¦¢   Á¾·á½Ã°£     ¦¢                                        ¦¢ \n");
-    printf("          ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
-    printf("          ¦¢   ÀÏÁ¤¸í       ¦¢                                        ¦¢ \n");
-    printf("          ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
-    printf("          ¦¢   #Tag (0-3)   ¦¢                                        ¦¢ \n");
-    printf("          ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
-    printf("          ¦¢   °ø°³ (Y / N) ¦¢                                        ¦¢ \n");
-    printf("          ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
-    printf("          ¦¢   Áß¿äµµ (0-5) ¦¢                                        ¦¢ \n");
-    printf("          ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ \n");
+    printf("            ¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤ \n");
+    printf("            ¦¢   ½ÃÀÛÀÏ       ¦¢                                        ¦¢ \n");
+    printf("            ¦¢   ½ÃÀÛ½Ã°£     ¦¢                                        ¦¢ \n");
+    printf("            ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
+    printf("            ¦¢   Á¾·áÀÏ       ¦¢                                        ¦¢ \n");
+    printf("            ¦¢   Á¾·á½Ã°£     ¦¢                                        ¦¢ \n");
+    printf("            ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
+    printf("            ¦¢   ÀÏÁ¤¸í       ¦¢                                        ¦¢ \n");
+    printf("            ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
+    printf("            ¦¢   #Tag (0-3)   ¦¢                                        ¦¢ \n");
+    printf("            ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
+    printf("            ¦¢   °ø°³ (Y / N) ¦¢                                        ¦¢ \n");
+    printf("            ¦§¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦© \n");
+    printf("            ¦¢   Áß¿äµµ (0-5) ¦¢                                        ¦¢ \n");
+    printf("            ¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥ \n");
 
 
 
@@ -380,12 +378,12 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
 
         do {
 
-            gotoxy(30, 15);
+            gotoxy(32, 15);
             printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
             gets(tmp);
 
-        } while (strlen(tmp)!=8);
+        } while (strlen(tmp) != 8);
 
 
         date = atoi(tmp);
@@ -405,7 +403,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     while (1)
     {
         do {
-            gotoxy(31, 16);
+            gotoxy(33, 16);
             printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             gets(tmp);
 
@@ -454,7 +452,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
 
         do {
 
-            gotoxy(30, 18);
+            gotoxy(32, 18);
             printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
             gets(tmp);
@@ -477,7 +475,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     while (1)
     {
         do {
-            gotoxy(31, 19);
+            gotoxy(33, 19);
             printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             gets(tmp);
 
@@ -513,7 +511,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     // 3) title
 
     do {
-        gotoxy(31, 21);
+        gotoxy(33, 21);
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         gets(tmp);
 
@@ -529,7 +527,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
 
     do {
 
-        gotoxy(31, 23);
+        gotoxy(33, 23);
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         scanf("%d%*c", &tmp_i);
 
@@ -542,12 +540,12 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     // 5) public ¿©ºÎ 1(Y): °ø¿ë, 0(N): °³ÀÎ
 
     do {
-        gotoxy(31, 25);
+        gotoxy(33, 25);
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
         ch = getchar();
 
-    } while (ch != 'y' && ch != 'Y' && ch != 'n' && ch!= 'N');
+    } while (ch != 'y' && ch != 'Y' && ch != 'n' && ch != 'N');
 
     if (ch == 'y' || ch == 'Y')
     {
@@ -565,17 +563,17 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
 
     do {
 
-        gotoxy(31, 27);
+        gotoxy(33, 27);
 
 
         printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
         scanf("%d%*c", &tmp_i);
 
-    } while (tmp_i > 5 || tmp_i <0);
+    } while (tmp_i > 5 || tmp_i < 0);
 
     imPortanceLevel = tmp_i;
-    
+
 
     // ÀÔ·Â Àü´Þ
     CreateNewEvent(personalRoot, user_ptr->id, start, end, title, tag, isPublic, imPortanceLevel);
@@ -587,7 +585,9 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     // ÀÏÁ¤ ÀúÀå ¿Ï·á ¾Ë¸²
 
     system("cls");
-    gotoxy(5, 10);
+    printf("\n");
+    printf("\n");
+    printf("\n");
     printf("            ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡           \n");
     printf("                                                                               \n");
     printf("                         £ª ÀÏÁ¤ÀÌ »ý¼ºµÇ¾ú½À´Ï´Ù. :-)                           \n");
@@ -597,6 +597,8 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
     printf("                                                                               \n");
     printf("                                                                               \n");
     printf("            ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡          \n");
+    printf("\n");
+    printf("\n");
 
 
 
@@ -637,7 +639,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON *user_ptr)
 
 // ³¯Â¥ °Ë»ç ÇÔ¼ö 
 
-int checkDate(int year, int month, int day) 
+int checkDate(int year, int month, int day)
 {
     // ¿ù °Ë»ç
     if (month <= 0 || 13 <= month)
@@ -646,7 +648,7 @@ int checkDate(int year, int month, int day)
     }
 
     // È¦¼ö ´Þ °Ë»ç
-    if (month % 2 == 1) 
+    if (month % 2 == 1)
     {
         // 1, 3, 5, 7¿ùÀº 31ÀÏ±îÁö ÀÖ´Ù.
         if (1 <= month && month <= 7)
