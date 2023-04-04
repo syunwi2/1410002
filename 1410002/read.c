@@ -19,28 +19,28 @@ void ChkChoice(EVENT* node, int choice)
     if (choice == 1 )
     {
 
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 \n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                   tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                   tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                   node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 \n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 \n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 \n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
