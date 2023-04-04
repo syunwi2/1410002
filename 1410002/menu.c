@@ -6,12 +6,12 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 {
 	int ans;			// 입력값 변수
 	
-	PublicFileSave(user_ptr, teamRoot);		// 파일 저장
-	PrivateFileSave(user_ptr, personalRoot);		// 파일 저장
-
 	gotoxy(5, 18);
 	do
 	{
+		PublicFileSave(user_ptr, teamRoot);				// 파일 저장
+		PrivateFileSave(user_ptr, personalRoot);		// 파일 저장
+
 		textcolor(14);
 		gotoxy(27, 13);
 		printf("==================================");
