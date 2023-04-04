@@ -19,28 +19,28 @@ void ChkChoice(EVENT* node, int choice)
     if (choice == 1 )
     {
 
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                   tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                   tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                   node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
-        printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 공개여부: %s 중요도: %d\n", node->nodeID,
+        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
@@ -83,7 +83,7 @@ void PersonalReadEvent(EVENT** root)
     
     if ((*root) == NULL)
     {
-        printf("일정이 존재하지 않습니다.");
+        printf("\n                         일정이 존재하지 않습니다.");
         return;
     }
     textcolor(14);
@@ -122,6 +122,8 @@ void PersonalReadEvent(EVENT** root)
             gotoxy(27, 25);
             textcolor(14);
             printf("▶ 원하는 작업번호를 입력해주세요. : ");
+            printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+
 
             scanf_s("%d%*c", &choice);
         } while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5);
@@ -146,10 +148,11 @@ void PersonalReadEvent(EVENT** root)
         printf("                               1.하루  2.일주일  3.전체   \n\n");
         textcolor(14);
         printf("                             ▶    조회 기간   :    ");
-        textcolor(15);
+
 
         do
         {
+            printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             scanf_s("%d%*c", &t);
         
         } while (t != 1 && t != 2 && t != 3);
@@ -157,40 +160,47 @@ void PersonalReadEvent(EVENT** root)
         textcolor(15);
         printf("\n");
         printf("\n");        
-        printf("\n");
-        printf("\n");
-        printf("                        ─────────────────────────────────────────────");
         if (choice == 1)
         {
-            printf("%s님의 일정\n", (*root)->ownerID);
+            printf(" \t\t\t\t      %s님의 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
         else if (choice == 2)
         {
-            printf("%s님의 개인일정\n", (*root)->ownerID);
+            printf(" \t\t\t\t   %s님의 개인 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
         else if (choice == 3)
         {
-            printf("%s님의 회사일정\n", (*root)->ownerID);
+            printf(" \t\t\t\t   %s님의 회사 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
         else if (choice == 4)
         {
-            printf("%s님의 기타일정\n", (*root)->ownerID);
+            printf(" \t\t\t\t   %s님의 기타 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
+
+        printf("\n");
+        printf("\n");
+        printf("                             일정을 수정하시거나 삭제하겠습니까? \n\n");
+        textcolor(15);
+        printf("                               1.수정  2.삭제  3.다시 조회   \n\n");
+        textcolor(14);
+        printf("                             ▶  일정 수정 / 삭제 여부 :    ");
+        textcolor(15);
 
         textcolor(14);
         do 
         {   
-
-            printf("                        일정을 수정하시거나 삭제하겠습니까? \n");
-            printf("                           1.수정  2.삭제  3.다시 조회     \n");
-            printf("                        ▶ 일정 수정/삭제 여부 : ");
-
+            printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             scanf("%d", &slt);
         } while (slt != 1 && slt != 2 && slt != 3);
+
         if (slt == 1)
         {
             UpdateEvent(root);
@@ -231,17 +241,23 @@ void PersonalReadEvent(EVENT** root)
     }
 }
 
+
+
+
 void PrintEventCom(EVENT* node)
 {
     struct tm* tmpStart, * tmpEnd;
 
     tmpStart = localtime(&(node->start));
     tmpEnd = localtime(&(node->start));
-    printf("nodeID: %s 시작일: %d %d %d %d %d 종료일: %d %d %d %d %d \n일정: %s 중요도: %d\n", node->nodeID,
-        tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
+    printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 \n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", 
+        node->nodeID, tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
         tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
         node->title, node->importanceLevel);
 }
+
+
+
 
 void InorderNodeCom(EVENT* node) 
 {
