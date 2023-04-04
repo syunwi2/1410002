@@ -17,7 +17,7 @@ void PublicFileSave(PERSON* User, EVENT** root)
 	ptr = *root;
 	userPtr = User;
 
-	sprintf(fileName, "%s.dat", userPtr->id);
+	sprintf(fileName, "%d.dat", userPtr->dept);
 
 	fp = fopen(fileName, "wb");
 	if (fp == NULL)
@@ -51,7 +51,7 @@ struct EVENT* PublicFileLoad(PERSON* User)
 
 	userPtr = User;
 
-	sprintf(fileName, "%s.dat", userPtr->id);
+	sprintf(fileName, "%d.dat", userPtr->dept);
 
 	fp = fopen(fileName, "rb");
 	if (fp == NULL)

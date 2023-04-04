@@ -139,10 +139,11 @@ void CopyEvent(EVENT* to, EVENT* from)
 * FreeAll()
 * 트리를 순회하며 동적 할당된 메모리를 해제하는 함수를 부른다.
 */
-void FreeAll(EVENT** personalRoot, EVENT** teamRoot)
+void FreeAll(EVENT** personalRoot, EVENT** teamRoot, PERSON* userPtr)
 {
 	FreeNode(*personalRoot);
 	FreeNode(*teamRoot);
+	free(userPtr);
 }
 
 /*
