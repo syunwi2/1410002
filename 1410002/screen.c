@@ -343,7 +343,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
     printf("               ＊ 일자는 'YYYYMMDD' 형식으로 작성하세요. (ex.20140704)             \n");
     printf("               ＊ 시간은 'HHMM' 형식으로 작성하세요.     (ex.  1516  )             \n");
     printf("               ＊ 일정명은 50글자 내로 작성하세요.                                 \n");
-    printf("               ＊ 태그는 '0-3 내 숫자'로 작성하세요.                               \n");
+    printf("               ＊ 태그는 '0-2 내 숫자'로 작성하세요.                               \n");
     printf("                  # tag  회사 : 0, 개인 : 1, 기타 : 2                            \n");
     printf("               ＊일정 공유 여부에 대해 Y 또는 N으로 작성하세요.                    \n");
     printf("               ＊일정 중요도에 대해 '0-5 내 숫자'로 작성하세요.                    \n");
@@ -360,7 +360,7 @@ void CreateEventScreen(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
     printf("            ├─────────────────────────────────────────────────────────┤ \n");
     printf("            │   일정명       │                                        │ \n");
     printf("            ├─────────────────────────────────────────────────────────┤ \n");
-    printf("            │   #Tag (0-3)   │                                        │ \n");
+    printf("            │   #Tag (0-2)   │                                        │ \n");
     printf("            ├─────────────────────────────────────────────────────────┤ \n");
     printf("            │   공개 (Y / N) │                                        │ \n");
     printf("            ├─────────────────────────────────────────────────────────┤ \n");

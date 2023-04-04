@@ -24,11 +24,9 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 		gotoxy(27, 17);
 		printf("         1. 일정 생성  ");
 		gotoxy(27, 18);
-		printf("         2. 개인 일정 조회  ");
+		printf("         2. 일정 조회  ");
 		gotoxy(27, 19);
-		printf("         3. 팀 일정 조회  ");
-		gotoxy(27, 20);
-		printf("         4. 종료      ");
+		printf("         3. 종료      ");
 
 		gotoxy(26, 23);
 		textcolor(14);
@@ -47,15 +45,11 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 			case 2:
 				PersonalReadEvent(personalRoot);
 				break;
-			// 3. 팀 일정 조회
+			// 3. 종료 (메모리 해제)
 			case 3:
-				PublicReadEvent(teamRoot);
-				break;
-			// 4. 종료 (메모리 해제)
-			case 4:
 				FreeAll(personalRoot, teamRoot);
 				exit(0);
 		}
 
-	} while (ans!=4);
+	} while (ans!=3);
 }
