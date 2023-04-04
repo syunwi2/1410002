@@ -145,7 +145,7 @@ void PersonalReadEvent(EVENT** root)
         textcolor(15);
         printf("                               1.하루  2.일주일  3.전체   \n\n");
         textcolor(14);
-        printf("                             ▶ 조회 기간 : ");
+        printf("                             ▶    조회 기간   :    ");
         textcolor(15);
 
         do
@@ -154,9 +154,12 @@ void PersonalReadEvent(EVENT** root)
         
         } while (t != 1 && t != 2 && t != 3);
 
-        gotoxy(27, 30);
         textcolor(15);
-
+        printf("\n");
+        printf("\n");        
+        printf("\n");
+        printf("\n");
+        printf("                        ─────────────────────────────────────────────")
         if (choice == 1)
         {
             printf("%s님의 일정\n", (*root)->ownerID);
