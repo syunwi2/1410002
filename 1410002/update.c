@@ -122,16 +122,15 @@ void UpdateEvent(EVENT** root)
 	//ptr = NULL;
 	// 버퍼 초기화
 	tmp[0] = '\0';
-	
-	printf("\n                            어떤 정보를 수정 하겠습니까? \n\n");
-	textcolor(15);
-	printf("\t\t\t      1. 시작일 \n\t\t\t      2. 종료일 \n\t\t\t      3. 제목 \n\t\t\t      4. 태그 \n\t\t\t      5. ispublic \n\t\t\t      6. 중요도 \n\t\t\t      7. 수정된 정보 저장 \n\t\t\t      8. 수정 완료");
-	textcolor(14);
-	printf("\n\n                             ▶  수정할 정보 번호 : ");
 			
 	while (1) {
 		do
 		{
+			printf("\n                            어떤 정보를 수정 하겠습니까? \n\n");
+			textcolor(15);
+			printf("\t\t\t      1. 시작일 \n\t\t\t      2. 종료일 \n\t\t\t      3. 제목 \n\t\t\t      4. 태그 \n\t\t\t      5. ispublic \n\t\t\t      6. 중요도 \n\t\t\t      7. 수정된 정보 저장 \n\t\t\t      8. 수정 완료");
+			textcolor(14);
+			printf("\n\n                             ▶  수정할 정보 번호 : ");
 			// 새 일정 정보 생성
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			scanf_s("%d%*c", &chk_con);
