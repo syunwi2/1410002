@@ -19,28 +19,28 @@ void ChkChoice(EVENT* node, int choice)
     if (choice == 1 )
     {
 
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\t\t nodeID │ %s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t일정    │ %s\n\t\t\t\t공개여부│ %s\n\t\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                   tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                   tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                   node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
     }
     else if (choice == 2 && node->tag == 0)
     {
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\t\t nodeID │ %s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t일정    │ %s\n\t\t\t\t공개여부│ %s\n\t\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 3 && node->tag == 1)
     {
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\t\t nodeID │ %s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t일정    │ %s\n\t\t\t\t공개여부│ %s\n\t\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
     else if (choice == 4 && node->tag == 2)
     {
-        printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
+        printf("\t\t\t\t nodeID │ % s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ % d년 % .2d월 % d일 % d: % d\n\t\t\t\t종료일  │ % d년 % .2d월 % d일 % d: % d\n\t\t\t\t일정    │ % s\n\t\t\t\t공개여부│ % s\n\t\t\t\t중요도  │ % d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
@@ -86,18 +86,18 @@ void PersonalReadEvent(EVENT** root)
         printf("\n                         일정이 존재하지 않습니다.");
         return;
     }
-    textcolor(14);
-    gotoxy(27, 13);
-    printf("==================================");
-    gotoxy(27, 14);
-    printf("        2. 개인 일정 조회         ");
-    gotoxy(27, 15);
-    printf("==================================");
-
-    textcolor(15);
 
     while(1)
     {
+        textcolor(14);
+        gotoxy(27, 13);
+        printf("==================================");
+        gotoxy(27, 14);
+        printf("        2. 개인 일정 조회         ");
+        gotoxy(27, 15);
+        printf("==================================");
+
+        textcolor(15);
         do 
         {
 
@@ -203,13 +203,16 @@ void PersonalReadEvent(EVENT** root)
 
         if (slt == 1)
         {
+            system("cls");
+            textcolor(15);
+            InorderNode((*root), choice, t);
             UpdateEvent(root);
         }
         else if (slt == 2)
         {
             int findnum;
             char findid[7] = { 0 };
-            printf("삭제할 노드 번호 선택 : \n");
+            printf("\n\n                             ▶ 삭제할 노드 번호 선택 : ");
             scanf_s("%d%*c", &findnum);
             sprintf(findid, "%.6d", findnum);
 
@@ -231,7 +234,11 @@ void PersonalReadEvent(EVENT** root)
                 }
             }
             DeleteEvent(root, ptr);
-            //ptr = NULL;
+            printf("\n                            일정이 삭제되었습니다. ");
+            Sleep(3000);
+            system("cls");
+            break;
+            
 
         }
         else if (slt == 3)
@@ -250,7 +257,7 @@ void PrintEventCom(EVENT* node)
 
     tmpStart = localtime(&(node->start));
     tmpEnd = localtime(&(node->start));
-    printf("\t\t\tnodeID │ %s \n\t\t\t────────────────\n\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t종료일  │ %d년 %.2d월 %d일 \n\t\t\t일정    │ %s\n\t\t\t공개여부│ %s\n\t\t\t중요도  │ %d / 5\n\n\n", 
+    printf("\t\t\t\t nodeID │ %s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t일정    │ %s\n\t\t\t\t공개여부│ %s\n\t\t\t\t중요도  │ %d / 5\n\n\n", 
         node->nodeID, tmpStart->tm_year + 1900, tmpStart->tm_mon + 1, tmpStart->tm_mday, tmpStart->tm_hour, tmpStart->tm_min,
         tmpEnd->tm_year + 1900, tmpEnd->tm_mon + 1, tmpEnd->tm_mday, tmpEnd->tm_hour, tmpEnd->tm_min,
         node->title, node->importanceLevel);
