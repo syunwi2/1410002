@@ -214,22 +214,23 @@ void PersonalReadEvent(EVENT** root)
             sprintf(findid, "%.6d", findnum);
 
             node = *root, ptr = NULL;
-            while (node != NULL)
-            {
-                if (strcmp(node->nodeID, findid) < 0)
-                {
-                    node = node->next;
-                }
-                else if (strcmp(node->nodeID, findid) > 0)
-                {
-                    node = node->prev;
-                }
-                else
-                {
-                    ptr = node;
-                    break;
-                }
-            }
+            FindNode(node, &ptr, findid);
+            //while (node != NULL)
+            //{
+            //    if (strcmp(node->nodeID, findid) < 0)
+            //    {
+            //        node = node->next;
+            //    }
+            //    else if (strcmp(node->nodeID, findid) > 0)
+            //    {
+            //        node = node->prev;
+            //    }
+            //    else
+            //    {
+            //        ptr = node;
+            //        break;
+            //    }
+            //}
             DeleteEvent(root, ptr);
             //ptr = NULL;
 
@@ -279,4 +280,21 @@ void PublicReadEvent(EVENT** root)
 
     printf("팀 일정을 출력하세요.\n");
     InorderNodeCom(node);
+}
+
+void FindNode(EVENT* node, EVENT** ptr, char* id)
+{
+    if (node == NULL)
+    {
+        return;
+    }
+
+    FindNode(node->prev, ptr, id);
+
+    if (strcmp(node->nodeID, id) == 0)
+    {
+        *ptr = node;
+    }
+
+    FindNode(node->next, ptr, id);
 }
