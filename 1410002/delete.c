@@ -134,3 +134,35 @@ void CopyEvent(EVENT* to, EVENT* from)
 	to->isPublic = from->isPublic;
 	to->importanceLevel = from->importanceLevel;
 }
+
+/*
+* FreeAll()
+* 트리를 순회하며 동적 할당된 메모리를 해제하는 함수를 부른다.
+*/
+void FreeAll(EVENT** personalRoot, EVENT** teamRoot)
+{
+	FreeNode(*personalRoot);
+	FreeNode(*teamRoot);
+}
+
+/*
+* Free()
+* 메모리를 모두 해제한다.
+*/
+void FreeNode(EVENT* node)
+{
+	EVENT* nextNode;
+
+	// 재귀 함수 탈출 조건
+	if (node == NULL)
+	{
+		return;
+	}
+
+	FreeNode(node->prev);
+
+	nextNode = node->next;
+	free(node);
+
+	FreeNode(nextNode);
+}
