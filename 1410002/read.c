@@ -24,21 +24,21 @@ void ChkChoice(EVENT* node, int choice)
                                                   tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                   node->title, (node->isPublic == 1)? "공개": "비공개", node->importanceLevel);
     }
-    else if (choice == 2 && node->tag == 0)
+    else if (choice == 2 && node->tag == 개인)
     {
         printf("\t\t\t\t nodeID │ %s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t일정    │ %s\n\t\t\t\t공개여부│ %s\n\t\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
-    else if (choice == 3 && node->tag == 1)
+    else if (choice == 3 && node->tag == 회사)
     {
         printf("\t\t\t\t nodeID │ %s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t종료일  │ %d년 %.2d월 %d일 %d:%d\n\t\t\t\t일정    │ %s\n\t\t\t\t공개여부│ %s\n\t\t\t\t중요도  │ %d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
                                                     tmpEnd.tm_year + 1900, tmpEnd.tm_mon + 1, tmpEnd.tm_mday, tmpEnd.tm_hour, tmpEnd.tm_min,
                                                     node->title, (node->isPublic == 1) ? "공개" : "비공개", node->importanceLevel);
     }
-    else if (choice == 4 && node->tag == 2)
+    else if (choice == 4 && node->tag == 기타)
     {
         printf("\t\t\t\t nodeID │ % s \n\t\t\t\t────────────────\n\t\t\t\t시작일  │ % d년 % .2d월 % d일 % d: % d\n\t\t\t\t종료일  │ % d년 % .2d월 % d일 % d: % d\n\t\t\t\t일정    │ % s\n\t\t\t\t공개여부│ % s\n\t\t\t\t중요도  │ % d / 5\n\n\n", node->nodeID,
                                                     tmpStart.tm_year + 1900, tmpStart.tm_mon + 1, tmpStart.tm_mday, tmpStart.tm_hour, tmpStart.tm_min,
@@ -93,13 +93,13 @@ void PersonalReadEvent(EVENT** root)
         gotoxy(27, 13);
         printf("==================================");
         gotoxy(27, 14);
-        printf("        2. 개인 일정 조회         ");
+        printf("        2. 일정 조회         ");
         gotoxy(27, 15);
         printf("==================================");
 
         textcolor(15);
         gotoxy(27, 17);
-        printf("%s님의 개인 일정을 출력하세요.", (*root)->ownerID);
+        printf("%s님의 일정을 출력하세요.", (*root)->ownerID);
         gotoxy(27, 18);
         printf("                                            ");
         gotoxy(27, 19);
@@ -127,6 +127,7 @@ void PersonalReadEvent(EVENT** root)
 
         if (choice == 5)
         {
+            system("cls");
             break;
         }
 
@@ -135,7 +136,7 @@ void PersonalReadEvent(EVENT** root)
         gotoxy(27, 3);
         printf("==================================");
         gotoxy(27, 4);
-        printf("        2. 개인 일정 조회         ");
+        printf("        2. 일정 조회         ");
         gotoxy(27, 5);
         printf("==================================");
         printf("\n");
@@ -188,12 +189,12 @@ void PersonalReadEvent(EVENT** root)
         textcolor(15);
         printf("                               1.수정  2.삭제  3.다시 조회   \n\n");
         textcolor(14);
-        printf("                             ▶  일정 수정 / 삭제 여부 :    ");
         textcolor(15);
 
         textcolor(14);
         do 
         {   
+            printf("                             ▶  일정 수정 / 삭제 여부 :    ");
             printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             scanf("%d", &slt);
         } while (slt != 1 && slt != 2 && slt != 3);
@@ -242,6 +243,7 @@ void PersonalReadEvent(EVENT** root)
         }
         else if (slt == 3)
         {
+            system("cls");
             continue;
         }
     }
@@ -282,7 +284,7 @@ void PublicReadEvent(EVENT** root)
     EVENT* node;
     node = *root;
 
-    printf("\n                             팀 일정을 출력하세요.\n");
+    //printf("\n                                 팀 일정을 출력하세요.\n");
     InorderNodeCom(node);
 }
 
