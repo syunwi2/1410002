@@ -13,3 +13,4 @@ void PersonalReadEvent(EVENT** root);
 void PrintEventCom(EVENT* node);
 void InorderNodeCom(EVENT* node);
 void PublicReadEvent(EVENT** root);
+void FindNode(EVENT* node, EVENT** ptr, char* id);
