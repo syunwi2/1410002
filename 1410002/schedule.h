@@ -1,3 +1,5 @@
+// 작성자 : 정민경
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

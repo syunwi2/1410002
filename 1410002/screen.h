@@ -1,3 +1,5 @@
+// 작성자 : 오지원
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>

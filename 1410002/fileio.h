@@ -1,3 +1,5 @@
+// 작성자 : 이동명
+
 #include "schedule.h"
 #include "person.h"
 #include "create.h"

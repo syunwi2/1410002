@@ -1,3 +1,5 @@
+// 작성자 : 오지원
+
 #include "person.h"
 #include "screen.h"
 #include "create.h"

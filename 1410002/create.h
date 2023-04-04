@@ -1,3 +1,5 @@
+// 작성자 : 정민경
+
 #include <string.h>
 #include <stdlib.h>
 #include "schedule.h"

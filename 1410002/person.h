@@ -1,3 +1,5 @@
+// 작성자 : 정민경
+
 #include <time.h>
 
 #ifndef __PERSON_H__
