@@ -11,14 +11,12 @@ long long int TimeUpdate()
 	char year_ch[10] = { 0 } , mon_ch[10] = { 0 }, day_ch[10] = { 0 }, hour_ch[10] = { 0 }, min_ch[10] = { 0 };
 	int year, mon, day, hour, min;
 
-	printf("\n                              ë‚ ì§œë¥¼ ì•Œë ¤ì£¼ì„¸ìš”. ex) 2309261500 ");
-	printf("\n\n                             â–¶   YYMMDDHHMM : ");
-
 	while (1)
 	{
+		printf("\n                              ³¯Â¥¸¦ ¾Ë·ÁÁÖ¼¼¿ä. ex) 2309261500 ");
 		do {
-			textcolor(14);
-			
+			printf("\n                             ¢º   YYMMDDHHMM : ");
+			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp);
 
 		} while (strlen(tmp) != 10);
@@ -69,12 +67,12 @@ void UpdateEvent(EVENT** root)
 	node = *root;
 	printf("\n");
 	textcolor(14);
-	printf("                              ì¼ì •ì„ ìˆ˜ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. \n\n");
-	printf("                            ì–´ë–¤ ì¼ì •ì„ ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ? \n\n");
-	//ì¼ì • ì „ì²´ ì¶œë ¥
-	printf("                               1. ë‹¤ì‹œ ì¡°íšŒ  2. ìˆ˜ì •í•˜ê¸°  \n\n");
+	printf("                              ÀÏÁ¤À» ¼öÁ¤ÇÒ ¼ö ÀÖ½À´Ï´Ù. \n\n");
+	printf("                            ¾î¶² ÀÏÁ¤À» ¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î? \n\n");
+	//ÀÏÁ¤ ÀüÃ¼ Ãâ·Â
+	printf("                               1. ´Ù½Ã Á¶È¸  2. ¼öÁ¤ÇÏ±â  \n\n");
 	textcolor(14);
-	printf("                             â–¶    ì¡°íšŒ / ìˆ˜ì •   :  ");
+	printf("                             ¢º    Á¶È¸ / ¼öÁ¤   :  ");
 	do
 	{
 		printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
@@ -86,8 +84,8 @@ void UpdateEvent(EVENT** root)
 		PersonalReadEvent(root);
 	}
 
-	//ìˆ˜ì • ë…¸ë“œ ì„ íƒ
-	printf("\n                             â–¶  ìˆ˜ì •í•  ë…¸ë“œ ë²ˆí˜¸ : ");
+	//¼öÁ¤ ³ëµå ¼±ÅÃ
+	printf("\n                             ¢º  ¼öÁ¤ÇÒ ³ëµå ¹øÈ£ : ");
 	printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 	scanf_s("%d%*c", &findnum);
 	sprintf(findid, "%.6d", findnum);
@@ -119,57 +117,56 @@ void UpdateEvent(EVENT** root)
 	buffer.isPublic = ptr->isPublic;
 	buffer.importanceLevel = ptr->importanceLevel;
 	
-	//ê¸°ì¡´ ì¼ì • ì •ë³´ ì‚­ì œ
+	//±âÁ¸ ÀÏÁ¤ Á¤º¸ »èÁ¦
 	DeleteEvent(root, ptr);
 	//ptr = NULL;
-	// ë²„í¼ ì´ˆê¸°í™”
+	// ¹öÆÛ ÃÊ±âÈ­
 	tmp[0] = '\0';
 
-	printf("\n â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ \n\n");
-	printf("\n                            ì–´ë–¤ ì •ë³´ë¥¼ ìˆ˜ì • í•˜ê² ìŠµë‹ˆê¹Œ? \n\n");
-	textcolor(15);
-	printf("\t\t\t       1. ì‹œì‘ì¼ \n\t\t\t       2. ì¢…ë£Œì¼ \n\t\t\t       3. ì œëª© \n\t\t\t       4. íƒœê·¸ \n\t\t\t       5. ispublic \n\t\t\t       6. ì¤‘ìš”ë„ \n\t\t\t       7. ìˆ˜ì •ëœ ì •ë³´ ì €ì¥ \n\t\t\t       8. ìˆ˜ì • ì™„ë£Œ");
-	textcolor(14);
-	printf("\n\n                             â–¶  ìˆ˜ì •í•  ì •ë³´ ë²ˆí˜¸ : ");
 			
 	while (1) {
 		do
 		{
-			// ìƒˆ ì¼ì • ì •ë³´ ìƒì„±
+			printf("\n                            ¾î¶² Á¤º¸¸¦ ¼öÁ¤ ÇÏ°Ú½À´Ï±î? \n\n");
+			textcolor(15);
+			printf("\t\t\t       1. ½ÃÀÛÀÏ \n\t\t\t       2. Á¾·áÀÏ \n\t\t\t       3. Á¦¸ñ \n\t\t\t       4. ÅÂ±× \n\t\t\t       5. ispublic \n\t\t\t       6. Áß¿äµµ \n\t\t\t       7. ¼öÁ¤µÈ Á¤º¸ ÀúÀå \n\t\t\t       8. ¼öÁ¤ ¿Ï·á");
+			textcolor(14);
+			printf("\n\n                             ¢º  ¼öÁ¤ÇÒ Á¤º¸ ¹øÈ£ : ");
+			// »õ ÀÏÁ¤ Á¤º¸ »ı¼º
 			printf("                    \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			scanf_s("%d%*c", &chk_con);
 		} while (chk_con != 1 && chk_con != 2 && chk_con != 3 && chk_con != 4 &&
 			chk_con != 5 && chk_con != 6 && chk_con != 7 && chk_con != 8);
-		// ì‹œì‘ì¼ ìˆ˜ì •
+		// ½ÃÀÛÀÏ ¼öÁ¤
 		if (chk_con == 1)
 		{
 
 			buffer.start = TimeUpdate();
 		}
-		// ì¢…ë£Œì¼ ìˆ˜ì •
+		// Á¾·áÀÏ ¼öÁ¤
 		else if (chk_con == 2)
 		{
 
 			buffer.end = TimeUpdate();
 		}
-		// ì œëª© ìˆ˜ì •
+		// Á¦¸ñ ¼öÁ¤
 		else if (chk_con == 3)
 		{
 			do
 			{
-				printf("ì¼ì • ë‚´ìš© : \n");
+				printf("ÀÏÁ¤ ³»¿ë : \n");
 				printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 				gets(tmp);
 
 			} while (strlen(tmp) >= sizeof(tmp));
 			strcpy(buffer.title, tmp);
 		}
-		// íƒœê·¸ ìˆ˜ì •
+		// ÅÂ±× ¼öÁ¤
 		else if (chk_con == 4)
 		{
 			do
 			{
-				printf("\n # tag  íšŒì‚¬ : 0, ê°œì¸ : 1, ê¸°íƒ€ : 2 ");
+				printf("\n # tag  È¸»ç : 0, °³ÀÎ : 1, ±âÅ¸ : 2 ");
 				printf("\n Tag : ");
 				printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 				scanf("%d%*c", &buffer.tag);
@@ -177,12 +174,12 @@ void UpdateEvent(EVENT** root)
 			} while (buffer.tag < 0 && buffer.tag >= sizeof(TAG));
 
 		}
-		// ê³µê°œ ì—¬ë¶€ ìˆ˜ì •
+		// °ø°³ ¿©ºÎ ¼öÁ¤
 		else if (chk_con == 5)
 		{
 			char ch;
 			do {
-				printf("\n ê³µê°œ ì—¬ë¶€(Y / N) : ");
+				printf("\n °ø°³ ¿©ºÎ(Y / N) : ");
 				printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
 				ch = getchar();
@@ -198,31 +195,35 @@ void UpdateEvent(EVENT** root)
 				buffer.isPublic = 0;
 			}
 		}
-		// ì¤‘ìš”ë„ ìˆ˜ì •
+		// Áß¿äµµ ¼öÁ¤
 		else if (chk_con == 6)
 		{
 			do
 			{
-				printf("\n ì¤‘ìš”ë„ (0-5) : ");
+				printf("\n Áß¿äµµ (0-5) : ");
 				printf("                   \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
 				scanf_s("%d%*c", &buffer.importanceLevel);
 
 			} while (buffer.importanceLevel > 5 || buffer.importanceLevel < 0);
 		}
-		// ìˆ˜ì •ëœ ì •ë³´ ì—…ë°ì´íŠ¸
+		// ¼öÁ¤µÈ Á¤º¸ ¾÷µ¥ÀÌÆ®
 		else if (chk_con == 7)
 		{
 			CreateNewEvent(root, buffer.ownerID, buffer.start, buffer.end, buffer.title, buffer.tag, buffer.isPublic, buffer.importanceLevel);
-			printf("ìˆ˜ì •ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+			printf("\n                            ¼öÁ¤ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.\n");
 		}
 		else if (chk_con == 8)
 		{
+			printf("\n                            ¼öÁ¤ÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù. ");
+			Sleep(3000);
+			system("cls");
+			break;
 			break;
 		}
 	}
 	
-	//íŒ€íŒŒì¼ì—ì„œ ìˆ˜ì •
+	//ÆÀÆÄÀÏ¿¡¼­ ¼öÁ¤
 	//DeleteEvent(root, ptr);
 	//CreateNewEvent(root, id, start, end, title, tag, isPublic, imPortanceLevel);
 }
