@@ -83,7 +83,7 @@ void PersonalReadEvent(EVENT** root)
     
     if ((*root) == NULL)
     {
-        printf("일정이 존재하지 않습니다.");
+        printf("\n                         일정이 존재하지 않습니다.");
         return;
     }
     textcolor(14);
@@ -162,34 +162,26 @@ void PersonalReadEvent(EVENT** root)
         printf("\n");        
         if (choice == 1)
         {
-            printf(" \t\t\t\t %s님의 일정\n", (*root)->ownerID);
-            printf("                        ───────────────────────────────────── \n");
+            printf(" \t\t\t\t      %s님의 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
         else if (choice == 2)
         {
-            printf(" \t\t\t\t %s님의 개인 일정\n", (*root)->ownerID);
-            printf("                        ───────────────────────────────────── \n");
-
-
-
+            printf(" \t\t\t\t   %s님의 개인 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
         else if (choice == 3)
         {
-            printf(" \t\t\t\t %s님의 회사 일정\n", (*root)->ownerID);
-            printf("                        ───────────────────────────────────── \n");
-
-
-
+            printf(" \t\t\t\t   %s님의 회사 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
         else if (choice == 4)
         {
-            printf(" \t\t\t\t %s님의 기타일정\n", (*root)->ownerID);
-            printf("                        ────────────────────────────────────────── \n");
-
-
+            printf(" \t\t\t\t   %s님의 기타 일정\n", (*root)->ownerID);
+            printf("                           ────────────────────────────────── \n");
             InorderNode((*root), choice, t);
         }
 

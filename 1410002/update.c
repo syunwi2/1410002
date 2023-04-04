@@ -64,12 +64,12 @@ void UpdateEvent(EVENT** root)
 	EVENT* node, buffer;
 	char tmp[100], findid[7] = { 0 };
 	node = *root;
-	printf("일정을 수정 할 수 있습니다. \n");
-	printf("어떤 일정을 수정하시겠습니까? \n");
+	printf("                            일정을 수정 할 수 있습니다. \n");
+	printf("                            어떤 일정을 수정하시겠습니까? \n");
 	//일정 전체 출력
 	do
 	{
-		printf("일정 다시 확인하기 (다시조회: 1, 수정하기: 2)\n");
+		printf("                            일정 다시 확인하기 (1:다시조회, 2:수정하기\n");
 		scanf_s("%d%*c", &chk);
 	} while (chk != 1 && chk != 2);
 
