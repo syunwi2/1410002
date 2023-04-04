@@ -159,7 +159,7 @@ void PersonalReadEvent(EVENT** root)
         printf("\n");        
         printf("\n");
         printf("\n");
-        printf("                        式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式")
+        printf("                        式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式");
         if (choice == 1)
         {
             printf("%s椒曖 橾薑\n", (*root)->ownerID);
