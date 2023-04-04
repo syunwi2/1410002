@@ -73,6 +73,7 @@ void BalanceTree(EVENT** root, EVENT* node)
 		}
 	}
 
+	BalanceTree(root, node->parent);
 }
 
 /*

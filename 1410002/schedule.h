@@ -23,7 +23,7 @@ typedef struct EVENT {
 #endif
 
 time_t GetTimeT(int year, int mon, int day, int hour, int min);
-void BalanceTree(EVENT** root, EVENT* newNode);
+void BalanceTree(EVENT** root, EVENT* node);
 int GetBalanceFactor(EVENT* node);
 int GetHeight(EVENT* node);
 void LeftRotate(EVENT** root, EVENT* node);
