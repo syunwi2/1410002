@@ -281,9 +281,8 @@ void PublicReadEvent(EVENT** root)
 {
     EVENT* node;
     node = *root;
-    //TimeCheck();
 
-    printf("팀 일정을 출력하세요.\n");
+    printf("\n                             팀 일정을 출력하세요.\n");
     InorderNodeCom(node);
 }
 
