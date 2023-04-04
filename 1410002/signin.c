@@ -50,13 +50,13 @@ void SignIn()
 		textcolor(15);
 		do {
 			// ID 입력
-			gotoxy(55, 10);
+			gotoxy(55, 11);
 			printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 			gets(tmp_id);
 
 			// PW 입력
 
-			gotoxy(55, 13);
+			gotoxy(55, 14);
 			printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
 
 			while ((tmp_pw[i] = getch()) != '\r')
