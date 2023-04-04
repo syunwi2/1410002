@@ -53,7 +53,7 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 				break;
 			// 4. 종료 (메모리 해제)
 			case 4:
-				FreeAll(personalRoot, teamRoot);
+				//FreeAll(personalRoot, teamRoot);
 				exit(0);
 		}
 

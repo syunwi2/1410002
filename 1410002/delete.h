@@ -5,4 +5,4 @@
 void DeleteEvent(EVENT** root, EVENT* node);
 EVENT* FindNext(EVENT* node);
 void CopyEvent(EVENT* to, EVENT* from);
-void FreeAll(personalRoot, teamRoot);
+//void FreeAll(personalRoot, teamRoot);
