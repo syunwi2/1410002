@@ -51,9 +51,10 @@ void Menu(EVENT** personalRoot, EVENT** teamRoot, PERSON* user_ptr)
 			case 3:
 				PublicReadEvent(teamRoot);
 				break;
-			// 4. 종료
+			// 4. 종료 (메모리 해제)
 			case 4:
-				exit(1);
+				FreeAll(personalRoot, teamRoot);
+				exit(0);
 		}
 
 	} while (ans!=4);

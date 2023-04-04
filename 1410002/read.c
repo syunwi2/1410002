@@ -132,13 +132,24 @@ void PersonalReadEvent(EVENT** root)
         }
 
   
+        system("cls");
+        gotoxy(27, 3);
+        printf("==================================");
+        gotoxy(27, 4);
+        printf("        2. 개인 일정 조회         ");
+        gotoxy(27, 5);
+        printf("==================================");
+        printf("\n");
+        printf("\n");
+        printf("                             조회 할 기간을 선택해 주세요. \n\n");
+        textcolor(15);
+        printf("                               1.하루  2.일주일  3.전체   \n\n");
+        textcolor(14);
+        printf("                             ▶ 조회 기간 : ");
+        textcolor(15);
 
         do
         {
-            gotoxy(27, 27);
-            printf("  조회 할 기간을 선택해 주세요. \n");
-            printf("                             1.하루  2.일주일  3.전체  \n");
-            printf("                           ▶ 조회 기간 : ");
             scanf_s("%d%*c", &t);
         
         } while (t != 1 && t != 2 && t != 3);

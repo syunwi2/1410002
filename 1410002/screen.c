@@ -55,7 +55,7 @@ void MainScreen(void)
         printf("             │                                                        │               \n");
         printf("             │                                                        │               \n");
         printf("             │                                                        │               \n");
-        printf("             │               회원가입 ◁  ▷  로그인                    │               \n");
+        printf("             │               회원가입 ◁  ▷  로그인                  │               \n");
         printf("             │                                                        │               \n");
         printf("             │                                                        │               \n");
         printf("             │                                                        │               \n");
